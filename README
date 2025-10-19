@@ -1,0 +1,242 @@
+python -m venv myenv
+.\myenv\Scripts\activate
+
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server.
+npm run dev
+
+---
+
+## Backend Setup (Express + TypeScript, MongoDB or Postgres)
+
+### 1. Create Backend Directory
+```bash
+mkdir backend
+cd backend
+```
+
+### 2. Initialize Node Project
+```bash
+npm init -y
+```
+
+### 3. Install Dependencies
+
+#### For MongoDB:
+```bash
+npm install express mongoose cors dotenv
+npm install --save-dev typescript ts-node @types/node @types/express @types/cors nodemon
+```
+
+#### For Postgres:
+```bash
+npm install express pg cors dotenv
+npm install --save-dev typescript ts-node @types/node @types/express @types/cors nodemon
+```
+
+### 4. Initialize TypeScript
+```bash
+npx tsc --init
+```
+
+### 5. Create Basic Server
+
+// MongoDB Example
+```typescript
+// filepath: backend/src/index.ts
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+mongoose.connect(process.env.MONGO_URI as string)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error(err));
+
+app.get('/', (req, res) => {
+  res.send('API Running');
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+```
+
+// Postgres Example
+```typescript
+// filepath: backend/src/index.ts
+import express from 'express';
+import cors from 'cors';
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URI
+});
+
+app.get('/', (req, res) => {
+  res.send('API Running');
+});
+
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+```
+
+> **Choose one database and use the corresponding code and environment variables.**
+
+### 6. Add Scripts to `package.json`
+```json
+"scripts": {
+  "dev": "nodemon src/index.ts"
+}
+```
+
+### 7. Create `.env` File
+
+// MongoDB
+```
+MONGO_URI=mongodb://localhost:27017/sms-jkg
+PORT=5000
+```
+
+// Postgres
+```
+POSTGRES_URI=postgres://<username>:<password>@localhost:5432/<your_db_name>
+PORT=8080
+```
+
+### 8. Run Backend Server Locally
+```bash
+npm run dev
+```
+
+---
+
+## Database Local Setup
+
+- For MongoDB: Install and run [MongoDB Community Server](https://www.mongodb.com/try/download/community).
+- For Postgres: Install and run [EDB Postgres](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
+- Use the correct connection string in `.env`.
+
+---
+
+## Personal Use Only
+
+- This project is for local/personal use only.
+- Do **not** deploy or run on any public/shared platform.
+- All connections and API endpoints are restricted to `localhost`.
+
+---
+
+## Connecting Frontend to Backend
+
+- Use `http://localhost:5000` for MongoDB backend API.
+- Use `http://localhost:8080` for Postgres backend API.
+- Use Axios or Fetch in React components.
+
+---
+
+## Project Structure
+
+```
+/sms-jkg
+  /backend
+    /src
+      index.ts
+      /models
+        Student.ts
+        Staff.ts
+      /routes
+        studentRoutes.ts
+        staffRoutes.ts
+      /controllers
+        studentController.ts
+        staffController.ts
+    package.json
+    tsconfig.json
+    .env
+  /client-sms
+    /public
+      index.html
+    /src
+      /components
+      /pages
+      /students
+        index.tsx
+        StudentList.tsx
+        StudentForm.tsx
+        StudentProfile.tsx
+        PromoteStudents.tsx
+        TransferCertificate.tsx
+        service.ts
+      /staff
+        index.tsx
+        StaffList.tsx
+        StaffForm.tsx
+        StaffProfile.tsx
+        Payroll.tsx
+        Attendance.tsx
+        service.ts
+      App.tsx
+      index.tsx
+    package.json
+    tsconfig.json
+    .env
+    README.md
+```
+
+---
+
+## How to Extend Other Modules
+
+1. Create a new folder in `/src` (e.g., `/src/fees`).
+2. Add files: `index.tsx`, `List.tsx`, `Form.tsx`, `Profile.tsx`, `service.ts`.
+3. Backend: Add model, controller, and route files.
+
+---
+
+## Student & Staff Modules Workflow
+
+### Frontend (client-sms)
+1. **User interacts** with forms and lists in `/students` or `/staff` modules (e.g., add, edit, view, promote students; add, edit, view, payroll, attendance for staff).
+2. **API calls** are made via `service.ts` in each module using Axios to backend endpoints (`/api/students`, `/api/staff`).
+3. **UI updates** automatically based on API responses (e.g., student list refreshes after adding a student).
+
+### Backend (Express + MongoDB)
+1. **Routes** (`studentRoutes.ts`, `staffRoutes.ts`) receive requests from frontend.
+2. **Controllers** (`studentController.ts`, `staffController.ts`) process requests, interact with MongoDB models (`Student.ts`, `Staff.ts`), and return results.
+3. **Database** stores and retrieves student/staff data, handles updates (e.g., promotion, attendance, payroll).
+
+### Example Flow (Add Student)
+- User fills form in `StudentForm.tsx` → `service.ts` sends POST to `/api/students` → backend controller creates student in MongoDB → response sent to frontend → UI updates.
+
+### Example Flow (Record Staff Attendance)
+- User enters attendance in `Attendance.tsx` → `service.ts` sends POST to `/api/staff/:id/attendance` → backend controller updates staff attendance in MongoDB → response sent to frontend → UI updates.
+
+---
+
+**Summary:**  
+- Frontend modules handle UI and API calls.
+- Backend routes/controllers handle business logic and database operations.
+- All data flows between React components and Express API, with MongoDB as the data store.
+
+---
+
+Now you have a clean MERN stack project for personal use with support for both MongoDB and Postgres. Switch between them by updating your dependencies, code, and `.env` file.
