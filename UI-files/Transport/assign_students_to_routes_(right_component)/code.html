@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transport Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4A90E2",
+            "secondary": "#F2F2F2",
+            "accent": "#7ED321",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+            "text-primary-light": "#333333",
+            "text-primary-dark": "#E0E0E0",
+            "text-secondary-light": "#888888",
+            "text-secondary-dark": "#A0A0A0",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-primary-light dark:text-text-primary-dark">
+<div class="flex h-screen">
+<!-- Sidebar -->
+<div class="w-64 bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-700 hidden lg:flex flex-col">
+<div class="p-4 flex items-center gap-2 border-b border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<h1 class="text-xl font-bold">Student Management</h1>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-secondary dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-secondary dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-white font-semibold" href="#">
+<span class="material-symbols-outlined">directions_bus</span>
+<span>Transport</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-text-secondary-light dark:text-text-secondary-dark hover:bg-secondary dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span>Reports</span>
+</a>
+</nav>
+</div>
+<div class="flex-1 flex flex-col">
+<!-- Top Navbar -->
+<header class="bg-white dark:bg-background-dark border-b border-gray-200 dark:border-gray-700 p-4 flex justify-between items-center">
+<h2 class="text-xl font-semibold">Transport Management</h2>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-text-secondary-light dark:text-text-secondary-dark">notifications</span>
+<img alt="Admin avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhvUgQlyTpV7Vqw0me48e1YCxatZ8-wOayzzSGGf7cKNdjKDH87Zr_yMOOr9ivwBwJSGA5Qq0Ig8hIIG6iFWGHnNO4kQuYyr4GzDwMQpYQarOik5Jb0VexwPhhsg08caSROkXGG3PGFXNjOrtgI89RBglZ2DKdCwWjiJsr-RkwkYHvKz1AaAxqw-3iIojUcHxrBw8cR2uYApD112xrKxAH3UiKEwBgfNUSaMnRGl7ZFgXfEAZiW3g-iXU3GoygiYJgHYIlGOTZRAYp"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-8 bg-background-light dark:bg-background-dark overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-wrap justify-between gap-3 items-center mb-6">
+<h1 class="text-3xl font-black tracking-tight">Assign Student Transport</h1>
+</div>
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-6">
+<div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+<div class="flex-1 w-full">
+<label class="flex flex-col h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-text-secondary-light dark:text-text-secondary-dark flex border-none bg-secondary dark:bg-gray-700 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-0 border-none bg-secondary dark:bg-gray-700 focus:border-none h-full placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search by student name or ID..." value=""/>
+</div>
+</label>
+</div>
+<div class="flex gap-3 flex-wrap">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-secondary dark:bg-gray-700 pl-4 pr-3">
+<p class="text-sm font-medium">View by: Unassigned Students</p>
+<span class="material-symbols-outlined text-xl">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Left Column: Unassigned Students -->
+<div class="flex flex-col gap-4">
+<h2 class="text-2xl font-bold tracking-tight">Unassigned Students (3)</h2>
+<div class="space-y-4">
+<!-- Student Card 1 -->
+<div class="rounded-lg bg-white dark:bg-gray-800 p-4 shadow-sm flex items-center gap-4">
+<img class="w-16 h-16 rounded-full" data-alt="Student profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZx1wejK7HhzBW14TXZ5LJpqFWBTjg9oTc6UypajZVad0vadp7cI8JzTtdOuP0lVuKAn9RW5u2gRENZSZdHbXkJKTVHzDAo-H4J1Dkl7A9dZGg2IArrkUXYkdUZF3C-hTw_ATjnga-31bzR1GVecK4xwJYMP3N81AhzWYeFVRuZph_ZvClfKXzbhZp5TAXx1AtEJtoyBOQZyl7WpJehi8n4-9Iy8kSxroC4eFA9nx1aMy4CG6PP5LV-BIag2ZIRSFrvVp3e2mofs_c"/>
+<div class="flex-1">
+<p class="text-base font-bold">Liam Johnson</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">ID: 67890</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">123 Oak Avenue, Springfield</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium">Assign</button>
+</div>
+<!-- Student Card 2 -->
+<div class="rounded-lg bg-white dark:bg-gray-800 p-4 shadow-sm flex items-center gap-4">
+<img class="w-16 h-16 rounded-full" data-alt="Student profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd5TYy4YWzilnkay6J4zBtFwgXbMHBv72OukvRvIHDohn97AY4iQWNAh2EkszIg2s975C1GUoC_ed0l7NplSGx0-YNU7bMs-11S9-KiBto-cKNg-sv3nl8nY2PaVHl_bHMcmFW7ue8cqpa23qb3AS4h36bQiKV-7ZlLfOuUt9SKv3tb9rZ6dfv_jb0xdDw3cUmbKvdf6ezX03xA5DBkr4h-feuT_SN4H8diMLJYJoCv7-ym7oLzlPGk-S0CDm1_J-hda6GTH0AxNku"/>
+<div class="flex-1">
+<p class="text-base font-bold">Olivia Williams</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">ID: 54321</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">456 Maple Drive, Rivertown</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium">Assign</button>
+</div>
+<!-- Student Card 3 -->
+<div class="rounded-lg bg-white dark:bg-gray-800 p-4 shadow-sm flex items-center gap-4">
+<img class="w-16 h-16 rounded-full" data-alt="Student profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgQA5zSmLGg8Y4TNJtPtZN3HkBG2jiiFBa0IDhOxhxRlXiFcKFZMJL2pUBXWOI8lCcl6i_wN9VNiqGIH2eur2nuNTnUrV6-EcuXVeEQBvwFyjbhDmqRh_dMGPW3mVkVojAwjst0yJuFJ9pUUYJzPYec3hu5GaS65BLaV4n7_9HkDQesISL5_xzU0TcvAdaUpzPXvrhQ695he5bjmBsKU6riof5NaBD7GFvBp4hpgF4wcEtX7CtuKII_ndUXCMhIvu7I2WYOWmmqJvc"/>
+<div class="flex-1">
+<p class="text-base font-bold">Noah Brown</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">ID: 98765</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">789 Pine Street, Hill Valley</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium">Assign</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Transport Routes -->
+<div class="flex flex-col gap-4">
+<h2 class="text-2xl font-bold tracking-tight">Transport Routes</h2>
+<div class="space-y-4">
+<!-- Route Accordion 1 -->
+<div class="rounded-lg bg-white dark:bg-gray-800 shadow-sm">
+<details class="group">
+<summary class="flex items-center justify-between p-4 cursor-pointer">
+<div>
+<p class="font-bold">Route A - North</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Bus #123</p>
+</div>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 dark:border-gray-700 p-4 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium">Emma Davis</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Stop: Elm St &amp; 2nd Ave</p>
+</div>
+<button class="text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-500">
+<span class="material-symbols-outlined">remove_circle_outline</span>
+</button>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium">James Wilson</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Stop: Cedar Ln &amp; 1st Ave</p>
+</div>
+<button class="text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-500">
+<span class="material-symbols-outlined">remove_circle_outline</span>
+</button>
+</div>
+<button class="w-full mt-2 flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-secondary dark:bg-gray-700 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-lg">add_location_alt</span>
+                        Add Stop Point
+                      </button>
+</div>
+</details>
+</div>
+<!-- Route Accordion 2 -->
+<div class="rounded-lg bg-white dark:bg-gray-800 shadow-sm">
+<details class="group">
+<summary class="flex items-center justify-between p-4 cursor-pointer">
+<div>
+<p class="font-bold">Route B - South</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Bus #456</p>
+</div>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 dark:border-gray-700 p-4 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-medium">Sophia Martinez</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Stop: Birch Rd &amp; 8th St</p>
+</div>
+<button class="text-red-500 dark:text-red-400 hover:text-red-700 dark:hover:text-red-500">
+<span class="material-symbols-outlined">remove_circle_outline</span>
+</button>
+</div>
+<button class="w-full mt-2 flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-secondary dark:bg-gray-700 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-lg">add_location_alt</span>
+                        Add Stop Point
+                      </button>
+</div>
+</details>
+</div>
+<!-- Empty Route -->
+<div class="rounded-lg bg-white dark:bg-gray-800 shadow-sm">
+<details class="group">
+<summary class="flex items-center justify-between p-4 cursor-pointer">
+<div>
+<p class="font-bold">Route C - West</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Bus #789</p>
+</div>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+</summary>
+<div class="border-t border-gray-200 dark:border-gray-700 p-4 text-center">
+<p class="text-text-secondary-light dark:text-text-secondary-dark">No students assigned to this route yet.</p>
+<button class="w-full mt-4 flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-secondary dark:bg-gray-700 text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-lg">add_location_alt</span>
+                            Add Stop Point
+                      </button>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- Assign Student Modal -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden" id="assign-modal">
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 w-full max-w-md m-4">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-xl font-bold">Assign Student</h3>
+<button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium mb-1" for="route-select">Select Route</label>
+<select class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-secondary dark:bg-gray-700 focus:border-primary focus:ring-primary" id="route-select">
+<option>Route A - North</option>
+<option>Route B - South</option>
+<option>Route C - West</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium mb-1" for="stop-select">Select Stop Point</label>
+<select class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-secondary dark:bg-gray-700 focus:border-primary focus:ring-primary" id="stop-select">
+<option>Elm St &amp; 2nd Ave</option>
+<option>Cedar Ln &amp; 1st Ave</option>
+</select>
+</div>
+<div class="flex justify-end gap-3 pt-4">
+<button class="h-10 px-5 rounded-lg bg-secondary dark:bg-gray-700 text-sm font-medium">Cancel</button>
+<button class="h-10 px-5 rounded-lg bg-primary text-white text-sm font-medium">Save Assignment</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Simple script to toggle the modal for demonstration.
+    // In a real app, this would be handled by a framework like React, Vue, or Alpine.js
+    const assignButtons = document.querySelectorAll('button:not(#assign-modal button)');
+    const modal = document.getElementById('assign-modal');
+    const closeButtons = modal.querySelectorAll('button');
+
+    assignButtons.forEach(button => {
+        if(button.innerText.toLowerCase() === 'assign') {
+             button.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+            });
+        }
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    });
+    
+    // Add logic to toggle dark mode
+    // For demonstration, let's assume a button with id 'theme-toggle' exists
+    const themeToggle = document.createElement('button');
+    themeToggle.id = 'theme-toggle';
+    themeToggle.innerHTML = '<span class="material-symbols-outlined">dark_mode</span>';
+    themeToggle.className = 'fixed bottom-4 right-4 bg-white dark:bg-gray-800 p-2 rounded-full shadow-lg';
+    document.body.appendChild(themeToggle);
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        themeToggle.innerHTML = '<span class="material-symbols-outlined">light_mode</span>';
+      } else {
+        themeToggle.innerHTML = '<span class="material-symbols-outlined">dark_mode</span>';
+      }
+    });
+
+  </script>
+</body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fee Structure Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body>
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden font-display" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-row">
+<div class="flex flex-col w-64 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800">
+<div class="flex h-full min-h-[700px] flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsertrMnmdnpbFDieIVznLOVzVXzTNH8U_uvLa-l0vLBgEWaP664aakan4YsaaBVwCTA6wKkOMzOY7QnHTvo55NDnYIKNzIh9wqF961fWXWmrIqwMnBHrV5Chpm8fsAkx_you3ajbCz7RA5QfYsJPh0k6G1bMK9BXDzsOq6s6xjPRSRCBbC79t0s7tPtv0uIs8kiUd5FK2wy3OMGU3Q8Gi-VkWsxLkAlXmkquZKQ1IfhSUic-Sosa-B1RgUl6PjjtTiOZmRoRmpHBB");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">dashboard</span>
+<p class="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">groups</span>
+<p class="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Student</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<p class="text-primary font-medium text-sm leading-normal">Fee</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">person</span>
+<p class="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Teacher</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-700 dark:text-slate-300">settings</span>
+<p class="text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">Settings</p>
+</div>
+</div>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined">logout</span>
+<span class="truncate">Logout</span>
+</button>
+</div>
+</div>
+<div class="flex-1">
+<div class="layout-content-container flex flex-col max-w-full flex-1 p-8">
+<div class="flex flex-col gap-6">
+<div class="flex flex-wrap justify-between items-center gap-4">
+<p class="text-slate-900 dark:text-slate-50 text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Fee Structure Management</p>
+<div class="flex gap-4">
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full max-w-sm">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 dark:text-slate-400 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 focus:border-none h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search for a fee structure" value=""/>
+</div>
+</label>
+</div>
+<div class="flex px-4 py-3">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 flex-1 bg-primary text-slate-50 gap-2 pl-5 text-base font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined text-slate-50">add</span>
+<span class="truncate">Create New Fee Structure</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-4 py-3 @container">
+<div class="flex overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+<table class="flex-1">
+<thead>
+<tr class="bg-slate-100 dark:bg-slate-800/50">
+<th class="px-4 py-3 text-left text-slate-900 dark:text-slate-50 w-[300px] text-sm font-medium leading-normal">
+                                                Fee Structure Name
+                                            </th>
+<th class="px-4 py-3 text-left text-slate-900 dark:text-slate-50 w-[200px] text-sm font-medium leading-normal">
+                                                Class/Session
+                                            </th>
+<th class="px-4 py-3 text-left text-slate-900 dark:text-slate-50 w-[200px] text-sm font-medium leading-normal">
+                                                Total Amount
+                                            </th>
+<th class="px-4 py-3 text-left text-slate-900 dark:text-slate-50 w-40 text-sm font-medium leading-normal">Status</th>
+<th class="px-4 py-3 text-left text-slate-500 dark:text-slate-400 w-60 text-sm font-medium leading-normal">
+                                                Actions
+                                            </th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-t border-t-slate-200 dark:border-t-slate-800">
+<td class="h-[72px] px-4 py-2 w-[300px] text-slate-900 dark:text-slate-50 text-sm font-normal leading-normal">
+                                                2024-25 Grade 5 Fees
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Grade 5</td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">$2,500</td>
+<td class="h-[72px] px-4 py-2 w-40 text-sm font-normal leading-normal">
+<button class="flex items-center justify-center gap-2 w-full cursor-pointer overflow-hidden rounded-lg h-8 px-4 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-sm font-medium leading-normal">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="truncate">Active</span>
+</button>
+</td>
+<td class="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">delete</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="border-t border-t-slate-200 dark:border-t-slate-800">
+<td class="h-[72px] px-4 py-2 w-[300px] text-slate-900 dark:text-slate-50 text-sm font-normal leading-normal">
+                                                Standard Tuition Schedule
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">
+                                                All Classes
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">$1,800</td>
+<td class="h-[72px] px-4 py-2 w-40 text-sm font-normal leading-normal">
+<button class="flex items-center justify-center gap-2 w-full cursor-pointer overflow-hidden rounded-lg h-8 px-4 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-sm font-medium leading-normal">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="truncate">Active</span>
+</button>
+</td>
+<td class="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">delete</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="border-t border-t-slate-200 dark:border-t-slate-800">
+<td class="h-[72px] px-4 py-2 w-[300px] text-slate-900 dark:text-slate-50 text-sm font-normal leading-normal">
+                                                2024-25 Grade 3 Fees
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Grade 3</td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">$2,200</td>
+<td class="h-[72px] px-4 py-2 w-40 text-sm font-normal leading-normal">
+<button class="flex items-center justify-center gap-2 w-full cursor-pointer overflow-hidden rounded-lg h-8 px-4 bg-slate-200 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">
+<span class="w-2 h-2 rounded-full bg-slate-500"></span>
+<span class="truncate">Inactive</span>
+</button>
+</td>
+<td class="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">delete</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="border-t border-t-slate-200 dark:border-t-slate-800">
+<td class="h-[72px] px-4 py-2 w-[300px] text-slate-900 dark:text-slate-50 text-sm font-normal leading-normal">
+                                                Lab Fees Schedule
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">
+                                                Grade 9-12
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">$300</td>
+<td class="h-[72px] px-4 py-2 w-40 text-sm font-normal leading-normal">
+<button class="flex items-center justify-center gap-2 w-full cursor-pointer overflow-hidden rounded-lg h-8 px-4 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-sm font-medium leading-normal">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="truncate">Active</span>
+</button>
+</td>
+<td class="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">delete</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="border-t border-t-slate-200 dark:border-t-slate-800">
+<td class="h-[72px] px-4 py-2 w-[300px] text-slate-900 dark:text-slate-50 text-sm font-normal leading-normal">
+                                                Transportation Fees
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">
+                                                All Routes
+                                            </td>
+<td class="h-[72px] px-4 py-2 w-[200px] text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">$500</td>
+<td class="h-[72px] px-4 py-2 w-40 text-sm font-normal leading-normal">
+<button class="flex items-center justify-center gap-2 w-full cursor-pointer overflow-hidden rounded-lg h-8 px-4 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 text-sm font-medium leading-normal">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="truncate">Active</span>
+</button>
+</td>
+<td class="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">edit</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">delete</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-300">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

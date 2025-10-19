@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>School Profile Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-[#0d141b] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">School Profile Management</p>
+<p class="text-[#4c739a] dark:text-slate-400 text-base font-normal leading-normal">Update the school's profile information</p>
+</div>
+</div>
+<div class="flex flex-col gap-8 p-4">
+<div>
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">School Logo</h2>
+<div class="flex items-center gap-6">
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" data-alt="School logo placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAz2FhCATU8GLkFLY2hE-g7uAX14jj3ZGyeDxLjpTrdYELdCxPafDptE03gzx79DVbdtf6Pg-vO113mvhZNJUsgeWb5U5wLswOK3uTcVzZHI9wF_5G2WVbvz9eZ1egpms3z7w71lRwuBcURDEgO4V4nu1Y0x8ejWOd-IRPivgE1sRfKASNtbMwJjWVMP-9q431HTi-TtWV7a1cVn38oeyzjGxtoHjZIqK2hpdwYFBD4aeQi_ElscuPR9ypTAAnJGoCBZcZwN6YNkA7W");'></div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined">upload</span>
+<span class="truncate">Upload New Logo</span>
+</button>
+</div>
+</div>
+<div>
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">General Information</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" for="school-name">School Name</label>
+<input class="block w-full rounded-md border-gray-300 dark:border-slate-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white" id="school-name" name="school-name" placeholder="e.g. Springfield High School" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" for="school-type">School Type</label>
+<select class="block w-full rounded-md border-gray-300 dark:border-slate-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white" id="school-type" name="school-type">
+<option>Elementary</option>
+<option selected="">High School</option>
+<option>University</option>
+<option>Vocational</option>
+</select>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Contact Information</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" for="contact-person">Contact Person</label>
+<input class="block w-full rounded-md border-gray-300 dark:border-slate-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white" id="contact-person" name="contact-person" placeholder="e.g. Jane Doe" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" for="email">Email Address</label>
+<input class="block w-full rounded-md border-gray-300 dark:border-slate-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white" id="email" name="email" placeholder="e.g. contact@springfield.edu" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" for="phone">Phone Number</label>
+<input class="block w-full rounded-md border-gray-300 dark:border-slate-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white" id="phone" name="phone" placeholder="e.g. (555) 123-4567" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" for="website">Website</label>
+<input class="block w-full rounded-md border-gray-300 dark:border-slate-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white" id="website" name="website" placeholder="e.g. https://www.springfield.edu" type="url"/>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Address</h2>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1" for="school-address">School Address</label>
+<textarea class="block w-full rounded-md border-gray-300 dark:border-slate-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-white dark:bg-slate-800 text-gray-900 dark:text-white" id="school-address" name="school-address" placeholder="e.g. 123 Main Street, Springfield, IL 62704" rows="4"></textarea>
+</div>
+</div>
+<div class="flex justify-end gap-4 pt-8">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-200 dark:bg-slate-700 text-gray-800 dark:text-slate-200 gap-2 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Cancel</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 pl-4 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined">save</span>
+<span class="truncate">Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Roles and Permissions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "background-light": "#F2F2F2",
+                        "background-dark": "#101922",
+                        "text-light": "#333333",
+                        "text-dark": "#F2F2F2",
+                        "accent-green": "#7ED321",
+                        "accent-red": "#D0021B"
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<!-- Side Navigation -->
+<aside class="w-64 bg-white dark:bg-slate-900/70 p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfBD3OBqugk6DRgznTQASg73sjeI2OziyXKZbfu4CbvASiHBmi0EL2OaHl-jlFqXrQWxhdmmMhFQcF6MV6dpF1wSj-7VoEau_tWvBWZLkpR9dnB0XItcfHkQCz9R_NrmIGmSqP-wW3NxJZTYfxaUthr1bYpUdhneOtwsC3BIz9VR_1BXyzfed2XZGaMoX93EQVaahVee1G5P5wK98ioXM7jcv6Ja-cxJODJTNZhcv8HBfQovSuYKFlI6wKif_43Lll7wv_iRl26fpK");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-base font-medium">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">admin@school.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">Student Records</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark rounded-lg" href="#">
+<span class="material-symbols-outlined">book</span>
+<p class="text-sm font-medium">Course Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark rounded-lg" href="#">
+<span class="material-symbols-outlined">grading</span>
+<p class="text-sm font-medium">Gradebook</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary dark:bg-primary/30" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<p class="text-sm font-medium">User Management</p>
+</a>
+</nav>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold gap-2">
+<span class="material-symbols-outlined">logout</span>
+<span class="truncate">Logout</span>
+</button>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 p-8 grid grid-cols-1 lg:grid-cols-3 gap-8 overflow-y-auto">
+<!-- Left Column: User Roles -->
+<div class="lg:col-span-1 bg-white dark:bg-slate-900/70 rounded-xl p-6 flex flex-col gap-6 h-fit">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">User Roles</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 pl-10 h-12" placeholder="Search for a role" type="text"/>
+</div>
+<button class="flex items-center justify-center w-full gap-2 rounded-lg h-12 px-5 bg-primary text-white text-base font-bold">
+<span class="material-symbols-outlined">add</span>
+<span>Create New Role</span>
+</button>
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between p-3 rounded-lg bg-primary/10 dark:bg-primary/20 cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/20 dark:bg-primary/30 shrink-0 size-10">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</div>
+<p class="font-medium text-primary">Administrator</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary"><span class="material-symbols-outlined !text-xl">edit</span></button>
+<button class="text-slate-500 hover:text-accent-red dark:text-slate-400 dark:hover:text-accent-red"><span class="material-symbols-outlined !text-xl">delete</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-text-light dark:text-text-dark flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 size-10">
+<span class="material-symbols-outlined">school</span>
+</div>
+<p class="font-medium text-text-light dark:text-text-dark">Teacher</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary"><span class="material-symbols-outlined !text-xl">edit</span></button>
+<button class="text-slate-500 hover:text-accent-red dark:text-slate-400 dark:hover:text-accent-red"><span class="material-symbols-outlined !text-xl">delete</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-text-light dark:text-text-dark flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 size-10">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="font-medium text-text-light dark:text-text-dark">Student</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary"><span class="material-symbols-outlined !text-xl">edit</span></button>
+<button class="text-slate-500 hover:text-accent-red dark:text-slate-400 dark:hover:text-accent-red"><span class="material-symbols-outlined !text-xl">delete</span></button>
+</div>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="text-text-light dark:text-text-dark flex items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-700 shrink-0 size-10">
+<span class="material-symbols-outlined">supervisor_account</span>
+</div>
+<p class="font-medium text-text-light dark:text-text-dark">Parent</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary"><span class="material-symbols-outlined !text-xl">edit</span></button>
+<button class="text-slate-500 hover:text-accent-red dark:text-slate-400 dark:hover:text-accent-red"><span class="material-symbols-outlined !text-xl">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Role Details -->
+<div class="lg:col-span-2 bg-white dark:bg-slate-900/70 rounded-xl p-6 flex flex-col gap-8">
+<div>
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-2">Role Details &amp; Permissions</h2>
+<p class="text-slate-500 dark:text-slate-400">Selected Role: <span class="font-semibold text-primary">Administrator</span></p>
+</div>
+<!-- Permissions Grid -->
+<div class="flex flex-col gap-4">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark">Permissions</h3>
+<div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 uppercase">
+<tr>
+<th class="px-6 py-3" scope="col">Module</th>
+<th class="px-6 py-3 text-center" scope="col">View</th>
+<th class="px-6 py-3 text-center" scope="col">Edit</th>
+<th class="px-6 py-3 text-center" scope="col">Create</th>
+<th class="px-6 py-3 text-center" scope="col">Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b dark:border-slate-800">
+<th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">Student Records</th>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+</tr>
+<tr class="border-b dark:border-slate-800">
+<th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">Course Management</th>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+</tr>
+<tr class="border-b dark:border-slate-800">
+<th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">Gradebook</th>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+</tr>
+<tr class="border-b dark:border-slate-800">
+<th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">Attendance</th>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+</tr>
+<tr>
+<th class="px-6 py-4 font-medium whitespace-nowrap" scope="row">User Management</th>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<td class="px-6 py-4 text-center"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Assigned Users -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark">Assigned Staff</h3>
+<button class="flex items-center gap-2 text-sm font-bold text-primary">
+<span class="material-symbols-outlined">add</span>
+                            Add User
+                        </button>
+</div>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-100 dark:bg-slate-800">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full" data-alt="Avatar of user A" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACYcPt0Z4mcTO0NmTZg5P8XXtmm0XscicQBdnGcbSB8dwx05yoBS5NCfeqylASisYzArYfzco3dzovPE2THucXWs9ASYZtgnp--gUfj3VfXIbipnawk0kgShpIPVVsoXoixZ6utSjErynzlIKIlLYu93_oziMBk9Ut6hL9zWAEEVnvEK-Yq33jg2ltZUxlj8Wes1G0Yw1ASPyrIQmIzVay60kfjAMshOMc8qz8s0xIRlyBWGSjqhLi3pZUMTn3zWrF6pbT6o_r9sYU"/>
+<div>
+<p class="font-medium">Alice Johnson</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">alice.j@school.com</p>
+</div>
+</div>
+<button class="text-accent-red font-medium text-sm flex items-center gap-1">
+<span class="material-symbols-outlined !text-base">person_remove</span>
+                                Remove
+                            </button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-slate-100 dark:bg-slate-800">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full" data-alt="Avatar of user B" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwhoNtk80Nh6Diog8_N7JgvIUNaNfFLYamY_wWV_3AIgKZBzq5vm2LRIZIGZg8hMM_934ZCFV7mOn7PFkDLz_ciLNJTbGnZ8Tg8dw-SuRHzFf0VPtzcGLKY_PRDWr-bpWeShe5SQk_l2dARMsJzZHpNhw4y13vyXrV_vf4lQjCwvZsJPHr7zJizOXlFVeBKlu7mwn5ARu8y5NJU3erc6qH_8jOsoYuRDIiaUKnjFwBlP9mWml403P6Dg-UoT4xdGoV0k7T5c76N277"/>
+<div>
+<p class="font-medium">Bob Williams</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">bob.w@school.com</p>
+</div>
+</div>
+<button class="text-accent-red font-medium text-sm flex items-center gap-1">
+<span class="material-symbols-outlined !text-base">person_remove</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex justify-end gap-4 mt-auto pt-6 border-t border-slate-200 dark:border-slate-800">
+<button class="h-12 px-5 rounded-lg bg-slate-200 dark:bg-slate-700 text-text-light dark:text-text-dark font-bold text-base">Cancel</button>
+<button class="h-12 px-5 rounded-lg bg-accent-green text-white font-bold text-base">Save Changes</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

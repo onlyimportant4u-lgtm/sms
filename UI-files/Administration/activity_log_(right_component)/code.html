@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management System - Audit Logs</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-gray-800 shadow-md">
+<div class="flex h-full min-h-screen flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYa1Lw449mvAbqwTX5z0FR3WpTRf0WV9e7rKH20g4ShOEQTatkHaQcwH39N-PLUJT8mn4wWTXG9veuqgKmR401Mwq_XJ1vgcyCdrPmNF8jJMZ3FnbCo8Hd3icv2pyaS92MCUfrVEUtz5rlSvnjifLxZ0yxgwb-TuOVsY2M7iplrnNaLwUUuvYJeK48B8ARXPnCePxGbO7HzpIEIvYEz8dBQS-no7zy62BIBKv3wu3YCW7x5mA-tk6R0KliifcEqCv-W2-8PhgeZilJ");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">System Administrator</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">book</span>
+<span class="text-sm font-medium">Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-medium">Grades</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-primary bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-sm font-medium">Audit Logs</span>
+</a>
+</nav>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-wide">
+<span class="truncate">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-700 px-6 py-3 bg-white dark:bg-gray-800">
+<div class="flex items-center gap-4 text-gray-800 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold tracking-tight">Student Management System</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-wide">
+<span class="truncate">Help</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCzAZQh6H0skA1SWGov6l4y1I7CayAo6boz1ff7Id3eeQkOu1z2bJTkGPzwr35vXXLlCt81IVT1tO4BJYRXxGAi_yn6I_Xsw-2oOMBP2Njq1KDuRlBCaDqij-MI3cpGhcczduzU74Su5_vHB7ekr3WCcmeE8OdAdOkITSqyS81RePlbGldSa7S-fCEHMlkSfq03acjOIeZtHsFf_RqPJBY_oVFO8Z5sb5NwtgmFnk-wSILvyNU8PWyfw0ECLVwyfWoJW7dm012C3bgy");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6">
+<div class="flex flex-col gap-6">
+<!-- PageHeading -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<h1 class="text-gray-900 dark:text-white text-3xl font-black tracking-tight">Audit Logs</h1>
+<button class="flex items-center gap-2 min-w-[84px] cursor-pointer justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-wide">
+<span class="material-symbols-outlined text-base">download</span>
+<span class="truncate">Export CSV</span>
+</button>
+</div>
+<!-- Filter & Search Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- SearchBar -->
+<div class="lg:col-span-2">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-gray-500 flex border-none bg-white dark:bg-gray-700 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-white dark:bg-gray-700 focus:border-none h-full placeholder:text-gray-500 dark:placeholder-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal" placeholder="Search by username, action..." value=""/>
+</div>
+</label>
+</div>
+<!-- Date Range Picker -->
+<div class="relative">
+<button class="flex items-center justify-between w-full h-12 px-4 bg-white dark:bg-gray-700 rounded-lg text-gray-900 dark:text-white text-sm">
+<span class="material-symbols-outlined mr-2">calendar_today</span>
+<span>Select Date Range</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Filter Dropdown -->
+<div class="relative">
+<button class="flex items-center justify-between w-full h-12 px-4 bg-white dark:bg-gray-700 rounded-lg text-gray-900 dark:text-white text-sm">
+<span class="material-symbols-outlined mr-2">filter_list</span>
+<span>Filter by Action</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Audit Logs Table -->
+<div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+<tr>
+<th class="px-6 py-3" scope="col">Timestamp</th>
+<th class="px-6 py-3" scope="col">User</th>
+<th class="px-6 py-3" scope="col">Action</th>
+<th class="px-6 py-3" scope="col">Module</th>
+<th class="px-6 py-3" scope="col">IP Address</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col"><span class="sr-only">Details</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2023-10-27 14:30:15</td>
+<td class="px-6 py-4">john.doe</td>
+<td class="px-6 py-4">User Login</td>
+<td class="px-6 py-4">Authentication</td>
+<td class="px-6 py-4">192.168.1.100</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Success</span></td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Details</a>
+</td>
+</tr>
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2023-10-27 14:25:10</td>
+<td class="px-6 py-4">jane.smith</td>
+<td class="px-6 py-4">Updated Student Record</td>
+<td class="px-6 py-4">Students</td>
+<td class="px-6 py-4">203.0.113.45</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Success</span></td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Details</a>
+</td>
+</tr>
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2023-10-27 14:20:05</td>
+<td class="px-6 py-4">admin_user</td>
+<td class="px-6 py-4">Generated Grade Report</td>
+<td class="px-6 py-4">Grades</td>
+<td class="px-6 py-4">198.51.100.12</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Success</span></td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Details</a>
+</td>
+</tr>
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2023-10-27 14:15:30</td>
+<td class="px-6 py-4">sam.jones</td>
+<td class="px-6 py-4">Accessed Courses Module</td>
+<td class="px-6 py-4">Courses</td>
+<td class="px-6 py-4">192.0.2.88</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Success</span></td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Details</a>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">2023-10-27 14:10:00</td>
+<td class="px-6 py-4">guest_user</td>
+<td class="px-6 py-4">Login Attempt Failed</td>
+<td class="px-6 py-4">Authentication</td>
+<td class="px-6 py-4">10.10.10.10</td>
+<td class="px-6 py-4"><span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Failure</span></td>
+<td class="px-6 py-4 text-right">
+<a class="font-medium text-primary hover:underline" href="#">Details</a>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<nav aria-label="Table navigation" class="flex items-center justify-between p-4">
+<span class="text-sm font-normal text-gray-500 dark:text-gray-400">Showing <span class="font-semibold text-gray-900 dark:text-white">1-5</span> of <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
+<ul class="inline-flex -space-x-px text-sm h-8">
+<li>
+<a class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Previous</a>
+</li>
+<li>
+<a aria-current="page" class="flex items-center justify-center px-3 h-8 text-primary bg-primary/20 border border-gray-300 hover:bg-primary/30 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white" href="#">1</a>
+</li>
+<li>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">2</a>
+</li>
+<li>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">3</a>
+</li>
+<li>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Next</a>
+</li>
+</ul>
+</nav>
+</div>
+<!-- Empty State Example (hidden by default) -->
+<!-- 
+                    <div class="text-center py-16">
+                        <div class="inline-block bg-gray-100 dark:bg-gray-700 p-6 rounded-full">
+                            <span class="material-symbols-outlined text-6xl text-gray-400 dark:text-gray-500">search_off</span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">No Logs Found</h3>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                            No audit logs match your current filters. Try adjusting your search.
+                        </p>
+                    </div>
+                    -->
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>School Management - Academic Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "professional-blue": "#007BFF",
+                        "light-gray": "#CED4DA",
+                        "dark-gray": "#343A40",
+                        "action-green": "#28A745",
+                        "action-red": "#DC3545",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<div class="w-64 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 hidden lg:block">
+<div class="flex h-full min-h-[700px] flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhUbchLKM-azZF5NeIYkqi-9Wg4E6ZCPW2vni-l8_GWwilceFiTJP4iRYcu6NY1Uo46bCMZGgd_4MIipSF1M5CatfLBBWVOaIaW1ZGVS3XY_x5PjiB-xt5QIeVDigd49KzEjKUwi2TUmBdrzS1NUrlmTARaZDS_1SytkjtxYKLgzdmFSOx8OQ3BCqQz6Tm8mGARRl7BpZBP3tDI1C4IGQ4NRhbrGJoDjwDIjnr-CF9T6QXwlqFztaYOcMAOqyz38NjAeASEHjSiTLQ");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#0d141b] dark:text-slate-50 text-base font-medium leading-normal">Admin</h1>
+<p class="text-[#4c739a] dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-50">dashboard</span>
+<p class="text-[#0d141b] dark:text-slate-50 text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-50">groups</span>
+<p class="text-[#0d141b] dark:text-slate-50 text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-50">person</span>
+<p class="text-[#0d141b] dark:text-slate-50 text-sm font-medium leading-normal">Teachers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/30" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-50" style="font-variation-settings: 'FILL' 1;">book</span>
+<p class="text-[#0d141b] dark:text-slate-50 text-sm font-medium leading-normal">Academic Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-50">settings</span>
+<p class="text-[#0d141b] dark:text-slate-50 text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Logout</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 py-3 bg-background-light dark:bg-background-dark">
+<div class="flex items-center gap-4">
+<button class="lg:hidden">
+<span class="material-symbols-outlined text-dark-gray dark:text-slate-50">menu</span>
+</button>
+<h2 class="text-dark-gray dark:text-slate-50 text-lg font-bold leading-tight tracking-[-0.015em]">School Management</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#4c739a] flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-dark-gray dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 focus:border-none h-full placeholder:text-[#4c739a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 px-3 bg-slate-100 dark:bg-slate-800 text-dark-gray dark:text-slate-50 text-sm font-bold">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 px-3 bg-slate-100 dark:bg-slate-800 text-dark-gray dark:text-slate-50 text-sm font-bold">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 px-3 bg-slate-100 dark:bg-slate-800 text-dark-gray dark:text-slate-50 text-sm font-bold">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuArBQ1ksD4n24RtyZj_URoM28L23GIDgcVGxZhULs3rzZTVnyuEkJuzmjUoigQk7HKK2FxHc22eXfVP5tmNXtctxNDgkyD7ks9lzOEmhZfJYTCXOsh6p-hmcGfB0ZZiGZgwGy_yarJvFJkqRQGLm-MuWG6jct4rg2Q11qEKe3afoiwqYvp10s6LPGaQythB4Qu65yoqMu5r6cAD81SjeQveIcB1zVvgulpr6KVjhU7_2gXGlrt6BCVQjMDdIHIolWa6kZu3v6Vzoh_G");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<div class="flex flex-col gap-1">
+<p class="text-dark-gray dark:text-slate-50 text-3xl font-black leading-tight tracking-[-0.033em]">Manage Subject Assignments</p>
+<p class="text-[#4c739a] dark:text-slate-400 text-base font-normal leading-normal">Manage and assign subjects to teachers and classes.</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-professional-blue text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Assign New Subject</span>
+</button>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm p-4">
+<!-- Filter and Search Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
+<label class="flex flex-col min-w-40 w-full col-span-1 md:col-span-2 lg:col-span-2">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-12">
+<div class="text-[#4c739a] flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-dark-gray dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 focus:border-none h-full placeholder:text-[#4c739a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search by teacher, class, or subject" value=""/>
+</div>
+</label>
+<div class="flex gap-3 overflow-x-auto lg:col-span-3 pb-2">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 px-4">
+<p class="text-dark-gray dark:text-slate-50 text-sm font-medium leading-normal">Teacher: All</p>
+<span class="material-symbols-outlined text-dark-gray dark:text-slate-50">arrow_drop_down</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 px-4">
+<p class="text-dark-gray dark:text-slate-50 text-sm font-medium leading-normal">Class: All</p>
+<span class="material-symbols-outlined text-dark-gray dark:text-slate-50">arrow_drop_down</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 px-4">
+<p class="text-dark-gray dark:text-slate-50 text-sm font-medium leading-normal">Section: All</p>
+<span class="material-symbols-outlined text-dark-gray dark:text-slate-50">arrow_drop_down</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 px-4">
+<p class="text-dark-gray dark:text-slate-50 text-sm font-medium leading-normal">Subject: All</p>
+<span class="material-symbols-outlined text-dark-gray dark:text-slate-50">arrow_drop_down</span>
+</button>
+</div>
+</div>
+<!-- Assignments Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm text-dark-gray dark:text-slate-400">
+<thead class="bg-slate-50 dark:bg-slate-800 text-xs text-dark-gray dark:text-slate-400 uppercase">
+<tr>
+<th class="px-6 py-3 rounded-l-lg" scope="col">Teacher</th>
+<th class="px-6 py-3" scope="col">Class &amp; Section</th>
+<th class="px-6 py-3" scope="col">Subject</th>
+<th class="px-6 py-3" scope="col">Academic Year</th>
+<th class="px-6 py-3 text-center rounded-r-lg" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800">
+<td class="px-6 py-4 font-medium text-dark-gray dark:text-white whitespace-nowrap">John Doe</td>
+<td class="px-6 py-4">10-A</td>
+<td class="px-6 py-4">Mathematics</td>
+<td class="px-6 py-4">2023-2024</td>
+<td class="px-6 py-4 text-center">
+<button class="p-2 text-professional-blue hover:text-blue-700" title="Edit">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-action-red hover:text-red-700" title="Delete">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b dark:border-slate-800">
+<td class="px-6 py-4 font-medium text-dark-gray dark:text-white whitespace-nowrap">Jane Smith</td>
+<td class="px-6 py-4">10-B</td>
+<td class="px-6 py-4">Physics</td>
+<td class="px-6 py-4">2023-2024</td>
+<td class="px-6 py-4 text-center">
+<button class="p-2 text-professional-blue hover:text-blue-700" title="Edit">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-action-red hover:text-red-700" title="Delete">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800">
+<td class="px-6 py-4 font-medium text-dark-gray dark:text-white whitespace-nowrap">Peter Jones</td>
+<td class="px-6 py-4">9-A</td>
+<td class="px-6 py-4">Chemistry</td>
+<td class="px-6 py-4">2023-2024</td>
+<td class="px-6 py-4 text-center">
+<button class="p-2 text-professional-blue hover:text-blue-700" title="Edit">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-action-red hover:text-red-700" title="Delete">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+<tr class="bg-slate-50 dark:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-dark-gray dark:text-white whitespace-nowrap">Mary Johnson</td>
+<td class="px-6 py-4">12-C</td>
+<td class="px-6 py-4">Biology</td>
+<td class="px-6 py-4">2023-2024</td>
+<td class="px-6 py-4 text-center">
+<button class="p-2 text-professional-blue hover:text-blue-700" title="Edit">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<button class="p-2 text-action-red hover:text-red-700" title="Delete">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Empty State Example -->
+<div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm p-8 text-center mt-6 hidden">
+<span class="material-symbols-outlined text-6xl text-slate-400 dark:text-slate-600 mx-auto">folder_off</span>
+<h3 class="mt-4 text-xl font-semibold text-dark-gray dark:text-slate-300">No Subject Assignments Found</h3>
+<p class="mt-2 text-base text-[#4c739a] dark:text-slate-400">There are no assignments matching your criteria. Start by creating a new one.</p>
+<button class="mt-6 flex mx-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-professional-blue text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Assign New Subject</span>
+</button>
+</div>
+</main>
+</div>
+</div>
+<!-- Modal for Assigning/Editing Subject -->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
+<div class="bg-white dark:bg-slate-900 rounded-lg shadow-xl w-full max-w-md">
+<div class="p-6 border-b border-light-gray dark:border-slate-800">
+<h2 class="text-xl font-bold text-dark-gray dark:text-white">Assign Subject to Teacher</h2>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<label class="block mb-2 text-sm font-medium text-dark-gray dark:text-slate-300" for="teacher">Teacher</label>
+<select class="bg-slate-50 border border-slate-300 text-dark-gray text-sm rounded-lg focus:ring-professional-blue focus:border-professional-blue block w-full p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="teacher">
+<option selected="">Choose a teacher</option>
+<option value="JD">John Doe</option>
+<option value="JS">Jane Smith</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-dark-gray dark:text-slate-300" for="class">Class</label>
+<select class="bg-slate-50 border border-slate-300 text-dark-gray text-sm rounded-lg focus:ring-professional-blue focus:border-professional-blue block w-full p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="class">
+<option selected="">Choose a class</option>
+<option value="10">Class 10</option>
+<option value="9">Class 9</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-dark-gray dark:text-slate-300" for="section">Section</label>
+<select class="bg-slate-50 border border-slate-300 text-dark-gray text-sm rounded-lg focus:ring-professional-blue focus:border-professional-blue block w-full p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="section">
+<option selected="">Choose a section</option>
+<option value="A">Section A</option>
+<option value="B">Section B</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-dark-gray dark:text-slate-300" for="subject">Subject</label>
+<select class="bg-slate-50 border border-slate-300 text-dark-gray text-sm rounded-lg focus:ring-professional-blue focus:border-professional-blue block w-full p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="subject">
+<option selected="">Choose a subject</option>
+<option value="M">Mathematics</option>
+<option value="P">Physics</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-dark-gray dark:text-slate-300" for="academic-year">Academic Year</label>
+<input class="bg-slate-50 border border-slate-300 text-dark-gray text-sm rounded-lg focus:ring-professional-blue focus:border-professional-blue block w-full p-2.5 dark:bg-slate-800 dark:border-slate-700 dark:placeholder-slate-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="academic-year" type="text" value="2023-2024"/>
+</div>
+</div>
+<div class="p-6 flex justify-end gap-3 bg-slate-50 dark:bg-slate-800/50 rounded-b-lg">
+<button class="px-4 py-2 text-sm font-medium text-dark-gray dark:text-slate-300 bg-white dark:bg-slate-700 border border-light-gray dark:border-slate-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-600">Cancel</button>
+<button class="px-4 py-2 text-sm font-medium text-white bg-action-green rounded-lg hover:bg-green-700">Save Assignment</button>
+</div>
+</div>
+</div>
+</body></html>

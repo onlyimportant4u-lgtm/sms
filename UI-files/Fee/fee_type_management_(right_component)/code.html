@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fee Type Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<div class="w-64 bg-background-light dark:bg-background-dark border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBekUUpaytSKH_n27gXXzAlac5j6Z_cB4R6rYkf8KizZ0ND8YdFrd4LWMdkZ0MqutXUSCnCH76uVjrrF4QkaGtRK3e8TXf-Z8GhwnkSvl35qz5elXx2Da0aciHdG7zXloGux_hpgfiv38qrBEPJjQdzm3w3o7e0xPwL29k_dwDVWFwYd3K1hOlRs36hQKWBPzvuErRYbNs1qekFBKB2lwkiQZMS_78E0KfVU4B0Qc1PFjLMolDHlt_rPRm8RuvyKZu97UUpQFLeXbHj");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 p-4 grow">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-900 dark:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-900 dark:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium leading-normal">Student</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<p class="text-sm font-medium leading-normal">Fee Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-900 dark:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+<p class="text-sm font-medium leading-normal">Staff</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-900 dark:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Logout</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-3 bg-background-light dark:bg-background-dark">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-50">
+<div class="size-6">
+<svg class="text-primary" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_543)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_543"><rect fill="white" height="48" width="48"></rect></clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">School Logo</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-slate-100 dark:bg-slate-800">
+<div class="text-slate-500 dark:text-slate-400 flex items-center justify-center pl-3">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-50 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCSGsz-9unVej-iuWcQ5LmYOX8FolHiX9ssEc8E0mU3DFECXYCTIdGs18KaBAhd1InVyGO4DpiT9R8J5oBc7cKX9Flc68bHelfh8FtT-vxhBb7yLaI53SSrWFXI_NNtb3TLigAiFa3Sd2Eq_1NWmNCQzHAlo_qoXptaKOq2koic0NEt6G8Qxyz1-OiagQi5ix9jtqN0yvOp1N-oS9cIAAjW16rbYSX3fQ_Ye3LNjRxtiVKkul_-dsb4s5YVijpwvmZnAjQ8tqqjmXo-");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto p-8 bg-background-light dark:bg-background-dark">
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+<p class="text-slate-900 dark:text-slate-50 text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Fee Type Management</p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-slate-50 gap-2 pl-4 text-base font-bold leading-normal tracking-[0.015em]">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add New Fee Type</span>
+</button>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm">
+<div class="flex flex-col md:flex-row gap-4 mb-6">
+<div class="flex-1">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-slate-100 dark:bg-slate-800">
+<div class="text-slate-500 dark:text-slate-400 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search by fee name" value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg text-sm font-medium bg-primary/20 text-primary">All</button>
+<button class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Academic</button>
+<button class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Co-curricular</button>
+<button class="px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Administrative</button>
+</div>
+</div>
+<!-- Fee Type List Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 text-sm">
+<th class="p-4 font-medium">Fee Name</th>
+<th class="p-4 font-medium">Category</th>
+<th class="p-4 font-medium">Description</th>
+<th class="p-4 font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-slate-800 dark:text-slate-200">
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="p-4">Tuition Fee</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Academic</span></td>
+<td class="p-4 text-slate-600 dark:text-slate-400">Fee for the core academic curriculum.</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="p-4">Sports Fee</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Co-curricular</span></td>
+<td class="p-4 text-slate-600 dark:text-slate-400">Fee for participation in sports activities.</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="p-4">Library Fee</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Administrative</span></td>
+<td class="p-4 text-slate-600 dark:text-slate-400">Annual fee for library services and resources.</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="p-4">Examination Fee</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">Academic</span></td>
+<td class="p-4 text-slate-600 dark:text-slate-400">Fee for conducting term-end examinations.</td>
+<td class="p-4 text-right">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-2 rounded-full hover:bg-red-50 dark:hover:bg-red-900/50 text-red-500"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty State -->
+<!-- <div class="text-center py-20">
+                        <div class="inline-block bg-slate-100 dark:bg-slate-800 p-6 rounded-full text-primary">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-slate-800 dark:text-slate-200">No Fee Types Found</h3>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400">Get started by adding a new fee type.</p>
+                        <button class="mt-6 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-slate-50 gap-2 pl-4 text-base font-bold leading-normal tracking-[0.015em] mx-auto">
+                            <span class="material-symbols-outlined">add</span>
+                            <span class="truncate">Add New Fee Type</span>
+                        </button>
+                    </div> -->
+</div>
+</main>
+</div>
+</div>
+</body></html>

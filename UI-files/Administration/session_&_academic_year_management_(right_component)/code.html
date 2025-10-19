@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Sessions &amp; Years</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="flex h-full grow flex-row">
+<!-- SideNavBar -->
+<div class="flex h-full min-h-screen flex-col justify-between bg-white dark:bg-slate-900 p-4 border-r border-slate-200 dark:border-slate-800 w-64">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCadrUrffn6lVthRA5ZmM9PZLI834yMGTxMP-X_8qiTmErXPsbAUAXea8V44IR46UsjXNUl-IzqvRHKEwL5HEmdSEnBojKhMpQ1izd3qHK0e89aSLwMkGmwPs2BMiz-SQsvshUR1-Pu-azWOoh66vNQOXHndXSbYURve13sRFZshuY2DggCdSh4FbIgqdblnSohC_3nMXFblDhJ2-HiYd85z4qY1x3NHOrD8HcW2TH-FX8Nxf5lipSzKkaG806Nz3tj9xR8JEwcxjDo");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300" href="#">
+<span class="material-symbols-outlined">school</span>
+<p class="text-sm font-medium leading-normal">Academics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">badge</span>
+<p class="text-sm font-medium leading-normal">Staff</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">Logout</span>
+</button>
+</div>
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-3 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-50">
+<div class="size-6">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"></path>
+<path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">School Management</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="relative flex-col min-w-40 !h-10 max-w-64 hidden md:flex">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-3 rounded-l-lg border-r-0">search</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-slate-900 dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-50 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-50 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDmqpGqcH24ggAXcR9VghV0czsJGeUxrd-xprBSPPbu4OIU9qL2uS3lDAMx2GAS6jkEm015GhRkuAorGJeTVEwkdUeI5hEOvDY2EWgB1KosDcB_kAwbf8_MOO6zOprl-ocKaViZEt_CzIbOaoB13GRAvAA-D384RfL58m1y4VyITIc5dRdHCwUZXo3bMiyjU8BTxsUZjMmxEl_fFjSek_HtxnGyZ2fCcret7iVgZ5xGLjAbOPl6J7hhusClvggPCRdqQDzUJzhKvQQj");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-10 bg-background-light dark:bg-background-dark">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-8">
+<p class="text-slate-900 dark:text-slate-50 text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Academic Sessions &amp; Years</p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2 hover:bg-primary/90">
+<span class="material-symbols-outlined text-xl">add</span>
+<span class="truncate">Add New Academic Year</span>
+</button>
+</div>
+<!-- Calendar Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 mb-8 shadow-sm">
+<h2 class="text-slate-900 dark:text-slate-50 text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-2">Academic Calendar Overview</h2>
+<div class="flex flex-wrap items-start justify-center gap-6 p-4">
+<div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between">
+<button class="text-slate-900 dark:text-slate-50 flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<p class="text-slate-900 dark:text-slate-50 text-base font-bold leading-tight flex-1 text-center">August 2024</p>
+</div>
+<div class="grid grid-cols-7 text-center">
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">S</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">M</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">T</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">W</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">T</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">F</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">S</p>
+<!-- Days of August -->
+<button class="h-12 w-full col-start-5 text-slate-500 dark:text-slate-400 text-sm font-medium">1</button>
+<button class="h-12 w-full text-slate-500 dark:text-slate-400 text-sm font-medium">2</button>
+<button class="h-12 w-full text-slate-500 dark:text-slate-400 text-sm font-medium">3</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">4</button>
+<button class="h-12 w-full text-white text-sm font-medium relative"><div class="absolute inset-0.5 bg-green-500 rounded-l-full flex items-center justify-center">5<span class="absolute bottom-1 text-[8px] opacity-75">Start</span></div></button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">6</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">7</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">8</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">9</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">10</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">11</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">12</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">13</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">14</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium relative"><div class="absolute inset-0.5 bg-orange-400 rounded-full flex items-center justify-center">15</div></button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">16</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">17</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">18</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">19</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">20</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">21</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">22</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">23</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">24</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">25</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">26</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">27</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">28</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">29</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">30</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">31</button>
+</div>
+</div>
+<div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between">
+<p class="text-slate-900 dark:text-slate-50 text-base font-bold leading-tight flex-1 text-center">September 2024</p>
+<button class="text-slate-900 dark:text-slate-50 flex size-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 text-center">
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">S</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">M</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">T</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">W</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">T</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">F</p>
+<p class="text-slate-500 dark:text-slate-400 text-[13px] font-bold h-12 w-full flex items-center justify-center">S</p>
+<!-- Days of September -->
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">1</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium relative"><div class="absolute inset-0.5 bg-orange-400 rounded-full flex items-center justify-center">2</div></button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">3</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">4</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">5</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium">6</button>
+<button class="h-12 w-full bg-green-500/20 text-slate-900 dark:text-slate-50 text-sm font-medium relative"><div class="absolute inset-0.5 bg-red-500 rounded-r-full flex items-center justify-center text-white">7<span class="absolute bottom-1 text-[8px] opacity-75">End</span></div></button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">8</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">9</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">10</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">11</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">12</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">13</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">14</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">15</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">16</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">17</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">18</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">19</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">20</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">21</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">22</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">23</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">24</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">25</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">26</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">27</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">28</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">29</button>
+<button class="h-12 w-full text-slate-900 dark:text-slate-50 text-sm font-medium">30</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Tables Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Academic Years Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
+<h2 class="text-slate-900 dark:text-slate-50 text-[22px] font-bold leading-tight tracking-[-0.015em] mb-4">Academic Years</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="px-6 py-3" scope="col">Academic Year</th>
+<th class="px-6 py-3" scope="col">Start Date</th>
+<th class="px-6 py-3" scope="col">End Date</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap" scope="row">2024-2025</th>
+<td class="px-6 py-4">Aug 05, 2024</td>
+<td class="px-6 py-4">Sep 07, 2025</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="px-6 py-4 text-right flex gap-2 justify-end">
+<button class="text-primary hover:text-primary/80"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap" scope="row">2023-2024</th>
+<td class="px-6 py-4">Aug 07, 2023</td>
+<td class="px-6 py-4">Sep 01, 2024</td>
+<td class="px-6 py-4"><span class="bg-slate-100 text-slate-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-slate-700 dark:text-slate-300">Archived</span></td>
+<td class="px-6 py-4 text-right flex gap-2 justify-end">
+<button class="text-primary hover:text-primary/80"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Holidays Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-slate-900 dark:text-slate-50 text-[22px] font-bold leading-tight tracking-[-0.015em]">Holidays</h2>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 text-xs font-bold leading-normal tracking-[0.015em] gap-1 hover:bg-primary/20">
+<span class="material-symbols-outlined text-base">add</span>
+<span class="truncate">Add Holiday</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="px-6 py-3" scope="col">Holiday Name</th>
+<th class="px-6 py-3" scope="col">Date</th>
+<th class="px-6 py-3" scope="col">Type</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap" scope="row">Independence Day</th>
+<td class="px-6 py-4">Aug 15, 2024</td>
+<td class="px-6 py-4">National</td>
+<td class="px-6 py-4 text-right flex gap-2 justify-end">
+<button class="text-primary hover:text-primary/80"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap" scope="row">Labor Day</th>
+<td class="px-6 py-4">Sep 02, 2024</td>
+<td class="px-6 py-4">National</td>
+<td class="px-6 py-4 text-right flex gap-2 justify-end">
+<button class="text-primary hover:text-primary/80"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400"><span class="material-symbols-outlined">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</body></html>

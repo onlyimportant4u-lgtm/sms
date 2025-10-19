@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management System - Communication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<div class="w-64 bg-background-light dark:bg-background-dark border-r border-[#e7edf3] dark:border-gray-700 flex-col justify-between hidden lg:flex">
+<div class="p-4">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAz95ShR9oD9kA7MGMJk-aqOXTMukSRrIa3SC3xmhAzRwsdbWYOidnPrNdKy5DsExDzYvx4RrIqXCva8RUjLAScUS2OokKr-JpsM2eAURVQkT30RMmTgYByAm1dQ-0NkzdT3uJExT99PuWjhUkt-Ko3TG0ybTNORsd2WBjAVH3xM_snsh01Q5IA-lngqYnnTrJ2JZCujBkjQm0meKWKjbHdWCnw9jurOttFJWUNVegCmgXdysBwbF5xmQt--UKG1nGmmoQtCtGL8Dv2");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#0d141b] dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-[#4c739a] dark:text-gray-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-white hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-white hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-white hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">check_circle</span>
+<p class="text-sm font-medium leading-normal">Attendance</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/30 text-primary dark:text-white" href="#">
+<span class="material-symbols-outlined">mail</span>
+<p class="text-sm font-medium leading-normal">Communication</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-white hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+<div class="p-4">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Logout</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7edf3] dark:border-gray-700 px-6 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+<svg class="w-8 h-8 text-primary" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+<h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Student Management System</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/10 dark:bg-primary/20 text-[#0d141b] dark:text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/10 dark:bg-primary/20 text-[#0d141b] dark:text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZtAvKHxyd9HxYg9PRMRuGYGoF9PF4ejzDlfcdF1Wj5FDAAFqwb6jy5_15PN7Dqw_3dWQrdlXqAsClHI8kzqXsq-KO8KCd3AncPesEioK8W5nxSXVF6m-AWXy95R-NGOV2ZUyh75h1Cus-QizfEPpl37zqxF4Cklt8D_LDjfEVxqN0ygNW8AHAKM4Hmc_GGs6HxYE_o2Lqk-mpj8HEOq0pKpusjK42xb6gyWmyLThbZWmhZHbmPleC7qoGl1bByvJ1dtzHjtusEatI");'></div>
+</div>
+</header>
+<!-- Right-side content -->
+<main class="flex-1 p-6 lg:p-8 bg-background-light dark:bg-background-dark">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 mb-6">
+<p class="text-[#0d141b] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Attendance Alert Management</p>
+</div>
+<!-- Tabs -->
+<div class="pb-3">
+<div class="flex border-b border-[#e0e0e0] dark:border-gray-700 gap-8">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-primary pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Manage Alerts</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#4c739a] dark:text-gray-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Notification History</p>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
+<div class="lg:col-span-2">
+<!-- SectionHeader for Active Alerts -->
+<div class="flex justify-between items-center px-4 pb-3 pt-5">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Active Alert Rules</h2>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-[#e0e0e0] dark:border-gray-600 rounded-lg bg-background-light dark:bg-gray-800 text-[#0d141b] dark:text-white focus:ring-primary focus:border-primary" placeholder="Search rules..." type="text"/>
+</div>
+</div>
+<!-- Active Alerts Table -->
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
+<tr>
+<th class="px-6 py-3" scope="col">Rule Name</th>
+<th class="px-6 py-3" scope="col">Trigger Condition</th>
+<th class="px-6 py-3" scope="col">Recipients</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">Unexcused Absence</td>
+<td class="px-6 py-4">1 Unexcused Absence</td>
+<td class="px-6 py-4">Parent/Guardian (SMS, Email)</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline mr-4">Edit</button>
+<button class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">Late Arrival Warning</td>
+<td class="px-6 py-4">Late Arrival &gt; 15 mins</td>
+<td class="px-6 py-4">Parent/Guardian (Email)</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline mr-4">Edit</button>
+<button class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">Frequent Tardiness</td>
+<td class="px-6 py-4">3 Late Arrivals in a week</td>
+<td class="px-6 py-4">Parent/Guardian, Student (Email)</td>
+<td class="px-6 py-4 text-right">
+<button class="font-medium text-primary hover:underline mr-4">Edit</button>
+<button class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Create New Alert Form -->
+<div class="lg:col-span-1">
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] mb-6">Create New Alert Rule</h2>
+<form class="space-y-4">
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="rule-name">Rule Name</label>
+<input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" id="rule-name" placeholder="e.g., Daily Absence Alert" type="text"/>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="trigger">Trigger</label>
+<select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" id="trigger">
+<option selected="">Choose a trigger</option>
+<option value="UA">Unexcused Absence</option>
+<option value="LA15">Late Arrival &gt; 15 mins</option>
+<option value="LA30">Late Arrival &gt; 30 mins</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Notify</label>
+<div class="flex items-center space-x-4">
+<div class="flex items-center">
+<input checked="" class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" id="parent-guardian" type="checkbox" value=""/>
+<label class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="parent-guardian">Parent/Guardian</label>
+</div>
+<div class="flex items-center">
+<input class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" id="student" type="checkbox" value=""/>
+<label class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="student">Student</label>
+</div>
+</div>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Notification Method</label>
+<div class="flex items-center space-x-4">
+<div class="flex items-center">
+<input checked="" class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" id="sms" type="checkbox" value=""/>
+<label class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="sms">SMS</label>
+</div>
+<div class="flex items-center">
+<input checked="" class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" id="email" type="checkbox" value=""/>
+<label class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="email">Email</label>
+</div>
+</div>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="message">Message Template</label>
+<textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" id="message" placeholder="Dear Parent, this is to inform you that {student_name} was marked absent on {date}." rows="4"></textarea>
+<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Use placeholders: {student_name}, {date}</p>
+</div>
+<div class="flex justify-end gap-2 pt-4">
+<button class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-primary focus:z-10 focus:ring-2 focus:ring-primary dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600" type="button">Cancel</button>
+<button class="text-white bg-primary hover:bg-primary/90 focus:ring-4 focus:ring-primary/50 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary dark:hover:bg-primary/90 focus:outline-none dark:focus:ring-primary/80" type="submit">Create New Alert</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Library Fine Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3498DB",
+                        "background-light": "#ECF0F1",
+                        "background-dark": "#101922",
+                        "accent": "#F39C12"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<div class="hidden md:flex flex-col w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+<div class="flex items-center gap-3 p-4 border-b border-gray-200 dark:border-gray-700">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbbfysC_ftgEfJ2tYJWPXlfNzyTIU9pKvELGQh0Eh5tfo18HWosIC-PnMwtuMgCZtWy5JF_ovxdCYY-XmI0JQtNT0Y10k14Xaixv_zGxvBK2jJQfGk14eWppR1XRYslyTDcwJTeaOnzD4DZGLliRHkleSp7GHTlbD9Ft1KH2Yc72HOllw8mzKRE5N-YGYHBBdm-Szy1vF_dJjsUGrWDJHB8GHN9My5KHZZJUnWsk5aNidNldANfFIPyiOxsXuXipoAVHnt6hPk547g");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-800 dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 p-4">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-white bg-primary rounded-lg" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<p class="text-sm font-medium">Library</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</div>
+</div>
+<div class="flex flex-col flex-1">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 py-3 bg-white dark:bg-gray-800">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-gray-800 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold tracking-[-0.015em]">Student Management System</h2>
+</div>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGlO0lYlooftFzf7iMayUwn6E7zmB-gtZdD2NWuO_syf5ES683U4y59jVXBfgqxsDYhbBVmEqB0rtlq6uYV-HRYcFDvWM2t_n38s0FPTmKbZNalDi0tWkZr78x8d1-ca3FkOUZphFe1sGvi1i1wKqsyPHI1Oev9vHSAeet_o_MqlHgMuauXb8LmO2n1hjpUDR1CAcNBRo9kk-LfUijgFcoovfR_0NmGKRV6erAm4Gl5_XPmoSkTy7BMUuMvaplZ4ErHI26SR1yKpRb");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+<div class="flex flex-col gap-1">
+<p class="text-gray-900 dark:text-white text-3xl font-black tracking-tight">Library Fine Management</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal">Manage and calculate fines for overdue books.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 space-y-6">
+<!-- Search and Filters -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm">
+<div class="flex flex-col md:flex-row gap-4">
+<label class="flex-1">
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input w-full pl-10 pr-4 py-2.5 rounded-lg bg-background-light dark:bg-gray-700 border-transparent focus:border-primary focus:ring-primary text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400" placeholder="Search members by name or ID" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-gray-700 px-4 py-2 text-gray-800 dark:text-white text-sm font-medium">
+                                            All Members
+                                            <span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+<button class="flex items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-gray-700 px-4 py-2 text-gray-800 dark:text-white text-sm font-medium">
+                                            Outstanding Fines
+                                            <span class="material-symbols-outlined text-base">arrow_drop_down</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Member Info and Overdue Books Table -->
+<div class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">John Doe</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Student ID: #12345</p>
+</div>
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Total Outstanding Fines:</p>
+<p class="text-xl font-bold text-accent">$2.50</p>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
+<tr>
+<th class="p-4" scope="col"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></th>
+<th class="px-6 py-3" scope="col">Book Title</th>
+<th class="px-6 py-3" scope="col">Due Date</th>
+<th class="px-6 py-3" scope="col">Days Overdue</th>
+<th class="px-6 py-3 text-right" scope="col">Calculated Fine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="p-4"><input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">The Great Gatsby</th>
+<td class="px-6 py-4">2023-10-15</td>
+<td class="px-6 py-4 text-accent font-semibold">5</td>
+<td class="px-6 py-4 text-right">$2.50</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<td class="p-4"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/></td>
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">To Kill a Mockingbird</th>
+<td class="px-6 py-4">2023-10-25</td>
+<td class="px-6 py-4">0</td>
+<td class="px-6 py-4 text-right">$0.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Fine History -->
+<div class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-xl shadow-sm">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Fine History</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
+<tr>
+<th class="px-6 py-3" scope="col">Date</th>
+<th class="px-6 py-3" scope="col">Book Title</th>
+<th class="px-6 py-3" scope="col">Fine Amount</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700">
+<td class="px-6 py-4">2023-09-01</td>
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">1984</td>
+<td class="px-6 py-4">$1.50</td>
+<td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Paid</span></td>
+<td class="px-6 py-4">Paid in cash</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800">
+<td class="px-6 py-4">2023-08-15</td>
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white">The Hobbit</td>
+<td class="px-6 py-4">$5.00</td>
+<td class="px-6 py-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Waived</span></td>
+<td class="px-6 py-4">Book slightly damaged</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Fine Calculation and Actions Panel -->
+<div class="lg:col-span-1 space-y-6">
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Fine Calculation</h3>
+<div class="flex justify-between items-center bg-background-light dark:bg-gray-700 p-4 rounded-lg mb-4">
+<span class="text-base font-medium text-gray-700 dark:text-gray-300">Total Calculated Fine:</span>
+<span class="text-2xl font-bold text-primary">$2.50</span>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="adjusted_fine">Adjusted Fine Amount</label>
+<input class="form-input w-full rounded-lg bg-background-light dark:bg-gray-700 border-transparent focus:border-primary focus:ring-primary text-gray-800 dark:text-white" id="adjusted_fine" placeholder="$2.50" type="text"/>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="adjustment_reason">Reason for Adjustment</label>
+<textarea class="form-textarea w-full rounded-lg bg-background-light dark:bg-gray-700 border-transparent focus:border-primary focus:ring-primary text-gray-800 dark:text-white" id="adjustment_reason" placeholder="Optional: e.g., student discount, first offense" rows="3"></textarea>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Record Payment</h3>
+<div class="space-y-4">
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="payment_amount">Payment Amount</label>
+<input class="form-input w-full rounded-lg bg-background-light dark:bg-gray-700 border-transparent focus:border-primary focus:ring-primary text-gray-800 dark:text-white" id="payment_amount" placeholder="$2.50" type="text"/>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="payment_method">Payment Method</label>
+<select class="form-select w-full rounded-lg bg-background-light dark:bg-gray-700 border-transparent focus:border-primary focus:ring-primary text-gray-800 dark:text-white" id="payment_method">
+<option>Cash</option>
+<option>Card</option>
+</select>
+</div>
+<div>
+<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="payment_date">Date of Payment</label>
+<input class="form-input w-full rounded-lg bg-background-light dark:bg-gray-700 border-transparent focus:border-primary focus:ring-primary text-gray-800 dark:text-white" id="payment_date" type="date" value="2023-10-20"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<button class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">receipt_long</span> Record Payment
+                                </button>
+<button class="w-full bg-accent text-white font-bold py-3 px-4 rounded-lg hover:bg-accent/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">gavel</span> Waive Fines
+                                </button>
+<button class="w-full bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">print</span> Print Receipt
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

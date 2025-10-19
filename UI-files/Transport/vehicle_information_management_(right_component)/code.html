@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vehicle Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- Side Navigation Bar -->
+<aside class="w-64 bg-slate-50 dark:bg-gray-800 flex flex-col justify-between p-4 border-r border-slate-200 dark:border-gray-700">
+<div>
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdW4WZLP_7NBbC7NFktek69g1qtufj4HcudmqpEY4ZaQhy9b4SIIlC5o1Jpo2pVKBX03fT5HVtpk9VIZns1bH2m1J0tExobd9NGqhAfbbFrXU0VaXMaasODGmS6Gp6qUKTrmaL9-orEcEqgHglxfyaoguwVy3HkrWAcWeUniL_LGjhynGAF9FlNF2c30kti76nquzsOgAFaAH81dSig_eRCTvj3ib1JCWRaxMQRxTvCgp1RqKQADF_q9osJYeMM8lJM0nluBRP1AVh');"></div>
+<div class="flex flex-col">
+<h1 class="text-slate-800 dark:text-slate-200 text-base font-medium">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm">admin@school.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">Student Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_bus</span>
+<p class="text-sm font-medium">Transport Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<p class="text-sm font-medium">Help</p>
+</a>
+<button class="flex w-full items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-gray-700 px-10 py-3 bg-slate-50 dark:bg-gray-800">
+<div class="flex items-center gap-4 text-slate-800 dark:text-slate-200">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<h2 class="text-lg font-bold tracking-tight">School Management System</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="form-input w-full rounded-lg border-none bg-slate-100 dark:bg-gray-700 focus:ring-2 focus:ring-primary h-10 placeholder:text-slate-400 dark:placeholder:text-gray-500 pl-10 text-sm" placeholder="Search..." type="search"/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-gray-700 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-gray-700 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-xl">chat_bubble</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDY301PGlWQTH4M1MNQjBex0YWKE7UpXlGFdpQNZ1ARuvcFajhcJCKYNGfQtxmtKQ_5yqVL7mcdsoY8YPxqEJBqQu9p_Zk7DLzL9BR7i4hY4iV4P-eCXnWLNtu09-Q8huhwG1BKKU1zXRxNKC1ghkJVmWwmEbghTO5qbWpezN6r6crqDmJU_LAC0-rYz5SenTh27xBbzE0zLIvAwXq7ooJsEoLi57JU_yG7qAB6KoxO9ZA19WiyUhpJmqj7xrtMwp2g0gSu4gFMhPQy');"></div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<h1 class="text-slate-800 dark:text-slate-100 text-4xl font-black tracking-tighter">Vehicle Management</h1>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold gap-2">
+<span class="material-symbols-outlined">add</span>
+<span>Add New Vehicle</span>
+</button>
+</div>
+<!-- Search Bar -->
+<div class="mb-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="form-input w-full rounded-lg border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-gray-500 pl-12 text-base" placeholder="Search by vehicle number or driver" type="search"/>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-hidden rounded-lg border border-slate-200 dark:border-gray-700 bg-slate-50 dark:bg-gray-800">
+<table class="w-full">
+<thead class="bg-slate-100 dark:bg-gray-900">
+<tr>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Vehicle #</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Make/Model</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Driver</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Insurance Expiry</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Capacity</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-gray-700">
+<tr>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-slate-800 dark:text-slate-200">#V-001</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Ford Transit</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">John Doe</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">12/31/2024</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">15</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
+<div class="flex items-center gap-2">
+<button class="text-primary hover:text-primary/80" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-slate-800 dark:text-slate-200">#V-002</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Mercedes Sprinter</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Jane Smith</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">06/15/2025</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">20</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
+<div class="flex items-center gap-2">
+<button class="text-primary hover:text-primary/80" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-slate-800 dark:text-slate-200">#V-003</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Chevrolet Express</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Mike Johnson</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-amber-600 dark:text-amber-500">09/01/2024 <span class="text-xs">(Expiring Soon)</span></td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">12</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
+<div class="flex items-center gap-2">
+<button class="text-primary hover:text-primary/80" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-slate-800 dark:text-slate-200">#V-004</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Ford Transit</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Emily Davis</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">03/22/2025</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">15</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
+<div class="flex items-center gap-2">
+<button class="text-primary hover:text-primary/80" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-slate-800 dark:text-slate-200">#V-005</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Ram ProMaster</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">Chris Brown</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">11/05/2024</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">18</td>
+<td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
+<div class="flex items-center gap-2">
+<button class="text-primary hover:text-primary/80" title="Edit"><span class="material-symbols-outlined">edit</span></button>
+<button class="text-red-500 hover:text-red-400" title="Delete"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

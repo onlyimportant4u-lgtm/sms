@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Payslip Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007BFF",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL'0, 'wght'400, 'GRAD'0, 'opsz'24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-row">
+<div class="fixed top-0 left-0 h-full w-64 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800">
+<div class="flex h-full min-h-0 flex-col">
+<div class="flex h-full flex-col gap-4 p-4">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCPRE-aYGGFXMeOfSV3WuI5jJMlx0-y-vp5KtVn92vHcFkxLbEnKkaQ-6W3GvrkgxqOf7uclrEcQ8fxgQ24KHyDlxGVUDOmC5AtLxA8R-1PmZenDZH524CEiF9V8V_lvS6fpaTJJntELx3OEBWwjEJFCUdaUNJ2FC2it1VtQdgN-jQ70sOXUuB95K646AxVzsK7IT-cpqSfHAwNmAP_40JC39fL2_L_7K1kFoi27bpdoaSxZ-81vqdiWNFxYND8oLmK1KdSsN-dndG2");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#0d141b] dark:text-slate-50 text-base font-medium leading-normal">Admin</h1>
+<p class="text-[#4c739a] dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-300">dashboard</span>
+<p class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-300">school</span>
+<p class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal">Student</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10">
+<span class="material-symbols-outlined text-primary dark:text-primary-400" style="font-variation-settings: 'FILL' 1;">group</span>
+<p class="text-primary dark:text-primary-400 text-sm font-medium leading-normal">Staff</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-300">payments</span>
+<p class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal">Finance</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-300">settings</span>
+<p class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal">Settings</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 mt-auto">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Logout</span>
+</button>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-3 py-2">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-300">help_center</span>
+<p class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal">Help Center</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-300">info</span>
+<p class="text-[#0d141b] dark:text-slate-300 text-sm font-medium leading-normal">About Us</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<main class="flex-1 ml-64">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-slate-50">
+<div class="size-4">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-[#0d141b] dark:text-slate-50 text-lg font-bold leading-tight tracking-[-0.015em]">Staff Management</h2>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-2">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-200/60 dark:bg-slate-800/60 text-[#0d141b] dark:text-slate-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-200/60 dark:bg-slate-800/60 text-[#0d141b] dark:text-slate-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6AIfcikgjAT0OU2ScQ--zqXwEaaAhay0gS3fADAAifTxsKa0-iWKH0Lv9U20ev_AUtvlBktXCM-vje54kRASH8x_1pzM2u18ggZRuY-xsNqjojkIFzt4yt5QNDCrfnO23KgIyGb5jrCwC0z6AZKZzpPi881HMdVVdlM0NdORxn4Cw1Ie4dFWIRuLA6vxR3aSCghoHzqYdEZSLyTqNHLPk9X21PxBqKZWOnHTSTnL2vulqEkzWSRIjBVNA80CGdutWKMk_h1-IeTNl");'></div>
+</div>
+</header>
+<div class="p-10 bg-background-light dark:bg-background-dark">
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<p class="text-[#0d141b] dark:text-slate-50 text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Generate Staff Payslip</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end mb-8">
+<div class="flex flex-col">
+<label class="text-[#343A40] dark:text-slate-300 text-sm font-medium leading-normal pb-2" for="staff-member">Select Staff Member</label>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark h-12 placeholder:text-slate-400 px-3 text-base font-normal leading-normal" id="staff-member">
+<option>Search for a staff member</option>
+<option>John Doe</option>
+<option>Jane Smith</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="text-[#343A40] dark:text-slate-300 text-sm font-medium leading-normal pb-2" for="pay-period">Select Pay Period</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#343A40] dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark h-12 placeholder:text-slate-400 px-3 text-base font-normal leading-normal" id="pay-period" type="month" value="2023-10"/>
+</div>
+<button class="flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide shadow-md hover:bg-primary/90 transition-colors">
+                            Generate Payslip
+                        </button>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 pt-8">
+<div class="border border-slate-300 dark:border-slate-700 rounded-lg p-8 bg-background-light dark:bg-background-dark">
+<div class="flex justify-between items-start mb-8">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold text-[#343A40] dark:text-slate-200">Global Tech Academy</h2>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">123 Learning Lane, Knowledge City, 12345</p>
+</div>
+<div class="text-right">
+<h1 class="text-3xl font-extrabold text-[#343A40] dark:text-slate-100">Payslip</h1>
+<p class="text-sm text-slate-500 dark:text-slate-400">For October 2023</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8 my-8 border-y border-slate-200 dark:border-slate-800 py-6">
+<div>
+<h3 class="font-semibold text-base text-[#343A40] dark:text-slate-300 mb-2">Employee Details</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400"><span class="font-medium">Name:</span> John Doe</p>
+<p class="text-sm text-slate-600 dark:text-slate-400"><span class="font-medium">Employee ID:</span> EMP12345</p>
+<p class="text-sm text-slate-600 dark:text-slate-400"><span class="font-medium">Role:</span> Senior Lecturer</p>
+</div>
+<div>
+<h3 class="font-semibold text-base text-[#343A40] dark:text-slate-300 mb-2">Pay Period Details</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400"><span class="font-medium">Start Date:</span> 01/10/2023</p>
+<p class="text-sm text-slate-600 dark:text-slate-400"><span class="font-medium">End Date:</span> 31/10/2023</p>
+<p class="text-sm text-slate-600 dark:text-slate-400"><span class="font-medium">Pay Date:</span> 31/10/2023</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12">
+<div>
+<h3 class="font-semibold text-lg text-[#343A40] dark:text-slate-200 mb-3">Earnings</h3>
+<table class="w-full text-sm">
+<thead class="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
+<tr>
+<th class="py-2 font-medium">Description</th>
+<th class="py-2 font-medium text-right">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="py-3 text-slate-600 dark:text-slate-300">Basic Salary</td>
+<td class="py-3 text-right text-slate-700 dark:text-slate-200">$5,000.00</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="py-3 text-slate-600 dark:text-slate-300">Housing Allowance</td>
+<td class="py-3 text-right text-slate-700 dark:text-slate-200">$500.00</td>
+</tr>
+<tr>
+<td class="py-3 text-slate-600 dark:text-slate-300">Overtime (10 hrs)</td>
+<td class="py-3 text-right text-slate-700 dark:text-slate-200">$250.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3 class="font-semibold text-lg text-[#343A40] dark:text-slate-200 mb-3">Deductions</h3>
+<table class="w-full text-sm">
+<thead class="text-left text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
+<tr>
+<th class="py-2 font-medium">Description</th>
+<th class="py-2 font-medium text-right">Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="py-3 text-slate-600 dark:text-slate-300">Income Tax</td>
+<td class="py-3 text-right text-slate-700 dark:text-slate-200">($750.00)</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="py-3 text-slate-600 dark:text-slate-300">Health Insurance</td>
+<td class="py-3 text-right text-slate-700 dark:text-slate-200">($200.00)</td>
+</tr>
+<tr>
+<td class="py-3 text-slate-600 dark:text-slate-300">Pension Contribution</td>
+<td class="py-3 text-right text-slate-700 dark:text-slate-200">($300.00)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+<div class="w-full max-w-sm ml-auto space-y-3">
+<div class="flex justify-between items-center text-sm">
+<span class="font-medium text-slate-600 dark:text-slate-400">Gross Earnings:</span>
+<span class="font-semibold text-slate-800 dark:text-slate-200">$5,750.00</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="font-medium text-slate-600 dark:text-slate-400">Total Deductions:</span>
+<span class="font-semibold text-slate-800 dark:text-slate-200">($1,250.00)</span>
+</div>
+<div class="flex justify-between items-center text-lg bg-green-100 dark:bg-green-900/50 p-3 rounded-lg">
+<span class="font-bold text-green-700 dark:text-green-300">Net Pay:</span>
+<span class="font-extrabold text-green-700 dark:text-green-300">$4,500.00</span>
+</div>
+</div>
+</div>
+<div class="mt-8 text-sm text-slate-500 dark:text-slate-400">
+<p><span class="font-semibold">Bank Details:</span> Salary will be deposited to Bank of Knowledge, Account ending in **** 1234.</p>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 mt-8">
+<button class="flex items-center justify-center gap-2 rounded-lg h-11 px-4 text-[#343A40] dark:text-slate-300 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors text-sm font-bold">
+<span class="material-symbols-outlined text-base">print</span>
+                               Print
+                            </button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-11 px-5 bg-primary text-white text-sm font-bold shadow-md hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-base">download</span>
+                                Download as PDF
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

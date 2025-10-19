@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management System - Communication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 bg-slate-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col">
+<div class="p-4 flex flex-col gap-4 flex-grow">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDM7velvneyOzTtcwLYmGHar9lrmSA5s7mlgmLFDygIOaa-zfozosHxwIjcE3joahLjyt25DRphH34NyYR17j9OCqra2eTIZFYJ6eGctJ6p7zlfCXIHTfQv_qaJ8I9Ch-AMy1kdlq7bEBy4bBx4RkZELMsXhw7hVXMosJqZN67yjkd54vuKhnaBOx6EUQCgPlgZQWbo2DLikeAz-RbeyCvoReOOUNOwdqvXoTjXoDMLYQ1D1ULZfOoSp46uJbDIFKSXv_5y9zs6XQB3");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#0d141b] dark:text-white text-base font-medium">Admin</h1>
+<p class="text-[#4c739a] dark:text-gray-400 text-sm">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-sm font-medium">Student Information</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/30 text-primary dark:text-white" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
+<p class="text-sm font-medium">Communication</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<p class="text-sm font-medium">Billing</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</div>
+</div>
+<div class="p-4">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span class="truncate">New Student</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-10 py-3 bg-white dark:bg-gray-800">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+<div class="size-4 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold">Student Management</h2>
+</div>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full h-10 pl-10 pr-4 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 border-transparent focus:border-primary focus:ring-0" placeholder="Search" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYwae8DDBv9T3G6pDuSeTNdb6MtcRK0iEh1IUvk9dpGsX2ciLp5uYqYMUkattMy0Qyj3rKH2zol8PoBN2p5JhjxLYWALyGaiWKTQ7YlC70aYst5pLm-FVlNAhLsnh7pk_Tsl7dvAfgRVGvpq7WF8P5E3UhNHzxbwVRinbRiPd-lWpiXM7B2Le0fAwcXZ7IHTW2T3jxrBOK4tAkApXBvBkQgQRx3EF60lRvvFUGm_W7-Q62za29gOCg1f-caPVTvOXI24XpXoEd8b-W");'></div>
+</div>
+</header>
+<div class="flex-1 p-8 bg-background-light dark:bg-background-dark overflow-y-auto">
+<!-- PageHeading -->
+<div class="mb-6">
+<p class="text-[#0d141b] dark:text-white text-4xl font-black">Communication &amp; Notifications</p>
+<p class="text-[#4c739a] dark:text-gray-400 mt-1">Manage and send notifications to students and parents.</p>
+</div>
+<!-- Tabs -->
+<div class="border-b border-gray-200 dark:border-gray-700 mb-6">
+<nav class="flex gap-8 -mb-px">
+<a class="flex items-center justify-center border-b-2 border-primary text-primary pb-3 pt-4 px-1" href="#">
+<p class="text-sm font-bold">Send Notification</p>
+</a>
+<a class="flex items-center justify-center border-b-2 border-transparent text-[#4c739a] dark:text-gray-400 hover:text-primary hover:border-primary pb-3 pt-4 px-1" href="#">
+<p class="text-sm font-bold">Schedule</p>
+</a>
+<a class="flex items-center justify-center border-b-2 border-transparent text-[#4c739a] dark:text-gray-400 hover:text-primary hover:border-primary pb-3 pt-4 px-1" href="#">
+<p class="text-sm font-bold">History</p>
+</a>
+</nav>
+</div>
+<!-- Content Area -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Create Notification -->
+<div class="lg:col-span-2 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold mb-6">Create New Notification</h2>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="recipients">Recipients</label>
+<select class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:border-primary focus:ring-primary" id="recipients" name="recipients">
+<option>All Students</option>
+<option>Class 10 - Section A</option>
+<option>Class 9 - Section B</option>
+<option>Filter by individual student...</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Payment Status</label>
+<div class="flex items-center gap-4">
+<label class="flex items-center">
+<input checked="" class="form-radio text-primary focus:ring-primary" name="payment-status" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">All</span>
+</label>
+<label class="flex items-center">
+<input class="form-radio text-primary focus:ring-primary" name="payment-status" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Upcoming</span>
+</label>
+<label class="flex items-center">
+<input class="form-radio text-primary focus:ring-primary" name="payment-status" type="radio"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Overdue</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="template">Message Template</label>
+<select class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:border-primary focus:ring-primary" id="template" name="template">
+<option>Fee Payment Reminder</option>
+<option>Overdue Payment Notice</option>
+<option>Custom Message</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="message">Message</label>
+<textarea class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:border-primary focus:ring-primary" id="message" name="message" placeholder="Compose your custom message here..." rows="5"></textarea>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Channels</label>
+<div class="flex items-center gap-4">
+<label class="flex items-center">
+<input checked="" class="form-checkbox rounded text-primary focus:ring-primary" type="checkbox"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">SMS</span>
+</label>
+<label class="flex items-center">
+<input checked="" class="form-checkbox rounded text-primary focus:ring-primary" type="checkbox"/>
+<span class="ml-2 text-gray-700 dark:text-gray-300">Email</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Scheduling & Actions -->
+<div class="lg:col-span-1 space-y-8">
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Schedule Notification</h3>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 cursor-pointer">help_outline</span>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="date">Date</label>
+<input class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:border-primary focus:ring-primary" id="date" name="date" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="time">Time</label>
+<input class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:border-primary focus:ring-primary" id="time" name="time" type="time"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="recurrence">Recurrence</label>
+<select class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 focus:border-primary focus:ring-primary" id="recurrence" name="recurrence">
+<option>Don't repeat</option>
+<option>Daily</option>
+<option>Weekly</option>
+<option>Monthly</option>
+</select>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex w-full items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold shadow-sm hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined mr-2">send</span> Send Now
+                            </button>
+<button class="flex w-full items-center justify-center rounded-lg h-12 px-6 bg-primary/20 text-primary dark:bg-primary/30 dark:text-white font-bold hover:bg-primary/30 dark:hover:bg-primary/40 transition-colors">
+<span class="material-symbols-outlined mr-2">schedule</span> Schedule
+                            </button>
+<button class="flex w-full items-center justify-center rounded-lg h-12 px-6 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-bold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                                Clear
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

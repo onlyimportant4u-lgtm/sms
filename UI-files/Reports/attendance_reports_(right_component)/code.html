@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management System - Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "background-light": "#F4F4F4",
+                        "background-dark": "#101922",
+                        "text-light": "#333333",
+                        "text-dark": "#F4F4F4",
+                        "text-secondary-light": "#777777",
+                        "text-secondary-dark": "#A0AEC0",
+                        "accent-green": "#7ED321",
+                        "accent-red": "#D0021B",
+                        "border-light": "#E2E8F0",
+                        "border-dark": "#2D3748"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col">
+<div class="flex h-full grow flex-row">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-gray-800 shadow-md flex flex-col justify-between">
+<div class="p-4">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrwBc5WmlbNBUx7fwndt17btaVW3jQvZSaU4tQmvyqXRrWB-JOzBYrqc1q6nCwjpVUlyhVwdu0A6vxsU7Q-53ikGwMmbtNLfRoZXPtfpAF_0zBJVxo-bEMUar-3hesImOjjxu7ANgOhTyHjC8L0vpR8nyG1CMYrGNdWVVMlm33QG2pzHfWdN0CycO6l8XK85uZkTSXimA5AqF1tdkMNL3onIgidCjZ51ScbQi8FkYn9zB6TWV9fQf-xRnYYTyTn3p46R2QBCiVTNVL");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-base font-medium">Admin</h1>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">admin@school.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-sm font-medium">Student</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-sm font-medium">Staff</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">pie_chart</span>
+<span class="text-sm font-bold">Reports &amp; Analytics</span>
+</a>
+</nav>
+</div>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-sm font-medium">Help</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-light dark:text-text-dark hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-border-light dark:border-border-dark px-10 py-3 bg-white dark:bg-gray-800">
+<div class="flex items-center gap-8">
+<h2 class="text-text-light dark:text-text-dark text-lg font-bold">Student Management System</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark">search</span>
+<input class="form-input w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark h-10 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark pl-10 text-sm" placeholder="Search..." value=""/>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark hover:bg-primary/10">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC-3YQ7EO1GwGnjg9-n9fRThCGIdx-FIMp6sfXwZUWBs3a4OiNjd667qi0KJ69euTB0G74x4GXI2Hoal-R4q9_qAFIWHwLqloE9uuK0qsK7m5DgjPhJliEyLJ7bKG60tSUd9kz-QUzwOQVCzfQhnCFS2EdmGenO5VUe-TySqRlmTC-yZVXXndrmRCRXucnsge3rrTQ62vlPuqjjZmFDEqbEsBZb9KuWa98Onq0TuebpzZAbh_aMSGY_oHal6Egtc-_xxg-xTPYJcI_G");'></div>
+</div>
+</header>
+<!-- Right-side content -->
+<div class="flex-1 p-8 bg-background-light dark:bg-background-dark overflow-y-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-3 mb-6">
+<div class="flex flex-col gap-1">
+<p class="text-text-light dark:text-text-dark text-3xl font-black">Attendance Reports</p>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-base">Generate and view various attendance reports for both students and staff.</p>
+</div>
+</div>
+<!-- Top Filter Bar -->
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-sm mb-6">
+<div class="flex border-b border-border-light dark:border-border-dark mb-4">
+<a class="flex items-center justify-center border-b-[3px] border-b-primary text-primary pb-3 px-4" href="#">
+<p class="text-sm font-bold">Student Attendance</p>
+</a>
+<a class="flex items-center justify-center border-b-[3px] border-b-transparent text-text-secondary-light dark:text-text-secondary-dark hover:text-primary pb-3 px-4" href="#">
+<p class="text-sm font-bold">Staff Attendance</p>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+<label class="flex flex-col">
+<p class="text-text-light dark:text-text-dark text-sm font-medium pb-2">Date Range</p>
+<select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-700 h-12 px-3 text-sm font-normal">
+<option>Last 7 Days</option>
+<option>Today</option>
+<option>This Month</option>
+<option>Custom Range</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-text-light dark:text-text-dark text-sm font-medium pb-2">Class</p>
+<select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-700 h-12 px-3 text-sm font-normal">
+<option>All Classes</option>
+<option>Grade 9</option>
+<option>Grade 10</option>
+<option>Grade 11</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-text-light dark:text-text-dark text-sm font-medium pb-2">Student</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-white dark:bg-gray-700 h-12 px-3 text-sm font-normal" placeholder="Search for student..."/>
+</label>
+<div class="flex gap-2 justify-end">
+<button class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary text-sm font-medium">Clear Filters</button>
+<button class="flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-sm font-bold shadow-sm hover:bg-primary/90">Generate Report</button>
+</div>
+</div>
+</div>
+<!-- Report Display Area -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-text-light dark:text-text-dark text-xl font-bold">Attendance Summary for Grade 9 - Last 7 Days</h3>
+<!-- Action Bar -->
+<div class="relative">
+<button class="flex items-center gap-2 rounded-lg h-10 px-4 bg-white dark:bg-gray-700 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark text-sm font-medium shadow-sm hover:bg-gray-50 dark:hover:bg-gray-600" id="export-button">
+<span class="material-symbols-outlined text-base">ios_share</span>
+                                   Export
+                                   <span class="material-symbols-outlined text-base">expand_more</span>
+</button>
+<!-- Dropdown, will be implemented with JS -->
+</div>
+</div>
+<!-- Report Type Tabs -->
+<div class="flex border-b border-border-light dark:border-border-dark text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">
+<button class="py-2 px-4 border-b-2 border-primary text-primary">Summary</button>
+<button class="py-2 px-4 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600">Absentees</button>
+<button class="py-2 px-4 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600">Tardiness</button>
+<button class="py-2 px-4 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600">Trends</button>
+</div>
+<!-- Content for "Summary" Tab -->
+<div class="py-6">
+<!-- Key Metrics Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm flex items-center gap-4">
+<div class="p-3 rounded-full bg-accent-green/20 text-accent-green">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+</div>
+<div>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Overall Attendance</p>
+<p class="text-text-light dark:text-text-dark text-3xl font-bold">98.5%</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm flex items-center gap-4">
+<div class="p-3 rounded-full bg-accent-red/20 text-accent-red">
+<span class="material-symbols-outlined text-3xl">cancel</span>
+</div>
+<div>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Total Absences</p>
+<p class="text-text-light dark:text-text-dark text-3xl font-bold">12</p>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm flex items-center gap-4">
+<div class="p-3 rounded-full bg-yellow-500/20 text-yellow-500">
+<span class="material-symbols-outlined text-3xl">schedule</span>
+</div>
+<div>
+<p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">Total Tardies</p>
+<p class="text-text-light dark:text-text-dark text-3xl font-bold">5</p>
+</div>
+</div>
+</div>
+<!-- Empty State Example - uncomment to view
+                            <div class="text-center py-16">
+                                <span class="material-symbols-outlined text-6xl text-text-secondary-light dark:text-text-secondary-dark">search_off</span>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark mt-4">No Data Found</h3>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">No attendance records match your selected criteria. Try adjusting the filters.</p>
+                            </div>
+                            -->
+<!-- Loading State Example - uncomment to view
+                            <div class="text-center py-16">
+                                <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-4">Generating report...</p>
+                            </div>
+                             -->
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

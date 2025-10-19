@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>School Profile Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#212529] dark:text-white/80">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<div class="w-64 bg-white dark:bg-background-dark/50 border-r border-[#e7edf3] dark:border-white/10 shrink-0">
+<div class="p-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin User Avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBoUB1VZk657KxSjs5SbkskA3Z5aV9ekOvlvLmK679jhYrmpP1qCDKhJN-e7u7n5qFFM1H4f_hKm2uHNcfllXAjOmenMsOy_mBskDZ3zkVbdKn9tAqY_Pu40DBbGy0H_ear01WiK-D7MiN2SkeJLxQkyPN0bDUpT7hW_YLVKbQWZWdOXfOCrYH34dN75W2nBxduFIF9psXASGhEtdU3QNW4w3n-71g8KbcA3ZrZiQBhY9ygjooWBZqFiii_6aaXEIXh2fFZnICOJfd1');"></div>
+<div class="flex flex-col">
+<h1 class="text-[#0d141b] dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-[#4c739a] dark:text-white/60 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-6">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-white/80">dashboard</span>
+<p class="text-[#0d141b] dark:text-white/80 text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-white/80">groups</span>
+<p class="text-[#0d141b] dark:text-white/80 text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-white/80">badge</span>
+<p class="text-[#0d141b] dark:text-white/80 text-sm font-medium leading-normal">Teachers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-white/80">wallet</span>
+<p class="text-[#0d141b] dark:text-white/80 text-sm font-medium leading-normal">Finance</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/30" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-light font-bold">settings</span>
+<p class="text-primary dark:text-primary-light text-sm font-medium leading-normal">Administration</p>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7edf3] dark:border-white/10 px-10 py-3 bg-white dark:bg-background-dark/50">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+<div class="size-6 text-primary">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L1 9.07V22h22V9.07L12 2zm6 18H6v-9.07l6-4.28 6 4.28V20z"></path>
+</svg>
+</div>
+<h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">School Admin</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="relative flex-col min-w-40 !h-10 max-w-64 hidden sm:flex">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-white/60">search</span>
+<input class="form-input w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7edf3] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-full placeholder:text-[#4c739a] dark:placeholder:text-white/60 pl-10 pr-4 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent hover:bg-black/5 dark:hover:bg-white/10 text-[#0d141b] dark:text-white/80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-transparent hover:bg-black/5 dark:hover:bg-white/10 text-[#0d141b] dark:text-white/80">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User Avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLC6Kh1Vjp1vAjLKkBTFtF8kfR3fgaqKKNarkZQege1Mn3I31Yn4f9HijVpUqgeUb0_gwVTHz1Z4HW-2usJVWSa_Vg6M720GlXy3puA-tGIm-BRyq_6AR2agF_COYNdf0cypw4HIptmA5aoGcGn4ae8vhx8uIJI-jrkf0VtlG4vMg6Dvz34cD7cTNtoOytqZE61t-Z1yQDnO1ubCIE2NgtOKWsJTgX_cOf_L-_yuBfvveMxAj5JgFWwzj8K5Uyg8JA8D5W4pRsaI3L');"></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6 sm:p-10 bg-background-light dark:bg-background-dark">
+<div class="max-w-4xl mx-auto">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between gap-3 mb-8">
+<p class="text-[#0d141b] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">School Profile</p>
+</div>
+<div class="bg-white dark:bg-background-dark/50 rounded-xl shadow-sm border border-[#e7edf3] dark:border-white/10">
+<!-- General Information -->
+<div class="p-6 border-b border-[#e7edf3] dark:border-white/10">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">General Information</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+<div class="md:col-span-2">
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">School Name</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 p-3 text-base font-normal leading-normal" placeholder="Enter the official school name" value="Springfield Academy"/>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">Address Line 1</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 p-3 text-base font-normal leading-normal" placeholder="e.g., 123 Education Lane" value="123 Education Lane"/>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">Address Line 2 (Optional)</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 p-3 text-base font-normal leading-normal" value=""/>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">City</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 p-3 text-base font-normal leading-normal" value="Springfield"/>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">State/Province</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 p-3 text-base font-normal leading-normal" value="Illinois"/>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">Zip/Postal Code</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 p-3 text-base font-normal leading-normal" value="62704"/>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">Country</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 p-3 text-base font-normal leading-normal">
+<option>United States</option>
+<option>Canada</option>
+<option>United Kingdom</option>
+<option>Australia</option>
+</select>
+</label>
+</div>
+</div>
+</div>
+<!-- School Logo -->
+<div class="p-6 border-b border-[#e7edf3] dark:border-white/10">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">School Logo</h2>
+<div class="mt-6 flex items-center gap-6">
+<div class="bg-center bg-no-repeat aspect-square bg-contain rounded-xl size-24 bg-gray-100 dark:bg-white/10 p-2" data-alt="School logo preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCFqww5a4mQARSMjejb4LokZaIBVP0JwMmDKpv3gAxKTaGWpZd2EEgO5tcjS6f-jtHGWXrf82zHeLvS-q_7yTbGGFWd-j802_S3Vco0sHAtKMlaBrEtACY0MpEgn8Du0ZmbslY2Qyv3VhUV_FWCXo_Hnvklkhm3RZDyJxMW8LsbFN6h-o6I_emU_xr2yAlSfBtFALd3SNHECSmgxj4XQEBF-3sfrogYlvYxXtzl8RHD_0M1kKDWWvw7Uxrw1MP5h8x4xuLaT-Kb5k_J');"></div>
+<div>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-light gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-4">
+<span>Upload New Logo</span>
+</button>
+<p class="text-sm text-gray-500 dark:text-white/50 mt-2">Recommended format: PNG or JPG. Max size: 2MB.</p>
+</div>
+</div>
+</div>
+<!-- Contact Details -->
+<div class="p-6">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em]">Contact Details</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">Main Phone Number</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-white/60">phone</span>
+<input class="form-input w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 pl-10 pr-3 text-base font-normal leading-normal" placeholder="(555) 123-4567" value="(555) 123-4567"/>
+</div>
+</label>
+</div>
+<div>
+<label class="flex flex-col">
+<p class="text-[#0d141b] dark:text-white/80 text-base font-medium leading-normal pb-2">General Enquiries Email</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#4c739a] dark:text-white/60">email</span>
+<input class="form-input w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#cfdbe7] dark:border-white/20 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-[#4c739a] dark:placeholder:text-white/60 pl-10 pr-3 text-base font-normal leading-normal" placeholder="info@school.com" value="info@springfield.edu"/>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-6 bg-gray-50 dark:bg-background-dark/30 rounded-b-xl flex justify-end gap-3">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-gray-200 dark:bg-white/10 text-[#212529] dark:text-white/80 text-sm font-bold leading-normal tracking-[0.015em] px-4">
+<span>Cancel</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] px-4 disabled:opacity-50" disabled="">
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

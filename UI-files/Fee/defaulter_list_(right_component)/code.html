@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fee Defaulters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-slate-900/70 p-4 flex-col justify-between hidden lg:flex">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCFmzsXIYUMmBGbOyfYUWGnFB3_aGrsydeOTG-xxEPs42nnGLuWTuf-yZkYfRdYruvMCw82YAU12V2ZX0C46sHcuUn3oyv-MN7Nl_gazm-76FliWh8yaK9UCCizG938SsOpjmfFB9EtKF9hgpXuoCBx2ixp9oLVXxjPvqtS-yyo_iPbi-5GNzmtTpubYOZkcY-GWlmHK1evtoT1Z-Zm_VPJGyZmlMwv5IGzt-RWYva3wYXqNLDGzO3LAAa1LHjBfj89cCNdBhsAVvUz");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-800 dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary dark:text-primary-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">receipt_long</span>
+<p class="text-sm font-medium leading-normal">Fee Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Logout</span>
+</button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<p class="text-sm font-medium leading-normal">Help</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-primary/10 dark:hover:bg-primary/20 rounded-lg" href="#">
+<span class="material-symbols-outlined">call</span>
+<p class="text-sm font-medium leading-normal">Contact Us</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- Top Navbar -->
+<header class="bg-white dark:bg-slate-900/70 p-4 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
+<button class="lg:hidden text-slate-800 dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex-1"></div>
+<div class="flex items-center gap-4">
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-6 md:p-8 lg:p-10 flex-1 overflow-y-auto">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between gap-4 items-center mb-6">
+<p class="text-slate-900 dark:text-white text-3xl font-bold leading-tight">Fee Defaulters</p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-300 dark:hover:bg-slate-700">
+<span class="truncate">Export to CSV</span>
+</button>
+</div>
+<!-- Filters -->
+<div class="bg-white dark:bg-slate-900/70 p-4 rounded-lg mb-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
+<!-- Class Filter -->
+<div class="flex flex-col gap-1">
+<label class="text-sm font-medium text-slate-600 dark:text-slate-400" for="class-filter">Class</label>
+<button class="flex h-10 w-full items-center justify-between rounded-md border border-slate-300 dark:border-slate-700 bg-transparent px-3 text-slate-800 dark:text-slate-200 text-sm" id="class-filter">
+<span>All Classes</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Section Filter -->
+<div class="flex flex-col gap-1">
+<label class="text-sm font-medium text-slate-600 dark:text-slate-400" for="section-filter">Section</label>
+<button class="flex h-10 w-full items-center justify-between rounded-md border border-slate-300 dark:border-slate-700 bg-transparent px-3 text-slate-800 dark:text-slate-200 text-sm" id="section-filter">
+<span>All Sections</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Academic Session Filter -->
+<div class="flex flex-col gap-1">
+<label class="text-sm font-medium text-slate-600 dark:text-slate-400" for="session-filter">Academic Session</label>
+<button class="flex h-10 w-full items-center justify-between rounded-md border border-slate-300 dark:border-slate-700 bg-transparent px-3 text-slate-800 dark:text-slate-200 text-sm" id="session-filter">
+<span>2023-2024</span>
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Amount Due Filter -->
+<div class="flex flex-col gap-1">
+<label class="text-sm font-medium text-slate-600 dark:text-slate-400" for="amount-due-filter">Amount Due</label>
+<div class="flex items-center gap-2">
+<input class="h-10 w-full rounded-md border border-slate-300 dark:border-slate-700 bg-transparent px-3 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="From" type="number"/>
+<input class="h-10 w-full rounded-md border border-slate-300 dark:border-slate-700 bg-transparent px-3 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="To" type="number"/>
+</div>
+</div>
+<!-- Apply Filters Button -->
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Apply Filters</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70">
+<table class="w-full">
+<thead>
+<tr class="bg-slate-100 dark:bg-slate-800/50">
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Student Name</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Student ID</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Class &amp; Section</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Amount Due</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Due Date</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Overdue Status</th>
+<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<tr>
+<td class="px-4 py-3 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="student avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHeBXSRkRggRNUgs8LXCs0yFks0XDogeFT_L2250l7PiLmfjYXWb83-gZNcQm1bt3pz8-CD4thkqh3mnqTMN8s1djGq-WUEkGeXQWzYGAjJQW9KM07BQWc_uOa-xMakVkq3ajsLIob-iRfTkA666hhwAVSKmVLs1NtOP-1lxvk4yczIbnu4CAspYmAq00lS8tW0AsMU5NQjawRrmPAKb8nhEqac3PmAMiwcLE_d8VZtz-WEEHQqPlnoTU6EOI84CBgUCvbdPpsK5z0");'></div>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">John Smith</p>
+</div>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">S12345</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">10A</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">₹5,000</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">2023-10-25</td>
+<td class="px-4 py-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300">Overdue</span>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium space-x-2">
+<button class="text-primary hover:underline">View Details</button>
+<button class="text-primary hover:underline">Send Reminder</button>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="student avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJdyWjgcF1ZGTTMR_VZZgDtxngQzQ8-QhbJD3KQ6zN1Gr90GNBKy0ZWEE2BfB6612uXPPQUj_CwiuFhQJkoewb0wA5boPh9guPJ4--ek3jGA4DVm7WyjV465Q-P7j979hEomRdLtl7jrmWuS45KDcAKUPSJqfwTRGbXncrUMj0SLC2C5SO8jsTgBiDUWfQ-YRGcFMMq71R7RfjidRerwdmjw_mvFkwz6YKNg_C55JkZxkY9K6Cx059fG89IzVKBlqR68l3hxy72YZa");'></div>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">Alice Williams</p>
+</div>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">S67890</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">11B</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">₹7,500</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">2023-10-20</td>
+<td class="px-4 py-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300">Overdue</span>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium space-x-2">
+<button class="text-primary hover:underline">View Details</button>
+<button class="text-primary hover:underline">Send Reminder</button>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="student avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxcGO0l5FjaXRzouv8k6K6-cYIJIEjIwKwSA0H-XrJfvTSKZHpQBdbupO5nvfiu_755uM1Okcsk68XJbCHCnLgmt7oF3Vf2htG5ZXcd0LO3FSWeCfX-ExS3mMG4M9BB2So2HL_fXIWnEJze6nau3Up-69V_Y4-NV36OnZBatHMWAYxER5dsvfuMtySdVGKmEZ7WyEHd_CXGvZ0_IsBGPi95LFegzvluNAyHA_ujf40403spf8ZYg3iCM3M154n-Y8fxiwcDoGHvBiK");'></div>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">Michael Brown</p>
+</div>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">S54321</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">10A</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">₹5,000</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">2023-11-05</td>
+<td class="px-4 py-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300">Upcoming</span>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium space-x-2">
+<button class="text-primary hover:underline">View Details</button>
+<button class="text-primary hover:underline">Send Reminder</button>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="student avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDzBEjun490tX1lZo41l4sUjvOsqs5pdNUCZx7WpSXABPSoIPVAhNH-OryFpYs42nenKkgg68BlC1e6edhX1N4jCsM1CyW58cUjBfTDx3JFQIfb5aMLsuOtp0nJW-8yUlkT67RI89wbJ5yuZXvi127sY1j9XeAQiWzJuODUqHEtYXMkGh6XZ0QUz-N2s3dZTzUL_PF9tB9sdFl-PLvpYIMM4HeZ8PqwYbzYTUGrSL8FuAqcj95HbpMHCsCir0uMmYCW1oKCZKgeOusn");'></div>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">Emily Jones</p>
+</div>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">S09876</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">12C</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">₹10,000</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">2023-10-15</td>
+<td class="px-4 py-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300">Overdue</span>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium space-x-2">
+<button class="text-primary hover:underline">View Details</button>
+<button class="text-primary hover:underline">Send Reminder</button>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-3 whitespace-nowrap">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="student avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBEItW3aaTNACgQFsWzfGlV_EstpzBkQl0Ri7s7hwj2dR2kkCDUwY4-tlAJDt46A_4-p-4SIQLIgmVNYVehvSF3poW6qndEQ9_L95USj734a0jSSSISHHEPwJLgb8Lwh0mjcNjihFybxetl45by_IRx0AF17WSXmP1cLZBKfDPoa9eO70d0n2j7Hm-YuCuEnKYhsQgBnpw7dhtiaCMIqCHX61qkKHwUFhgV5XuLigiPca-gO6Z901_cWBpkIg46sf8Fa5ktHE67ix0L");'></div>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">David Davis</p>
+</div>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">S13579</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">11B</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">₹7,500</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">2023-11-10</td>
+<td class="px-4 py-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300">Upcoming</span>
+</td>
+<td class="px-4 py-3 whitespace-nowrap text-sm font-medium space-x-2">
+<button class="text-primary hover:underline">View Details</button>
+<button class="text-primary hover:underline">Send Reminder</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center p-4 mt-4">
+<a class="flex size-10 items-center justify-center text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">chevron_left</span>
+</a>
+<a class="text-sm font-bold leading-normal tracking-[0.015em] flex size-10 items-center justify-center text-white rounded-full bg-primary" href="#">1</a>
+<a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-slate-600 dark:text-slate-400 rounded-full hover:bg-primary/10" href="#">2</a>
+<a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-slate-600 dark:text-slate-400 rounded-full hover:bg-primary/10" href="#">3</a>
+<span class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-slate-600 dark:text-slate-400 rounded-full">...</span>
+<a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-slate-600 dark:text-slate-400 rounded-full hover:bg-primary/10" href="#">10</a>
+<a class="flex size-10 items-center justify-center text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</div>
+</div>
+</main>
+<!-- Reminder Modal (hidden by default)-->
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden" id="reminder-modal">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-xl w-full max-w-md p-6">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Send Reminder</h2>
+<div class="space-y-4">
+<fieldset class="space-y-2">
+<legend class="text-sm font-medium text-slate-700 dark:text-slate-300">Reminder Type</legend>
+<div class="flex items-center gap-4">
+<div class="flex items-center">
+<input checked="" class="h-4 w-4 text-primary border-slate-300 focus:ring-primary" id="automated" name="reminder-type" type="radio"/>
+<label class="ml-2 block text-sm text-slate-900 dark:text-slate-200" for="automated">Automated Reminder</label>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary border-slate-300 focus:ring-primary" id="manual" name="reminder-type" type="radio"/>
+<label class="ml-2 block text-sm text-slate-900 dark:text-slate-200" for="manual">Manual Reminder</label>
+</div>
+</div>
+</fieldset>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="reminder-message">Message</label>
+<textarea class="block w-full rounded-lg border-slate-300 dark:border-slate-700 bg-transparent dark:text-slate-200 shadow-sm focus:border-primary focus:ring-primary sm:text-sm" id="reminder-message" placeholder="Dear Parent, This is a reminder that the fee payment for [Student Name] of ₹[Amount Due] is overdue. Kindly make the payment at the earliest. Thank you." rows="4"></textarea>
+</div>
+</div>
+<div class="mt-6 flex justify-end gap-3">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-bold leading-normal hover:bg-slate-300 dark:hover:bg-slate-700">
+<span class="truncate">Cancel</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal">
+<span class="truncate">Send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

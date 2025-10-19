@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<div class="w-64 bg-slate-50 dark:bg-gray-900/50 p-4 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3jEhJYMkIiM2h6gOXjFRtB_VT63yq1ax707kczKJYYPthvQK9kArWG2gQAHmYnAoQPyfIHHb1n-Zu3deS1rN8O2HP9CdYq3ZqLdN0mn_wbJfzVD4o254q9XvV53qcN0GdOLpe0IrXaGBxtFklOqZXhePyXptUgIi5ipJ-Gc-GsU-OAxaOs-Ika2nqLITgYV3MzE4R5a2aMKkLgFXeJVuHzE40RHowRLuPmr2DsVT-LvlOOiSEwp3lxAhTtE7uqEOibWzoVWRTmC4M");'></div>
+<div>
+<h1 class="text-base font-medium text-gray-800 dark:text-gray-200">Admin</h1>
+<p class="text-sm text-gray-500 dark:text-gray-400">admin@school.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Teachers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">book</span>
+<span>Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<button class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+                Logout
+            </button>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-700 px-10 py-3 bg-white dark:bg-gray-800">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-gray-800 dark:text-gray-200">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-4xl">school</span>
+</div>
+<h2 class="text-lg font-bold">Student Management</h2>
+</div>
+<label class="relative flex-grow max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 border-transparent focus:border-primary focus:ring-primary" placeholder="Search" type="text"/>
+</label>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-300">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDb_M5JEnQ_byVQO_66SoRAVWQZA851Z1p-EQwTDlkt_cg-kKcQfztN5Xv-SQDXMMAsilZFzeFlvBm9nBBAaFPOVNFnhKmVj2M2ZAO-0f-K3JSHPvOlihqPeUJLmUDjj3jDnJIxZJlhwWAoDmq6W6XLeZXwQxE1mVuPTWZRBRiA8uHYiQWIutCsENR2-iwbfo1GamD4EMzLFoGUA3_8BhADocS1clqc66ezoX-D5h_0aUMUMWy6q4tpmU4XMHM4lGpxPk_W30CW9vdx");'></div>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 overflow-y-auto p-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-4xl mx-auto">
+<!-- PageHeading -->
+<div class="mb-8">
+<p class="text-4xl font-black tracking-tight text-gray-900 dark:text-white">Student Registration</p>
+</div>
+<!-- ProgressBar -->
+<div class="mb-8">
+<div class="flex justify-between items-center mb-2">
+<p class="text-base font-medium text-gray-700 dark:text-gray-300">Step 1 of 4</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">25% Complete</p>
+</div>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+<!-- Form Content -->
+<div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm">
+<!-- SectionHeader -->
+<h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">Personal Information</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="full-name">Full Name</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:border-primary focus:ring-primary dark:text-white" id="full-name" name="full-name" placeholder="John Doe" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="dob">Date of Birth</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:border-primary focus:ring-primary dark:text-white" id="dob" name="dob" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="gender">Gender</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:border-primary focus:ring-primary dark:text-white" id="gender" name="gender">
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="nationality">Nationality</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:border-primary focus:ring-primary dark:text-white" id="nationality" name="nationality" placeholder="American" type="text"/>
+</div>
+<div class="col-span-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:border-primary focus:ring-primary dark:text-white" placeholder="you@example.com" type="email"/>
+<p class="mt-2 text-sm text-red-600 dark:text-red-400 hidden">Please enter a valid email address.</p>
+</div>
+<div class="col-span-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Phone Number</label>
+<input class="mt-1 block w-full rounded-lg border-red-500 dark:border-red-500 bg-red-50 dark:bg-red-900/20 focus:border-red-500 focus:ring-red-500 dark:text-white" placeholder="+1 (555) 000-0000" type="tel"/>
+<p class="mt-2 text-sm text-red-600 dark:text-red-400">Phone number is required.</p>
+</div>
+<div class="col-span-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Current Address</label>
+<textarea class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:border-primary focus:ring-primary dark:text-white" placeholder="123 Main St, Anytown, USA" rows="3"></textarea>
+</div>
+</div>
+<!-- Navigation Buttons -->
+<div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex justify-end gap-4">
+<button class="px-6 py-2 rounded-lg text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 font-semibold" type="button">
+                                Previous
+                            </button>
+<button class="px-6 py-2 rounded-lg text-white bg-primary hover:bg-primary/90 font-semibold" type="button">
+                                Next Step
+                            </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

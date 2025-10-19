@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Generate Report Card</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-3 py-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEOZ-EuC9ZNExtCS60JkEPnXH4_XLujUXI6d0zYKkvzcKQzxwd-HUSH0RG4xumBhifgdfKL56SwkefvK8t6JX6nQp95euL1TTxsRsEaemt8dPYbR0ayokZGVbK4g51JDjJDG9qc-BZR9wN7Z0tr270gPZ23fND6UjlgEoXZ0xNd8tQmdM7elyYry_nQTfYqKUT_V7CHwP-UrwN07x34hdRKoCsyHIUCyU_XHYTLfA3wIvPStVJ6yT_JVUMFIqIAiQEUZqn0lMl_2LM");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">
+                                description
+                            </span>
+<p class="text-sm font-medium leading-normal">Examinations</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">
+                                co_present
+                            </span>
+<p class="text-sm font-medium leading-normal">Attendance</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal">
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex-shrink-0 flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<span class="material-symbols-outlined text-2xl">
+                        school
+                    </span>
+<h2 class="text-lg font-bold leading-tight">Student Management System</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<div class="relative max-w-xs w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400">search</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark h-10 pl-10 placeholder:text-slate-500 dark:placeholder:text-slate-400" placeholder="Search" value=""/>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">
+                                notifications
+                            </span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">
+                                help
+                            </span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxiyLqF0eB6TpU1o9JR5OFCeb7a3DHsxGv_XD8UUmKrWy8-QkZGSTp0QacG6loVX8IvJIfcBAOCE4_0TtZBabPHx6SevgsYCxUemSf4kKUrKtOqMjpY8z149HhRRFCB9NcWs15j1hvqqsY_Mu3a7Gc4nQidpR0FMtDZpD3WUyszorug6rrnDLY-HobUVq90iVdFc5YU_W2r_zHBNB5aOFT80Bwx0Wfu7XCOj3bRJpZ8BdRUgkne6uuRSflF_p8P6xYOsDL-EFvqXgV");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="mb-8">
+<h1 class="text-4xl font-black leading-tight tracking-tight text-slate-900 dark:text-white">Generate Report Card</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-normal mt-2">Create and download official report cards for students.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Configuration Panel -->
+<div class="lg:col-span-1 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Configuration</h3>
+<div class="space-y-6">
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Select Examination</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 px-3 text-base">
+<option>Mid-Term Exam</option>
+<option>Final Exam</option>
+<option>Unit Test 1</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Select Class/Grade</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 px-3 text-base">
+<option>10th Grade</option>
+<option>9th Grade</option>
+<option>8th Grade</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Select Section</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 px-3 text-base">
+<option>A</option>
+<option>B</option>
+<option>C</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Select Students</p>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 px-3 placeholder:text-slate-500 dark:placeholder:text-slate-400" placeholder="Search for students..."/>
+</label>
+<div class="space-y-4 pt-4">
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-300">Include Attendance</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/>
+<span class="text-slate-700 dark:text-slate-300">Include Remarks</span>
+</label>
+</div>
+<div class="pt-6 space-y-3">
+<button class="flex w-full items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold">
+<span class="material-symbols-outlined mr-2">visibility</span>
+                                        Preview
+                                    </button>
+<button class="flex w-full items-center justify-center rounded-lg h-12 px-6 bg-primary/10 text-primary text-base font-bold">
+<span class="material-symbols-outlined mr-2">download</span>
+                                        Download Individual PDFs
+                                    </button>
+<button class="flex w-full items-center justify-center rounded-lg h-12 px-6 bg-primary/10 text-primary text-base font-bold">
+<span class="material-symbols-outlined mr-2">collections_bookmark</span>
+                                        Download Batch PDF
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Preview Area -->
+<div class="lg:col-span-2 bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Preview</h3>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="p-8 border border-slate-200 dark:border-slate-800 rounded-lg bg-background-light dark:bg-background-dark">
+<!-- Report Card Header -->
+<div class="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-3xl text-primary">school</span>
+</div>
+<div>
+<h4 class="font-bold text-xl text-slate-900 dark:text-white">Springfield High School</h4>
+<p class="text-slate-500 dark:text-slate-400">Official Report Card - Academic Year 2023-2024</p>
+</div>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Mid-Term Exam</p>
+</div>
+<!-- Student Info -->
+<div class="grid grid-cols-3 gap-6 py-6">
+<div class="flex items-center gap-4 col-span-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-16" data-alt="Student photo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnK3CJv78Hu0UqArbAJHHmV2Bi8vdQCt9zwo1aCaFf6i0JmhJjhbEU3n4NRXNDtwe4iuUYJqlPF9aBJ5t5ATezxTVcG0qO7HWu4qK9gbY7FBgLmD05J0ogznBtbTxiSL4GpWzz3IQAJS1FYx58lYEBe2IZjr1jRbRiquZ9A65aXj1Jquo6jtLT2RCUKFMbmIyJuo7rIgW2_nCLf1FOzBk6x78R1niXZNqj9BUjclqMOKz2bwRT7IvISad5AfqSNgdYPT_I942Yq_Vc");'></div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Student Name</p>
+<p class="font-bold text-lg text-slate-900 dark:text-white">John Doe</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Student ID</p>
+<p class="font-bold text-lg text-slate-900 dark:text-white">#12345</p>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Class/Grade</p>
+<p class="font-bold text-lg text-slate-900 dark:text-white">10th Grade</p>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Section</p>
+<p class="font-bold text-lg text-slate-900 dark:text-white">A</p>
+</div>
+</div>
+<!-- Marks Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-100 dark:bg-slate-800">
+<tr>
+<th class="p-3 text-sm font-semibold text-slate-600 dark:text-slate-300 rounded-l-lg">Subject</th>
+<th class="p-3 text-sm font-semibold text-slate-600 dark:text-slate-300 text-center">Marks Obtained</th>
+<th class="p-3 text-sm font-semibold text-slate-600 dark:text-slate-300 text-center">Total Marks</th>
+<th class="p-3 text-sm font-semibold text-slate-600 dark:text-slate-300 text-center rounded-r-lg">Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="p-3 font-medium text-slate-800 dark:text-slate-200">Mathematics</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">85</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">100</td>
+<td class="p-3 text-center font-bold text-green-600">A</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="p-3 font-medium text-slate-800 dark:text-slate-200">Science</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">92</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">100</td>
+<td class="p-3 text-center font-bold text-green-600">A+</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-800">
+<td class="p-3 font-medium text-slate-800 dark:text-slate-200">English</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">78</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">100</td>
+<td class="p-3 text-center font-bold text-yellow-600">B</td>
+</tr>
+<tr>
+<td class="p-3 font-medium text-slate-800 dark:text-slate-200">History</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">88</td>
+<td class="p-3 text-center text-slate-600 dark:text-slate-400">100</td>
+<td class="p-3 text-center font-bold text-green-600">A</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Summary & Attendance -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+<div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+<h5 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Summary</h5>
+<div class="flex justify-between text-sm text-slate-600 dark:text-slate-400"><p>Total Marks:</p> <p class="font-medium text-slate-800 dark:text-slate-200">343 / 400</p></div>
+<div class="flex justify-between text-sm text-slate-600 dark:text-slate-400"><p>Percentage:</p> <p class="font-medium text-slate-800 dark:text-slate-200">85.75%</p></div>
+<div class="flex justify-between text-sm text-slate-600 dark:text-slate-400"><p>Overall Grade:</p> <p class="font-bold text-primary">A</p></div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg">
+<h5 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Attendance</h5>
+<div class="flex justify-between text-sm text-slate-600 dark:text-slate-400"><p>Total Working Days:</p> <p class="font-medium text-slate-800 dark:text-slate-200">120</p></div>
+<div class="flex justify-between text-sm text-slate-600 dark:text-slate-400"><p>Days Present:</p> <p class="font-medium text-slate-800 dark:text-slate-200">115</p></div>
+<div class="flex justify-between text-sm text-slate-600 dark:text-slate-400"><p>Percentage:</p> <p class="font-medium text-slate-800 dark:text-slate-200">95.83%</p></div>
+</div>
+</div>
+<!-- Remarks -->
+<div class="pt-6">
+<h5 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Remarks</h5>
+<p class="text-slate-600 dark:text-slate-400 text-sm p-4 bg-slate-100 dark:bg-slate-800 rounded-lg">John has shown consistent improvement throughout the term. Excellent work in Science. Needs to focus more on creative writing in English.</p>
+</div>
+<!-- Footer -->
+<div class="flex justify-between items-end pt-8 mt-8 border-t border-slate-200 dark:border-slate-800">
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400">Date of Issue</p>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">July 26, 2024</p>
+</div>
+<div class="text-center">
+<div class="w-24 h-12"></div>
+<p class="text-xs text-slate-500 dark:text-slate-400 border-t border-slate-400 pt-1">Principal's Signature</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

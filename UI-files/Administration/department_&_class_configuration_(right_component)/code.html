@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Departments and Classes - School Management System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#172B4D] dark:text-slate-200">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800">
+<div class="flex h-full flex-col p-4">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhu0yQTQSVDUS3fus0icp59d_sjT0N0JwHBZHkkPoYitV14CoRcm6YDTw8tPLpSg-N07l2PgARzT_evWilQ_aNDgOrvqdgeNSW5-4JFdnc8qQNn0Yxg_gP2P-NDYwvg3GXGDyBdhO3Kk5EGbcUjpKhCuN_eauYTOBSlNZ50FuwaTUvj6wZY47s7ujz_qSHLxVRrAzBO49UA5gLoDytR0WQbWZfhTjqaOLeGjdxZC2-D3REJSscm1FXh12KOajERUQDmHOwnV-TnTAv");'></div>
+<div class="flex flex-col">
+<h1 class="text-base font-medium text-slate-800 dark:text-slate-200">Admin</h1>
+<p class="text-sm font-normal text-slate-500 dark:text-slate-400">admin@school.com</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">dashboard</span>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">school</span>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">group</span>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Teachers</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-400">corporate_fare</span>
+<p class="text-sm font-medium text-primary dark:text-primary-300">Administration</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">settings</span>
+<p class="text-sm font-medium text-slate-700 dark:text-slate-300">Settings</p>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold text-slate-800 dark:text-slate-200">School Management System</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400">search</span>
+<input class="form-input w-full min-w-40 max-w-64 h-10 pl-10 pr-4 rounded-lg bg-slate-100 dark:bg-slate-800 border-transparent focus:border-primary focus:ring-primary" placeholder="Search..." type="search"/>
+</label>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">mail</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCf1nza02n9YX6VAsVl0qbSOsQoVWHug1jJZ7g2ze2t_3YvpCHndYH_qFOB9nEX0pWc_iW6zM4g88_ixWxxe3lVRpZ6GZTcjTirf8JqTLE-MVVTZBnssTPKwXf-anBQtr5ycAIqOkqB09GyCZglH0yowu1niVoYGc3g1oAMRkvbvVc1t5H7nNTeEDeMaR46mTp7-313UVW1Y6gr4lM9jQNtC2xWrHyfn6Si4iDd0cWsKvpIoicO-PbEqL0_0dytH4IstSGnyrtAAXnY");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-4">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary" href="#">Administration</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium">/</span>
+<span class="text-slate-800 dark:text-slate-200 text-sm font-medium">Departments and Classes</span>
+</div>
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+<div class="flex min-w-72 flex-col gap-1">
+<p class="text-slate-900 dark:text-white text-3xl font-black tracking-tight">Departments and Classes</p>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal">Manage academic departments, classes, and subjects.</p>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Left Panel (Department List) -->
+<div class="lg:col-span-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800">
+<h3 class="font-bold text-lg text-slate-800 dark:text-slate-200">Departments</h3>
+<div class="mt-4">
+<label class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="form-input w-full h-10 pl-10 pr-4 rounded-lg bg-slate-100 dark:bg-slate-800 border-transparent focus:border-primary focus:ring-primary text-sm" placeholder="Search for a department" value=""/>
+</label>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<a class="block p-3 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary font-semibold text-sm" href="#">Primary School</a>
+<a class="block p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium text-sm" href="#">Middle School</a>
+<a class="block p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium text-sm" href="#">High School</a>
+</div>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary/90 hover:bg-primary text-white text-sm font-bold">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add New Department</span>
+</button>
+</div>
+</div>
+<!-- Right Panel (Class and Subject Details) -->
+<div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<h3 class="font-bold text-lg text-slate-800 dark:text-slate-200">Classes for Primary School</h3>
+<button class="flex items-center justify-center gap-2 rounded-lg h-9 px-3 bg-green-500 hover:bg-green-600 text-white text-xs font-bold">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add New Class</span>
+</button>
+</div>
+<div class="p-4 space-y-4">
+<!-- Class Card 1 -->
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-800">
+<div class="p-4 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
+<h4 class="font-semibold text-base text-slate-700 dark:text-slate-200">Grade 1</h4>
+<div class="flex gap-2">
+<button class="p-2 rounded-md hover:bg-primary/10 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-2 rounded-md hover:bg-red-500/10 text-red-500 text-xs font-bold">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</div>
+<div class="p-4">
+<ul class="space-y-3">
+<li class="flex justify-between items-center text-sm">
+<span class="text-slate-600 dark:text-slate-300">Mathematics</span>
+<div class="flex gap-2">
+<button class="p-1 rounded-md hover:bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-1 rounded-md hover:bg-red-500/10 text-red-500">
+<span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</li>
+<li class="flex justify-between items-center text-sm">
+<span class="text-slate-600 dark:text-slate-300">Science</span>
+<div class="flex gap-2">
+<button class="p-1 rounded-md hover:bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-1 rounded-md hover:bg-red-500/10 text-red-500">
+<span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</li>
+<li class="flex justify-between items-center text-sm">
+<span class="text-slate-600 dark:text-slate-300">English</span>
+<div class="flex gap-2">
+<button class="p-1 rounded-md hover:bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-1 rounded-md hover:bg-red-500/10 text-red-500">
+<span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</li>
+</ul>
+<button class="mt-4 flex items-center justify-center gap-2 w-full rounded-lg h-9 px-3 border border-dashed border-green-500 text-green-500 hover:bg-green-500/10 text-xs font-bold">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add Subject</span>
+</button>
+</div>
+</div>
+<!-- Class Card 2 -->
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-800">
+<div class="p-4 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
+<h4 class="font-semibold text-base text-slate-700 dark:text-slate-200">Grade 2</h4>
+<div class="flex gap-2">
+<button class="p-2 rounded-md hover:bg-primary/10 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-base">edit</span>
+</button>
+<button class="p-2 rounded-md hover:bg-red-500/10 text-red-500 text-xs font-bold">
+<span class="material-symbols-outlined text-base">delete</span>
+</button>
+</div>
+</div>
+<div class="p-4">
+<!-- Empty State for Subjects -->
+<div class="text-center py-6">
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-3">No subjects added for this class yet.</p>
+<button class="flex items-center justify-center gap-2 mx-auto rounded-lg h-9 px-3 bg-green-500/10 text-green-600 dark:text-green-400 hover:bg-green-500/20 text-xs font-bold">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add First Subject</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

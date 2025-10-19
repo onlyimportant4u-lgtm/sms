@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fee Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-background-dark dark:border-r dark:border-slate-800 flex flex-col">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="John Doe's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfWfoJsVbvOYW7KfwnqRuEBg4kj975Cq7WCZjnNcJn3PvVX-q4fAxP08k1AXPj2JzPH8h_06SaFJ_VSQ5e8vjsC0bdPBpIrfiRr6TwnJSC50dOvyuxS_DXn5CBEeLDwsEooGJYL4pWYOWfn3BijHYvXQOFVObFsEKWC3KTlsaoKdlnSZUH9JYkUDHASZqWzAKPAV3MYbnzbszKfrei9hWrB63NLNt9VHtCk2Lpw-eL-m8Wh4WS1To8M860uZwbmrj6AK4idMa9Wz1Z");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-medium leading-normal">John Doe</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Administrator</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium">Student</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-white" href="#">
+<span class="material-symbols-outlined">credit_card</span>
+<p class="text-sm font-medium">Fee Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<p class="text-sm font-medium">Library</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.03 15.59L5.41 12l1.41-1.41L11 14.17l6.59-6.59L19 9l-8.03 8.59z"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Student Management</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="John Doe's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2M20czYWHDxvkLxDv8a0riZS_9bhvyVzk23wH56bI_AT-pwUnc0jkK3NrA-phZTLbyNcczmNgYjKICb9SyPftS8-G8In8ZfAMBeGel7ePRS5DuL73EdKZZhAAijegC_rkUG96kMjxaAqhy3P8edkAlyCLYsrYqRijPNQeO57fq0As8IgImXYGCojgE9mHcUwsg1VbAzcHU7z6dJDliZCzUO05FlBiaq0y_MkVxCHCGSCKFNry8A4ENGgxejOMJ456TkQmh1t3tVz8");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="mb-6">
+<p class="text-slate-900 dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">Fee Payment Records &amp; Receipt Generation</p>
+</div>
+<div class="bg-white dark:bg-slate-900/50 rounded-xl shadow-sm">
+<!-- Search and Filters -->
+<div class="p-4 border-b border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="col-span-1 md:col-span-2">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-slate-100 dark:bg-slate-800 h-full placeholder:text-slate-400 px-4 text-base font-normal leading-normal" placeholder="Search by student name or ID" value=""/>
+</div>
+</label>
+</div>
+<button class="flex h-12 items-center justify-between gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 px-4 text-slate-700 dark:text-slate-300">
+<p class="text-sm font-medium">Date Range</p>
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+<button class="flex h-12 items-center justify-between gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 px-4 text-slate-700 dark:text-slate-300">
+<p class="text-sm font-medium">Fee Type</p>
+<span class="material-symbols-outlined">arrow_drop_down</span>
+</button>
+<button class="flex h-12 items-center justify-between gap-x-2 rounded-lg bg-slate-100 dark:bg-slate-800 px-4 text-slate-700 dark:text-slate-300">
+<p class="text-sm font-medium">Payment Status</p>
+<span class="material-symbols-outlined">arrow_drop_down</span>
+</button>
+</div>
+</div>
+<!-- Transaction Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="px-6 py-3" scope="col">Student Name/ID</th>
+<th class="px-6 py-3" scope="col">Fee Type</th>
+<th class="px-6 py-3" scope="col">Amount Due</th>
+<th class="px-6 py-3" scope="col">Amount Paid</th>
+<th class="px-6 py-3" scope="col">Payment Date</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-transparent border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">Alice Johnson (S12345)</td>
+<td class="px-6 py-4">Tuition Fee</td>
+<td class="px-6 py-4">$1500.00</td>
+<td class="px-6 py-4">$1500.00</td>
+<td class="px-6 py-4">2023-10-26</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Paid</span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary"><span class="material-symbols-outlined text-base">receipt_long</span></button>
+<button class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary"><span class="material-symbols-outlined text-base">print</span></button>
+<button class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary"><span class="material-symbols-outlined text-base">download</span></button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-transparent border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">Bob Williams (S67890)</td>
+<td class="px-6 py-4">Exam Fee</td>
+<td class="px-6 py-4">$75.00</td>
+<td class="px-6 py-4">$0.00</td>
+<td class="px-6 py-4">-</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Overdue</span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="p-2 rounded-lg text-primary bg-primary/10 dark:bg-primary/20"><span class="material-symbols-outlined text-base">add_card</span></button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-transparent border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">Charlie Brown (S54321)</td>
+<td class="px-6 py-4">Admission Fee</td>
+<td class="px-6 py-4">$500.00</td>
+<td class="px-6 py-4">$500.00</td>
+<td class="px-6 py-4">2023-09-01</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Paid</span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary"><span class="material-symbols-outlined text-base">receipt_long</span></button>
+<button class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary"><span class="material-symbols-outlined text-base">print</span></button>
+<button class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary"><span class="material-symbols-outlined text-base">download</span></button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">Diana Prince (S11223)</td>
+<td class="px-6 py-4">Library Fee</td>
+<td class="px-6 py-4">$25.00</td>
+<td class="px-6 py-4">$0.00</td>
+<td class="px-6 py-4">-</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Pending</span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="p-2 rounded-lg text-primary bg-primary/10 dark:bg-primary/20"><span class="material-symbols-outlined text-base">add_card</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 flex items-center justify-between">
+<span class="text-sm text-slate-700 dark:text-slate-400">
+                                Showing <span class="font-semibold text-slate-900 dark:text-white">1</span> to <span class="font-semibold text-slate-900 dark:text-white">4</span> of <span class="font-semibold text-slate-900 dark:text-white">100</span> Entries
+                            </span>
+<div class="inline-flex -space-x-px text-sm h-8">
+<a class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-slate-500 bg-white border border-slate-300 rounded-l-lg hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">Previous</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">1</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-primary bg-blue-50 border border-primary hover:bg-blue-100 hover:text-primary dark:bg-slate-700 dark:border-slate-600 dark:text-white" href="#">2</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">3</a>
+<a class="flex items-center justify-center px-3 h-8 leading-tight text-slate-500 bg-white border border-slate-300 rounded-r-lg hover:bg-slate-100 hover:text-slate-700 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-white" href="#">Next</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

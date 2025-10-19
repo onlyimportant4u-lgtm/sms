@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-20 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-5xl flex-1 bg-white dark:bg-background-dark shadow-sm rounded-lg">
+<div class="p-4 md:p-6 @container">
+<div class="flex w-full flex-col gap-4 @[520px]:flex-row @[520px]:justify-between @[520px]:items-center">
+<div class="flex gap-4 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-24 w-24 md:h-32 md:w-32" data-alt="A portrait of Alex Smith" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7HI2NNkDv7G8xKsMujOeq5_QqKdvVKRiiY3Rnp0vm1TR78HOPF1baIegOZ4vFsIpsedY1TcADnr39Tfsz_sh7eNUuOqpo95pR2LR7dK78-HFgkiyP8Zru_-YQ0Ox8sK_yeZup5eEFaUKZ_6MsJWZRX5wFPWqEEuUGnTLTT52FkJcrgCXQLIks5BhE4KnL0e7S0Cyk741MJHF16afzNidLl8bXskh907TgGUAq1t1vD_2Kuu2ooy9I5s7DC7120UGqFZVYXeC9fSGh");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-white text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em]">Alex Smith</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm md:text-base font-normal leading-normal">Student ID: 12345</p>
+</div>
+</div>
+<div class="flex w-full max-w-[480px] gap-3 @[480px]:w-auto">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white text-sm font-bold leading-normal tracking-[0.015em] flex-1 @[480px]:flex-auto">
+<span class="truncate">Edit Profile</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] flex-1 @[480px]:flex-auto">
+<span class="truncate">Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pb-3 px-4 md:px-6">
+<div class="flex border-b border-gray-200 dark:border-gray-700 gap-4 md:gap-8 overflow-x-auto">
+<a class="flex flex-col shrink-0 items-center justify-center border-b-[3px] border-b-primary text-gray-900 dark:text-white pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Personal Information</p>
+</a>
+<a class="flex flex-col shrink-0 items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Academic Information</p>
+</a>
+<a class="flex flex-col shrink-0 items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Fee Information</p>
+</a>
+<a class="flex flex-col shrink-0 items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Attendance</p>
+</a>
+<a class="flex flex-col shrink-0 items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Documents</p>
+</a>
+</div>
+</div>
+<div class="p-4 md:p-6">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Personal Details</h3>
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-4">
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Full Name</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">Alex Smith</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pl-0 md:pl-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Date of Birth</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">15/08/2005</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Gender</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">Male</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pl-0 md:pl-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Address</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">123 Maple Street, Anytown</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Phone</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">555-1234</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pl-0 md:pl-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Email</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">alex.smith@email.com</p>
+</div>
+</div>
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Guardian Details</h3>
+<div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-4">
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pr-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Guardian Name</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">John Smith</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-gray-200 dark:border-gray-700 py-4 pl-0 md:pl-2">
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Guardian Contact</p>
+<p class="text-gray-900 dark:text-white text-sm font-normal leading-normal">555-5678</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

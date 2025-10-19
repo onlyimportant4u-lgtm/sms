@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Resumes &amp; Profiles</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full">
+<!-- Side Navigation Bar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800">
+<div class="flex h-full flex-col p-4">
+<div class="flex items-center gap-4 text-slate-800 dark:text-white mb-6 p-2">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path>
+</g>
+<defs>
+<clippath id="clip0_6_319">
+<rect fill="white" height="48" width="48"></rect>
+</clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-slate-800 dark:text-white text-lg font-bold">University</h2>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">Student Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">badge</span>
+<p class="text-sm font-medium">Staff Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">article</span>
+<p class="text-sm font-medium">Admissions</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<p class="text-sm font-medium">Academics</p>
+</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<p class="text-sm font-medium">Support</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-3 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-8">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 dark:text-slate-500 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-base">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-800 dark:text-white focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 focus:border-none h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 rounded-l-none border-l-0 pl-2 text-sm" placeholder="Search" value=""/>
+</div>
+</label>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined text-xl">apps</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYBDx0w2Qh_QSLKWH36e4TZRcNP_9-hTZdLazQqD8bg2OjnvmqFMomsF8rfE90l6BIz7hsSDfZcwSQU5DwhzWZ03TGux5zWH8_cJRMjObKtobrcN_t4wiJNNNGw_IJEzSbJuaN75tRCJ2U_C8Ygyk0rlWV-NWZlO2O0xDpWErmnPSgNbrIWQLXDOMkwvA8Kde4C8d1pJKl4daGclhRKPCuxXo1tskUsm133rYlQwmo-wPSGrSioycQuSKlNbKMeeBHqXFTITV7KaD0");'></div>
+<div class="flex flex-col text-sm">
+<p class="font-semibold text-slate-800 dark:text-white">Admin</p>
+<p class="text-slate-500 dark:text-slate-400">admin@university.com</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-4">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary" href="#">Staff Management</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium">/</span>
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary" href="#">John Doe</a>
+<span class="text-slate-500 dark:text-slate-400 text-sm font-medium">/</span>
+<span class="text-slate-800 dark:text-white text-sm font-medium">Resumes</span>
+</div>
+<!-- Page Heading and Upload Button -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-3xl font-bold tracking-tight">Staff Resumes &amp; Profiles</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base mt-1">Manage and view uploaded resumes for staff members.</p>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-sm hover:bg-primary/90" id="upload-btn">
+<span class="material-symbols-outlined text-base">upload_file</span>
+<span class="truncate">Upload New Resume</span>
+</button>
+</div>
+<!-- Staff Profile Header -->
+<div class="flex p-6 mb-8 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex w-full items-center">
+<div class="flex gap-6 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-24 w-24" data-alt="Portrait of John Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqdX7bHq-Jn1iEo4t1LKuHCXftzjJnK-e09nF9WpmPeDUcMEu-CYppDw0zG7L9JeMJn7Ts36wYoTno1SuQ5zwSNSEc7sO4HtWLqk1RRwcf9CmL7D1kKtlCHjwUfctzyHPlxp5SG4YUdFY02YaSw44jTh9OuIvzxJx_d_tzx4NoOmdCj1ulJz8yL6oSHYv59S4uuD2a8BcYHFwBEVSx2sYvbtbOP_j__lTmY-vp5f72kEMOa_m7eHQSi74Ot3wufBaGSYnYNQowLLU_");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-white text-2xl font-bold">John Doe</p>
+<p class="text-slate-500 dark:text-slate-400 text-base">Senior Lecturer</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Resume List Table -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="px-6 py-3" scope="col">File Name</th>
+<th class="px-6 py-3" scope="col">Upload Date</th>
+<th class="px-6 py-3" scope="col">Version</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap flex items-center gap-3" scope="row">
+<span class="material-symbols-outlined text-red-500">picture_as_pdf</span>
+                                            John_Doe_Resume_2023_Final.pdf
+                                        </th>
+<td class="px-6 py-4">October 26, 2023</td>
+<td class="px-6 py-4">v3.0</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-4">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary"><span class="material-symbols-outlined text-xl">download</span></button>
+<button class="text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-500"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap flex items-center gap-3" scope="row">
+<span class="material-symbols-outlined text-blue-500">description</span>
+                                            John_Doe_CV_2023_Updated.docx
+                                        </th>
+<td class="px-6 py-4">September 15, 2023</td>
+<td class="px-6 py-4">v2.1</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-4">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary"><span class="material-symbols-outlined text-xl">download</span></button>
+<button class="text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-500"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 hover:bg-slate-50/50 dark:hover:bg-slate-800/50">
+<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap flex items-center gap-3" scope="row">
+<span class="material-symbols-outlined text-red-500">picture_as_pdf</span>
+                                            JD_Resume_2022.pdf
+                                        </th>
+<td class="px-6 py-4">November 01, 2022</td>
+<td class="px-6 py-4">v1.0</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-4">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary"><span class="material-symbols-outlined text-xl">download</span></button>
+<button class="text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-500"><span class="material-symbols-outlined text-xl">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Empty State (Hidden by default, shown when no resumes) -->
+<!-- 
+                    <div class="text-center py-20 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div class="flex flex-col items-center">
+                            <span class="material-symbols-outlined text-6xl text-slate-400 dark:text-slate-500 mb-4">folder_off</span>
+                            <h3 class="text-xl font-semibold text-slate-800 dark:text-white">No Resumes Found</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mt-1">No resumes have been uploaded for this staff member yet.</p>
+                            <button id="upload-btn-empty" class="mt-6 flex items-center justify-center gap-2 rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-sm hover:bg-primary/90">
+                                <span class="material-symbols-outlined text-base">upload_file</span>
+                                <span class="truncate">Upload the first resume</span>
+                            </button>
+                        </div>
+                    </div> 
+                    -->
+</div>
+</div>
+</main>
+</div>
+<!-- File Upload Modal -->
+<div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden" id="upload-modal">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-2xl w-full max-w-lg">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Upload a New Resume</h3>
+<button class="text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300" id="close-modal">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-6">
+<div class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-lg p-10 text-center">
+<span class="material-symbols-outlined text-5xl text-slate-400 dark:text-slate-500 mx-auto">cloud_upload</span>
+<p class="mt-4 text-slate-600 dark:text-slate-300">Drag and drop your file here</p>
+<p class="text-sm text-slate-400 dark:text-slate-500">or</p>
+<button class="mt-2 text-sm font-bold text-primary hover:underline">Browse files</button>
+<p class="text-xs text-slate-400 dark:text-slate-500 mt-4">Supports: PDF, DOC, DOCX</p>
+</div>
+<div class="mt-6">
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" for="version-notes">Version Notes (Optional)</label>
+<textarea class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-primary focus:border-primary" id="version-notes" rows="3"></textarea>
+</div>
+</div>
+<div class="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-b-xl flex justify-end gap-3">
+<button class="px-4 py-2 rounded-lg text-sm font-bold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700" id="cancel-upload">Cancel</button>
+<button class="px-4 py-2 rounded-lg text-sm font-bold text-white bg-primary hover:bg-primary/90">Upload File</button>
+</div>
+</div>
+</div>
+<script>
+        const uploadBtn = document.getElementById('upload-btn');
+        const uploadModal = document.getElementById('upload-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const cancelUploadBtn = document.getElementById('cancel-upload');
+        // const uploadBtnEmpty = document.getElementById('upload-btn-empty'); // for empty state
+
+        function toggleModal() {
+            uploadModal.classList.toggle('hidden');
+        }
+
+        uploadBtn.addEventListener('click', toggleModal);
+        // uploadBtnEmpty.addEventListener('click', toggleModal);
+        closeModalBtn.addEventListener('click', toggleModal);
+        cancelUploadBtn.addEventListener('click', toggleModal);
+    </script>
+</body></html>

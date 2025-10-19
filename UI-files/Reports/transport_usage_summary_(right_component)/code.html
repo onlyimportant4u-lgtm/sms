@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transport Reports</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "light-gray": "#E5E7EB",
+                        "dark-gray": "#374151",
+                        "black": "#111827",
+                        "success": "#10B981"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<div class="hidden lg:flex flex-col w-64 bg-background-light dark:bg-background-dark border-r border-light-gray dark:border-dark-gray">
+<div class="flex items-center gap-3 p-4 border-b border-light-gray dark:border-dark-gray">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAgBM4LLH918pg3-U6xg_EuFwPpI5FF4fH6FrGwg7a3P5Pu4a-rSSTCD80vS44KZ1IlV21nsEdzsu5_YP354marVy-L5H3VTgIQQgrGnn5kM0P_taymEFsI9e-wUIYZL5HnFMEmBQlXwCBVORg3emU0KwbflbS9G7z6bS5HMcZrgYWUZXsRnnEs2M1Lf28V6TCtFnD8Bu8XO_5BmYMcfbeowZGzAw9oZNd6APg_4bH6W3vnojrzlgPFOZ3cyASoYzPX7v67-kSbOM-");'></div>
+<div class="flex flex-col">
+<h1 class="text-black dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-dark-gray dark:text-gray-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 p-4 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 text-dark-gray dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-dark-gray dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<p class="text-sm font-medium">Admissions</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-dark-gray dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-dark-gray dark:text-gray-300 hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+<p class="text-sm font-medium">Staff</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">pie_chart</span>
+<p class="text-sm font-medium">Reports &amp; Analytics</p>
+</a>
+</div>
+<div class="p-4 border-t border-light-gray dark:border-dark-gray">
+<button class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span>Logout</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-light-gray dark:border-dark-gray px-6 py-3 bg-background-light dark:bg-background-dark">
+<div class="flex items-center gap-4 text-black dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path><path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+</div>
+<h2 class="text-lg font-bold">School Management</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<div class="hidden md:flex relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-dark-gray dark:text-gray-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-light-gray/50 dark:bg-dark-gray/50 text-dark-gray dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-light-gray dark:hover:bg-dark-gray text-dark-gray dark:text-gray-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-light-gray dark:hover:bg-dark-gray text-dark-gray dark:text-gray-300">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAp2NUpAOfrddNLQFTmQVXqQOom3PLLEMFpXU4eWhaBT39Cd9kpGIC4Slnj3nIzF0N731d6w1zH00wE-wmOzf2u17cipImj_zb6aEUfLbBZ_n77bwEkKHmo033R8fYQF_TBNC5bE8tBnsZ1SvFr0if7tBJPBW2VX5jG85tYnBq4nFDkC8FVG1dNI8zKCv-ot0ECIvqkUKwUF0Psub7Gry5IiYBHygSGUvbsCw55lqSLHs4pJrU9Kv0FmsGcFnQA2JZ6kalJJXO--mQR");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6 space-y-6">
+<!-- PageHeading -->
+<div class="flex justify-between items-center">
+<h1 class="text-3xl font-black text-black dark:text-white tracking-tight">Transport Reports</h1>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Filter Panel -->
+<div class="lg:col-span-3 space-y-6">
+<div class="bg-white dark:bg-background-dark p-4 rounded-lg shadow">
+<h3 class="text-lg font-semibold text-black dark:text-white mb-4">Filters</h3>
+<div class="space-y-4">
+<!-- Date Range Picker -->
+<label class="flex flex-col">
+<p class="text-dark-gray dark:text-gray-300 text-sm font-medium pb-2">Date Range</p>
+<div class="relative">
+<input class="form-input w-full rounded-lg border-light-gray dark:border-dark-gray bg-background-light dark:bg-dark-gray/30 text-dark-gray dark:text-gray-300 focus:ring-primary focus:border-primary" placeholder="Select date range" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-dark-gray dark:text-gray-400">calendar_today</span>
+</div>
+</label>
+<!-- Report Type -->
+<label class="flex flex-col">
+<p class="text-dark-gray dark:text-gray-300 text-sm font-medium pb-2">Report Type</p>
+<select class="form-select w-full rounded-lg border-light-gray dark:border-dark-gray bg-background-light dark:bg-dark-gray/30 text-dark-gray dark:text-gray-300 focus:ring-primary focus:border-primary">
+<option>Student Usage</option>
+<option>Route Efficiency</option>
+<option>Vehicle Mileage</option>
+<option>Financial Summary</option>
+</select>
+</label>
+<!-- Route -->
+<label class="flex flex-col">
+<p class="text-dark-gray dark:text-gray-300 text-sm font-medium pb-2">Route</p>
+<select class="form-select w-full rounded-lg border-light-gray dark:border-dark-gray bg-background-light dark:bg-dark-gray/30 text-dark-gray dark:text-gray-300 focus:ring-primary focus:border-primary">
+<option>All Routes</option>
+<option>Route A</option>
+<option>Route B</option>
+</select>
+</label>
+<!-- Vehicle -->
+<label class="flex flex-col">
+<p class="text-dark-gray dark:text-gray-300 text-sm font-medium pb-2">Vehicle</p>
+<select class="form-select w-full rounded-lg border-light-gray dark:border-dark-gray bg-background-light dark:bg-dark-gray/30 text-dark-gray dark:text-gray-300 focus:ring-primary focus:border-primary">
+<option>All Vehicles</option>
+<option>Bus-001</option>
+<option>Bus-002</option>
+</select>
+</label>
+<!-- Buttons -->
+<div class="flex gap-2 pt-2">
+<button class="flex-1 py-2 px-4 rounded-lg bg-primary text-white font-semibold">Generate Report</button>
+<button class="flex-1 py-2 px-4 rounded-lg bg-light-gray dark:bg-dark-gray text-dark-gray dark:text-gray-300 font-semibold">Reset</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Report Display Area -->
+<div class="lg:col-span-9">
+<div class="bg-white dark:bg-background-dark p-6 rounded-lg shadow min-h-[600px]">
+<!-- Loading State -->
+<div class="flex items-center justify-center h-full hidden">
+<div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+</div>
+<!-- Empty State -->
+<div class="flex flex-col items-center justify-center h-full hidden">
+<span class="material-symbols-outlined text-6xl text-gray-400">inbox</span>
+<p class="mt-4 text-lg text-dark-gray dark:text-gray-400">No data to display</p>
+<p class="text-sm text-gray-500">Select filters and generate a report to see data.</p>
+</div>
+<!-- Report Content -->
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<h2 class="text-xl font-bold text-black dark:text-white">Route Efficiency Report</h2>
+<button class="flex items-center gap-2 py-2 px-4 rounded-lg border border-light-gray dark:border-dark-gray text-dark-gray dark:text-gray-300 hover:bg-light-gray/50 dark:hover:bg-dark-gray/50">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export</span>
+</button>
+</div>
+<!-- Chart -->
+<div class="w-full h-72 bg-light-gray/30 dark:bg-dark-gray/30 rounded-lg p-4">
+<p class="text-center text-dark-gray dark:text-gray-400 pt-28">Chart Component (e.g. Bar Chart for Route Efficiency)</p>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-light-gray dark:divide-dark-gray">
+<thead class="bg-light-gray/50 dark:bg-dark-gray/50">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium text-dark-gray dark:text-gray-300 uppercase tracking-wider" scope="col">Route</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-dark-gray dark:text-gray-300 uppercase tracking-wider" scope="col">Avg. Time</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-dark-gray dark:text-gray-300 uppercase tracking-wider" scope="col">Distance</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-dark-gray dark:text-gray-300 uppercase tracking-wider" scope="col">Students</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-dark-gray dark:text-gray-300 uppercase tracking-wider" scope="col">Efficiency</th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-background-dark divide-y divide-light-gray dark:divide-dark-gray">
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Route A</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">45 min</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">15 km</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">32</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-success">95%</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Route B</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">60 min</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">22 km</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">25</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-yellow-500">82%</td>
+</tr>
+<tr>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-white">Route C</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">35 min</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">12 km</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-dark-gray dark:text-gray-300">40</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-success">98%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

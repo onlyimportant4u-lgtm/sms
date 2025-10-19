@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Custom Report Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "background-light": "#F4F7F9",
+                        "background-dark": "#101922",
+                        "accent-green": "#50E3C2",
+                        "accent-yellow": "#F8E71C",
+                        "text-primary": "#333333",
+                        "text-secondary": "#777777",
+                        "border-light": "#E0E0E0",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-gray-800 border-r dark:border-gray-700 flex flex-col">
+<div class="flex items-center gap-3 p-4 border-b dark:border-gray-700">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCdh1MJBPSod2O7IIQveu0a-urOya4Yi-d6Ui5QIx_OMZIBqOfSXkl7PQYzuSvFAAO64Bdd3-b6z3GT3Pu2F9P66NCAmpnIi8TbolHbgPfVM-vRnt7glA410a0uMMukh0FhEKAQk85zWE_pDB0eWOu6QZTwA8SABuQWt6xoZVySVq7N5pSu7MXxvf4cV2-bXp-fnTcODulHj2p_ndCHc-UzRMcZMc82o9sni924izlYdByQyvJOZhbS6wRn_J8hYy4NehcBIB-Q4Dgy");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-primary dark:text-white text-base font-medium">Admin</h1>
+<p class="text-text-secondary dark:text-gray-400 text-sm">Administrator</p>
+</div>
+</div>
+<nav class="flex-1 px-2 py-4 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-primary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-primary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-sm font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-white" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-sm font-medium">Reports &amp; Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-primary dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t dark:border-gray-700">
+<button class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold tracking-wide">
+<span class="material-symbols-outlined mr-2">add</span>
+                    New Student
+                </button>
+</div>
+</aside>
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b dark:border-gray-700 bg-white dark:bg-gray-800 px-6 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-text-primary dark:text-white">
+<span class="material-symbols-outlined text-primary text-3xl">dataset</span>
+<h2 class="text-lg font-bold">Student Management System</h2>
+</div>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<label class="relative flex items-center w-64">
+<span class="material-symbols-outlined absolute left-3 text-text-secondary dark:text-gray-400">search</span>
+<input class="form-input w-full pl-10 pr-4 py-2 rounded-lg bg-background-light dark:bg-background-dark border-border-light dark:border-gray-600 focus:ring-primary focus:border-primary text-text-primary dark:text-white placeholder:text-text-secondary" placeholder="Search..." value=""/>
+</label>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary dark:text-gray-400">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4U5cJIlk70E1puNPjS68Ar9LQ9g9VR8e5E8Lbk5tWYeVW_2pzG7LPMyQmCRh4aslxdP-MwK_kVYSL3LseJNkuckAbfmeKCVHusULMANHC3WIq0qVV8rAFQHWppEPFuFwMPU6BrIcIDi4QyzwHikqcURaQatT_Fn7N6_Enk8lc4MG-jPrfdIpBvTWhd23HHbHIAc-9qY5d7R6pTYNRHepW8gHHG9lePng7zEwn-2V22o__uDggCMosV92xo9tkEU1NQJMmoTQ-LcKG");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6 bg-background-light dark:bg-background-dark">
+<!-- PageHeading -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<h1 class="text-text-primary dark:text-white text-3xl font-black tracking-tight">Create Custom Report</h1>
+<div class="flex gap-3">
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-text-primary dark:text-white text-sm font-bold">
+                            Save as Template
+                        </button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+                            Save Report
+                        </button>
+</div>
+</div>
+<!-- Three-Column Layout -->
+<div class="grid grid-cols-1 @4xl:grid-cols-3 gap-6">
+<!-- Left Column: Data Fields -->
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-border-light dark:border-gray-700 p-4 flex flex-col space-y-4">
+<h3 class="text-lg font-bold text-text-primary dark:text-white">Select Data Fields</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-background-light dark:bg-gray-700 border border-border-light dark:border-gray-600 focus:ring-primary focus:border-primary text-text-primary dark:text-white" placeholder="Find data fields..." type="text"/>
+</div>
+<div class="space-y-2">
+<details class="flex flex-col rounded-lg border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 px-4 py-2 group" open="">
+<summary class="flex cursor-pointer items-center justify-between">
+<p class="text-text-primary dark:text-white font-medium">Student Information</p>
+<span class="material-symbols-outlined transform group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-2 space-y-2">
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Student ID</span></label>
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Full Name</span></label>
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Date of Birth</span></label>
+</div>
+</details>
+<details class="flex flex-col rounded-lg border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 px-4 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between">
+<p class="text-text-primary dark:text-white font-medium">Academic Records</p>
+<span class="material-symbols-outlined transform group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-2 space-y-2">
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Course Name</span></label>
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Grade</span></label>
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">GPA</span></label>
+</div>
+</details>
+<details class="flex flex-col rounded-lg border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 px-4 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between">
+<p class="text-text-primary dark:text-white font-medium">Attendance Data</p>
+<span class="material-symbols-outlined transform group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-2 space-y-2">
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Days Absent</span></label>
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Days Tardy</span></label>
+</div>
+</details>
+<details class="flex flex-col rounded-lg border border-border-light dark:border-gray-600 bg-background-light dark:bg-gray-700 px-4 py-2 group">
+<summary class="flex cursor-pointer items-center justify-between">
+<p class="text-text-primary dark:text-white font-medium">Financial Information</p>
+<span class="material-symbols-outlined transform group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-2 space-y-2">
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Tuition Due</span></label>
+<label class="flex items-center space-x-3"><input class="form-checkbox rounded text-primary focus:ring-primary/50" type="checkbox"/> <span class="text-text-secondary dark:text-gray-300">Scholarship Amount</span></label>
+</div>
+</details>
+</div>
+</div>
+<!-- Middle Column: Filters & Display -->
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-border-light dark:border-gray-700 p-4 flex flex-col space-y-6">
+<h3 class="text-lg font-bold text-text-primary dark:text-white">Configure Report</h3>
+<!-- Filters Section -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-text-primary dark:text-white">Filters</h4>
+<button class="flex items-center gap-1 text-sm font-medium text-primary hover:text-primary/80">
+<span class="material-symbols-outlined text-base">add_circle_outline</span>
+                                   Add Filter
+                                </button>
+</div>
+<div class="p-3 rounded-lg bg-background-light dark:bg-gray-700 border border-border-light dark:border-gray-600 space-y-2">
+<div class="grid grid-cols-3 gap-2 items-center">
+<select class="form-select w-full rounded-md border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-600 text-sm text-text-primary dark:text-white"><option>Grade</option></select>
+<select class="form-select w-full rounded-md border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-600 text-sm text-text-primary dark:text-white"><option>equals</option></select>
+<input class="form-input w-full rounded-md border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-600 text-sm text-text-primary dark:text-white" type="text" value="A"/>
+</div>
+<p class="text-xs text-text-secondary dark:text-gray-400">1,234 records match</p>
+</div>
+</div>
+<!-- Display Options Section -->
+<div class="space-y-3">
+<h4 class="font-semibold text-text-primary dark:text-white">Display Options</h4>
+<div class="grid grid-cols-2 gap-4">
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">Report Format</span>
+<select class="form-select mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50">
+<option>Table</option>
+<option>Chart</option>
+</select>
+</label>
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">Chart Type</span>
+<select class="form-select mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50">
+<option>Bar</option>
+<option>Pie</option>
+<option>Line</option>
+</select>
+</label>
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">Group By</span>
+<select class="form-select mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50">
+<option>None</option>
+<option>Course Name</option>
+</select>
+</label>
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">Sort By</span>
+<div class="flex gap-2 items-center">
+<select class="form-select mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50">
+<option>GPA</option>
+<option>Full Name</option>
+</select>
+<button class="mt-1 p-2 rounded-md bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500">
+<span class="material-symbols-outlined text-text-primary dark:text-white">swap_vert</span>
+</button>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Right Column: Scheduling & Delivery -->
+<div class="bg-white dark:bg-gray-800 rounded-xl border border-border-light dark:border-gray-700 p-4 flex flex-col space-y-6">
+<h3 class="text-lg font-bold text-text-primary dark:text-white">Schedule &amp; Deliver</h3>
+<!-- Schedule Report Section -->
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-text-primary dark:text-white">Schedule Report</h4>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/30 dark:peer-focus:ring-primary/80 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<label class="block text-sm col-span-3">
+<span class="text-text-secondary dark:text-gray-300">Frequency</span>
+<select class="form-select mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50">
+<option>Daily</option>
+<option selected="">Weekly</option>
+<option>Monthly</option>
+</select>
+</label>
+<label class="block text-sm col-span-2">
+<span class="text-text-secondary dark:text-gray-300">On</span>
+<select class="form-select mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50">
+<option>Monday</option>
+<option>Tuesday</option>
+<option selected="">Wednesday</option>
+<option>Thursday</option>
+<option>Friday</option>
+</select>
+</label>
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">At</span>
+<input class="form-input mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50" type="time" value="09:00"/>
+</label>
+</div>
+</div>
+<!-- Delivery Section -->
+<div class="space-y-3">
+<h4 class="font-semibold text-text-primary dark:text-white">Delivery</h4>
+<div class="space-y-2">
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">Recipients</span>
+<input class="form-input mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50" placeholder="Add emails or user groups..." type="email"/>
+</label>
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">File Format</span>
+<select class="form-select mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50">
+<option>PDF</option>
+<option>CSV</option>
+<option>Excel</option>
+</select>
+</label>
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">Email Subject</span>
+<input class="form-input mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50" type="text" value="Your Weekly Student Report"/>
+</label>
+<label class="block text-sm">
+<span class="text-text-secondary dark:text-gray-300">Email Body</span>
+<textarea class="form-textarea mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-text-primary dark:text-white shadow-sm focus:border-primary focus:ring-primary focus:ring-opacity-50" rows="3">Attached is the custom report you scheduled.</textarea>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview Pane -->
+<div class="mt-6 bg-white dark:bg-gray-800 rounded-xl border border-border-light dark:border-gray-700 p-4">
+<h3 class="text-lg font-bold text-text-primary dark:text-white mb-4">Report Preview</h3>
+<div class="h-64 flex items-center justify-center bg-background-light dark:bg-gray-700 rounded-lg">
+<p class="text-text-secondary dark:text-gray-400">Select data fields to generate a preview.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-6 flex justify-end gap-3">
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-text-primary dark:text-white text-sm font-bold">
+                        Clear All
+                    </button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-accent-green text-white text-sm font-bold">
+                        Run Report Now
+                    </button>
+<button class="flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-primary/80 text-white text-sm font-bold">
+                        Save &amp; Close
+                    </button>
+</div>
+</main>
+</div>
+</div>
+</body></html>

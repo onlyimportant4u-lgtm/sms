@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>School Management - Communication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "background-light": "#F0F2F5",
+                        "background-dark": "#101922",
+                        "text-light": "#333333",
+                        "text-dark": "#F0F2F5",
+                        "accent-green": "#50E3C2",
+                        "accent-red": "#D0021B"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<!-- Side Navigation Bar -->
+<aside class="w-64 flex flex-col bg-white dark:bg-gray-800 shadow-md">
+<div class="p-4 border-b dark:border-gray-700">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBropM1nYm4bjbG0t2FeOBXhvW4wyxXYkEGV701niWqUVk4JUSHmGdVR6UMsOtcSG6ehmLp6Am_ndU5mzRWPLZ6ujHRRUirR93qF-IbrfCtVwVmKy2AR5QgyMa_fF5__ea9f8BnMXcNBDfHMzOf9sC2pSbf2TCmQhLc618yDRab3LBNVTG2JbTpQO2vGVb5YbnrHLeg-JeZUeGbBNHKgQL049KLAN93KhFVT_htS6apIMwQ4n2OVtWxBooxv9hn2eZGhPaAVnXFaMN");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-light dark:text-text-dark text-base font-medium leading-normal">Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-2 py-4 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300">book</span>
+<p class="text-sm font-medium">Academics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300">group</span>
+<p class="text-sm font-medium">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">chat</span>
+<p class="text-sm font-medium">Communication</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+<div class="p-4 border-t dark:border-gray-700">
+<button class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-red-500 text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-red-600">
+<span class="material-symbols-outlined mr-2">logout</span>
+<span class="truncate">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-6 py-3">
+<div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+<span class="material-symbols-outlined text-2xl">school</span>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">School Management</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="relative flex items-center min-w-40 max-w-64">
+<span class="material-symbols-outlined absolute left-3 text-gray-500">search</span>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 focus:border-primary focus:ring-primary h-10 pl-10 pr-4 text-sm" placeholder="Search" value=""/>
+</label>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark hover:bg-gray-200 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark hover:bg-gray-200 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-xl">help_outline</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtarf1pZWC1rqOfW5mz5dPqQe5xRaq6HfmdiCdwqh7RbIq_9EKt4gkTD3vbODgXY1apMLev4I0DAWLfd0SzfjfDQd4xzB6zSwkHZQk1gqAxmSvfXZbEdvqcHGXNuRdq8AVjdyMkfUIkENWYsIqucEfzybRNqpFRIn3RZdmEmA3V3GSGzgadxSPR_xe-cD3z_2jjV_0aQpCds7dvZFdiIFmUBKIdcBo4AWv92RkaV0xSKBmq-P2ksMcN-fG17CdRaWELFRPjVvWFNZa");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-x-hidden overflow-y-auto bg-background-light dark:bg-background-dark p-6">
+<div class="max-w-7xl mx-auto">
+<!-- Page Heading -->
+<div class="mb-6">
+<h1 class="text-text-light dark:text-text-dark text-3xl font-black leading-tight tracking-[-0.033em]">Communication &amp; Notifications</h1>
+</div>
+<!-- Upload Circular Form -->
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm mb-8">
+<h2 class="text-xl font-bold mb-6 text-text-light dark:text-text-dark">Create and Distribute a New Circular</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="circular-title">Circular Title</label>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 h-12 placeholder:text-gray-400 p-3 text-sm font-normal" id="circular-title" placeholder="e.g., Annual Sports Day Announcement" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" for="circular-description">Description</label>
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-1 focus:ring-primary border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 h-28 placeholder:text-gray-400 p-3 text-sm font-normal" id="circular-description" placeholder="A brief summary of the circular's content."></textarea>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Upload Document</label>
+<div class="flex flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 px-6 py-10">
+<span class="material-symbols-outlined text-4xl text-gray-400">cloud_upload</span>
+<p class="text-sm text-center text-gray-500 dark:text-gray-400">Drag and drop your file here or</p>
+<button class="flex items-center justify-center rounded-lg h-9 px-4 bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark text-sm font-bold hover:bg-gray-300 dark:hover:bg-gray-600">
+<span>Browse Files</span>
+</button>
+</div>
+</div>
+<div class="hidden items-center justify-between p-3 bg-gray-100 dark:bg-gray-700 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">description</span>
+<span class="text-sm font-medium text-text-light dark:text-text-dark">sports_day.pdf</span>
+</div>
+<button class="text-gray-500 hover:text-accent-red">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="target-audience">Target Audience</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<div class="relative">
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary focus:ring-primary h-12 text-sm">
+<option>All Classes</option>
+<option>8th Grade</option>
+<option>9th Grade</option>
+<option>10th Grade</option>
+</select>
+</div>
+<div class="relative">
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary focus:ring-primary h-12 text-sm">
+<option>All Sections</option>
+<option>Section A</option>
+<option>Section B</option>
+</select>
+</div>
+<div class="relative">
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary focus:ring-primary h-12 text-sm">
+<option>All Groups</option>
+<option>Parents</option>
+<option>Students</option>
+</select>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-3 mt-8">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-300 dark:hover:bg-gray-500">
+<span class="truncate">Save as Draft</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">Publish Circular</span>
+</button>
+</div>
+</div>
+<!-- Published Circulars Archive -->
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+<h2 class="text-xl font-bold mb-6 text-text-light dark:text-text-dark">Published Circulars Archive</h2>
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+<div class="relative w-full md:w-auto md:flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">search</span>
+<input class="form-input w-full rounded-lg border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary focus:ring-primary h-11 pl-10 pr-4 text-sm" placeholder="Search by title..." value=""/>
+</div>
+<div class="flex gap-3">
+<select class="form-select w-full md:w-auto rounded-lg border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary focus:ring-primary h-11 text-sm">
+<option>Filter by Date</option>
+<option>Last 7 days</option>
+<option>Last 30 days</option>
+</select>
+<select class="form-select w-full md:w-auto rounded-lg border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-700 focus:border-primary focus:ring-primary h-11 text-sm">
+<option>Filter by Class</option>
+<option>8th Grade</option>
+<option>9th Grade</option>
+</select>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
+<tr>
+<th class="px-6 py-3" scope="col">Title</th>
+<th class="px-6 py-3" scope="col">Date Published</th>
+<th class="px-6 py-3" scope="col">Distributed To</th>
+<th class="px-6 py-3 text-right" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">Annual Sports Day</th>
+<td class="px-6 py-4">2023-10-26</td>
+<td class="px-6 py-4">All Classes, All Parents</td>
+<td class="px-6 py-4 text-right space-x-2">
+<button class="p-1 text-gray-500 hover:text-primary dark:hover:text-primary"><span class="material-symbols-outlined text-base">download</span></button>
+<button class="p-1 text-gray-500 hover:text-blue-500 dark:hover:text-blue-400"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1 text-gray-500 hover:text-accent-red dark:hover:text-accent-red"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">PTA Meeting Schedule</th>
+<td class="px-6 py-4">2023-10-24</td>
+<td class="px-6 py-4">8th Grade, Parents</td>
+<td class="px-6 py-4 text-right space-x-2">
+<button class="p-1 text-gray-500 hover:text-primary dark:hover:text-primary"><span class="material-symbols-outlined text-base">download</span></button>
+<button class="p-1 text-gray-500 hover:text-blue-500 dark:hover:text-blue-400"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1 text-gray-500 hover:text-accent-red dark:hover:text-accent-red"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+<th class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap" scope="row">Holiday Homework</th>
+<td class="px-6 py-4">2023-10-20</td>
+<td class="px-6 py-4">9th Grade, Students</td>
+<td class="px-6 py-4 text-right space-x-2">
+<button class="p-1 text-gray-500 hover:text-primary dark:hover:text-primary"><span class="material-symbols-outlined text-base">download</span></button>
+<button class="p-1 text-gray-500 hover:text-blue-500 dark:hover:text-blue-400"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1 text-gray-500 hover:text-accent-red dark:hover:text-accent-red"><span class="material-symbols-outlined text-base">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Empty State Example -->
+<!-- <div class="text-center py-12">
+                                <p class="text-gray-500 dark:text-gray-400">No circulars have been published yet.</p>
+                                <p class="text-sm text-gray-400 dark:text-gray-500">Use the form above to create one.</p>
+                            </div> -->
+</div>
+<!-- Pagination -->
+<div class="flex justify-between items-center mt-6">
+<span class="text-sm text-gray-700 dark:text-gray-400">
+                                Showing <span class="font-semibold text-gray-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">3</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
+                            </span>
+<div class="inline-flex items-center -space-x-px">
+<a class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Previous</a>
+<a class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">1</a>
+<a aria-current="page" class="px-3 py-2 text-primary bg-blue-50 border border-primary hover:bg-blue-100 hover:text-primary dark:border-gray-700 dark:bg-gray-700 dark:text-white" href="#">2</a>
+<a class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">3</a>
+<a class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" href="#">Next</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

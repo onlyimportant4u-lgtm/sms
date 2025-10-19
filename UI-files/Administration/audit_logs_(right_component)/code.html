@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit Log</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL'0,
+                'wght'400,
+                'GRAD'0,
+                'opsz'24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<div class="hidden md:flex flex-col w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800">
+<div class="flex items-center gap-3 p-4 border-b border-gray-200 dark:border-gray-800">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="University logo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDINvurqQJwYtgZXSftkhmNPpe5vpmX6aWlbWXk9MdbSWUtXtEEyB0MT0nYwif9hjbQcrBY7o5c2rECJBPbfLXfg5BmNQ0CuMvb5Fpy2w8vhlzILm_QGWKoTi8vsZ4B6ntlsTS9bdy8JzJIm1NqpKGDL08X83a6Zm_foKsn-LFgTxfUYEEkfn3AyeVTb0kdK2N2zr6IwZ_dYBbLhS7ZJIaTUKtcCI1yihdv2e3_jFftAdHFBSgQTXq7oUcwcOArOPSLOn2rjZzGJbgv');"></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-base font-medium leading-normal">University</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">of Suburbia</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 p-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium leading-normal">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">badge</span>
+<p class="text-sm font-medium leading-normal">Staff</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<p class="text-sm font-medium leading-normal">Reports</p>
+</a>
+</div>
+</div>
+<div class="flex flex-col flex-1">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 px-6 py-3 bg-white dark:bg-gray-900">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-primary">security</span>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Settings</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBdAR7BTIgPJ5PiglDU6mYszIpP-IXnCJ8j70cmMyl3fe0RVInzS6n1oqJ25vf7Jr3dSCgBfsV52E0V02jMJMcpR9cV5ZYhWQNEiHDk65woTWuKEMf4fzLDE1usaKLA_aPmvI2Yye14NR_lPsPIBMpBQqXnJvKBVR8RwQ9zizlAID4xHppOPtP4gZhdmbAmyZTXts_plEC5wx4ZynnGkYxxTc_8vFiPf2LTSOIUbeiWNw7LInUKeSOk9j0t9W5XQy0jkNCTnmtiDSFB');"></div>
+</div>
+</header>
+<main class="flex-1 p-6 bg-background-light dark:bg-background-dark">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<div class="flex flex-col gap-1">
+<p class="text-gray-900 dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">Audit Log</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Monitor user activities and system events.</p>
+</div>
+<button class="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium">
+<span class="material-symbols-outlined">download</span>
+                        Export as CSV
+                    </button>
+</div>
+<div class="bg-white dark:bg-gray-900 p-4 rounded-xl shadow-sm">
+<!-- Filter and Search Bar -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+<!-- TextField Search -->
+<div class="col-span-1 md:col-span-2 lg:col-span-1">
+<label class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal pb-2">Search</p>
+<div class="flex w-full flex-1 items-stretch rounded-lg">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-gray-500 dark:placeholder-gray-400 p-3 text-sm font-normal leading-normal" placeholder="Search by user, IP, or action" value=""/>
+</div>
+</label>
+</div>
+<!-- Chips Filters -->
+<div class="col-span-1 md:col-span-2 lg:col-span-3 flex items-end gap-2">
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-gray-800 px-3 border border-gray-300 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">calendar_today</span>
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Date range</p>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-gray-800 px-3 border border-gray-300 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">person</span>
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">User</p>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-gray-800 px-3 border border-gray-300 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">bolt</span>
+<p class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Action type</p>
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/20 text-primary px-3 border border-primary/50">
+<p class="text-sm font-medium leading-normal">Apply Filters</p>
+</button>
+<button class="flex h-12 shrink-0 items-center justify-center gap-x-2 rounded-lg px-3 text-gray-600 dark:text-gray-400">
+<p class="text-sm font-medium leading-normal">Clear</p>
+</button>
+</div>
+</div>
+<!-- Audit Log Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
+<tr>
+<th class="px-6 py-3" scope="col">
+<div class="flex items-center gap-1 cursor-pointer">Timestamp <span class="material-symbols-outlined text-base">unfold_more</span></div>
+</th>
+<th class="px-6 py-3" scope="col">
+<div class="flex items-center gap-1 cursor-pointer">User <span class="material-symbols-outlined text-base">unfold_more</span></div>
+</th>
+<th class="px-6 py-3" scope="col">
+<div class="flex items-center gap-1 cursor-pointer">IP Address <span class="material-symbols-outlined text-base">unfold_more</span></div>
+</th>
+<th class="px-6 py-3" scope="col">
+<div class="flex items-center gap-1 cursor-pointer">Action <span class="material-symbols-outlined text-base">unfold_more</span></div>
+</th>
+<th class="px-6 py-3" scope="col">
+                                        Details
+                                    </th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">2023-10-27 14:35:10</td>
+<td class="px-6 py-4">John Doe (Admin)</td>
+<td class="px-6 py-4">192.168.1.1</td>
+<td class="px-6 py-4">User Login Success</td>
+<td class="px-6 py-4"><button class="text-primary hover:underline">View Details</button></td>
+</tr>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">2023-10-27 14:30:05</td>
+<td class="px-6 py-4">Jane Smith (Staff)</td>
+<td class="px-6 py-4">203.0.113.25</td>
+<td class="px-6 py-4">Updated Student Profile</td>
+<td class="px-6 py-4"><button class="text-primary hover:underline">View Changes</button></td>
+</tr>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">2023-10-27 13:55:41</td>
+<td class="px-6 py-4">Peter Jones (Staff)</td>
+<td class="px-6 py-4">198.51.100.10</td>
+<td class="px-6 py-4">Report Generated: "Q3 Enrollment"</td>
+<td class="px-6 py-4"><button class="text-primary hover:underline">View Details</button></td>
+</tr>
+<tr class="bg-white dark:bg-gray-900 border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">2023-10-27 12:10:15</td>
+<td class="px-6 py-4">John Doe (Admin)</td>
+<td class="px-6 py-4">192.168.1.1</td>
+<td class="px-6 py-4">Settings Changed: "Password Policy"</td>
+<td class="px-6 py-4"><button class="text-primary hover:underline">View Changes</button></td>
+</tr>
+<tr class="bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">2023-10-27 11:05:22</td>
+<td class="px-6 py-4">Susan Williams (Faculty)</td>
+<td class="px-6 py-4">203.0.113.42</td>
+<td class="px-6 py-4">Grade Updated for student #12345</td>
+<td class="px-6 py-4"><button class="text-primary hover:underline">View Details</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Controls -->
+<div class="flex items-center justify-between pt-4">
+<span class="text-sm text-gray-700 dark:text-gray-400">
+                            Showing <span class="font-semibold text-gray-900 dark:text-white">1</span> to <span class="font-semibold text-gray-900 dark:text-white">5</span> of <span class="font-semibold text-gray-900 dark:text-white">100</span> Entries
+                        </span>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                Previous
+                            </button>
+<button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                                Next
+                            </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

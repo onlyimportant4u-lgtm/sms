@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fee Collection Reports</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-5 px-4 md:px-10 lg:px-20 xl:px-40">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<p class="text-[#0d141b] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Fee Collection Reports</p>
+<div class="flex gap-2">
+<button class="flex items-center justify-center gap-2 h-10 px-4 text-sm font-medium rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined">download</span>
+                                Export
+                            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+<div class="p-6 rounded-xl bg-white dark:bg-background-dark/50 shadow-sm">
+<h3 class="text-base font-medium text-gray-500 dark:text-gray-400">Total Collected</h3>
+<p class="text-3xl font-bold text-[#0d141b] dark:text-white mt-2">$85,320</p>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-background-dark/50 shadow-sm">
+<h3 class="text-base font-medium text-gray-500 dark:text-gray-400">Total Due</h3>
+<p class="text-3xl font-bold text-[#0d141b] dark:text-white mt-2">$12,450</p>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-background-dark/50 shadow-sm">
+<h3 class="text-base font-medium text-gray-500 dark:text-gray-400">Total Waived</h3>
+<p class="text-3xl font-bold text-[#0d141b] dark:text-white mt-2">$1,200</p>
+</div>
+<div class="p-6 rounded-xl bg-white dark:bg-background-dark/50 shadow-sm">
+<h3 class="text-base font-medium text-gray-500 dark:text-gray-400">Students with Due</h3>
+<p class="text-3xl font-bold text-[#0d141b] dark:text-white mt-2">34</p>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark/50 mt-6 rounded-xl shadow-sm p-4">
+<h2 class="text-[#0d141b] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Filters</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4 py-3">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal pb-2">Date Range</p>
+<div class="relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white dark:bg-background-dark/60 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-gray-700 bg-slate-50 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal" placeholder="Select Date Range" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">calendar_today</span>
+</div>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal pb-2">Class</p>
+<select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white dark:bg-background-dark/60 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-gray-700 bg-slate-50 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal">
+<option value="one">Select Class</option>
+<option value="two">Class 10</option>
+<option value="three">Class 11</option>
+</select>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal pb-2">Fee Type</p>
+<select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white dark:bg-background-dark/60 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-gray-700 bg-slate-50 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal">
+<option value="one">Select Fee Type</option>
+<option value="two">Tuition Fee</option>
+<option value="three">Transport Fee</option>
+</select>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal pb-2">Payment Status</p>
+<select class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white dark:bg-background-dark/60 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-gray-700 bg-slate-50 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal">
+<option value="one">All</option>
+<option value="two">Paid</option>
+<option value="three">Due</option>
+<option value="four">Partially Paid</option>
+</select>
+</label>
+<div class="flex flex-col min-w-40 flex-1 md:col-span-2 lg:col-span-4">
+<p class="text-[#0d141b] dark:text-white text-base font-medium leading-normal pb-2">Student</p>
+<div class="relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white dark:bg-background-dark/60 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-gray-700 bg-slate-50 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal" placeholder="Search by student name or admission no." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-4 px-4 py-5">
+<button class="h-10 px-6 text-sm font-medium rounded-lg text-gray-600 dark:text-gray-300">Reset Filters</button>
+<button class="flex items-center justify-center gap-2 h-10 px-6 text-sm font-medium rounded-lg bg-primary text-white">Generate Report</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mt-6 p-4">
+<div class="lg:col-span-3 bg-white dark:bg-background-dark/50 rounded-xl shadow-sm p-6">
+<h3 class="text-lg font-bold text-[#0d141b] dark:text-white mb-4">Collected vs. Due Fees</h3>
+<div class="w-full h-80">
+<img class="w-full h-full object-contain" data-alt="A bar chart showing collected vs due fees comparison" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXVIbf2TeLz5-mIhv6oqtoIgNY5tB3nyxtKo8nbSsYOAEqn-V7a5FkvtM9XvsGqMH8RoeNlhUa7FDuHBgVVhdJ51bdMMVSMOLtIue0W3-xcr_ejjZDbOIY_Dmlyum3g4JhORaSXZ6VmWS1s5O8SGKuLUhoLjcxEdp7zqV3Z1VVXGF6Xsb4C3mLtwxJRKIxFk5n_bw_iV8AXfBhmR6zi0AXtogKc60geTrTlnRp9c3yz_wpgF-e_UKMiX5gUqauyjJieoV4f8DVwYho"/>
+</div>
+</div>
+<div class="lg:col-span-2 bg-white dark:bg-background-dark/50 rounded-xl shadow-sm p-6">
+<h3 class="text-lg font-bold text-[#0d141b] dark:text-white mb-4">Fee Collection by Type</h3>
+<div class="w-full h-80 flex items-center justify-center">
+<img class="w-full h-full object-contain p-4" data-alt="A pie chart representing fee collection by type." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC834BzWSMJ06OOpwqbt_D2fVX9HbKa46xmf8UPZDquARsBcmOcsif-nvHGBoIpG-j-Lh_IZVc6B1gQVaYqRk9BZh43NemNICQg75boWHj3ytVuA10ZwXLJfw9PO7QOJW3Eao9OnebEGkMcDvL7T_Svi6ZWSfvSn4B2loseRhQ6ij1iPbiw9UK-aK_5ep6PTv986yoqHzY6IRA6NdHXwtmgqs46bpLibFTnveLB_03sCHjsz25ixSn-2WwFna_6A0ziPi8IFtOcMwGv"/>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark/50 mt-6 rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-gray-50 dark:bg-gray-800/50">
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Student Name</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Admission No.</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Class</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Fee Type</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Due Amount</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Paid Amount</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Due Date</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Payment Date</th>
+<th class="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b dark:border-gray-800">
+<td class="p-4 text-sm text-[#0d141b] dark:text-white">John Doe</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">AD12345</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Class 10</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Tuition Fee</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$200.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$200.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">15 Jul 2024</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">10 Jul 2024</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Paid</span></td>
+</tr>
+<tr class="border-b dark:border-gray-800">
+<td class="p-4 text-sm text-[#0d141b] dark:text-white">Jane Smith</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">AD12346</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Class 11</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Transport Fee</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$50.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$0.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">20 Jul 2024</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">-</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">Due</span></td>
+</tr>
+<tr class="border-b dark:border-gray-800">
+<td class="p-4 text-sm text-[#0d141b] dark:text-white">Peter Jones</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">AD12347</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Class 10</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Exam Fee</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$75.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$50.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">25 Jul 2024</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">24 Jul 2024</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-orange-100 text-orange-800">Partially Paid</span></td>
+</tr>
+<tr class="border-b dark:border-gray-800">
+<td class="p-4 text-sm text-[#0d141b] dark:text-white">Mary Major</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">AD12348</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Class 11</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Tuition Fee</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$200.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$200.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">15 Jul 2024</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">12 Jul 2024</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">Paid</span></td>
+</tr>
+<tr class="border-b dark:border-gray-800">
+<td class="p-4 text-sm text-[#0d141b] dark:text-white">Chris Lee</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">AD12349</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Class 10</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">Transport Fee</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$50.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">$0.00</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">20 Jul 2024</td>
+<td class="p-4 text-sm text-gray-600 dark:text-gray-300">-</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">Due</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-between items-center p-4">
+<p class="text-sm text-gray-500 dark:text-gray-400">Showing 1 to 5 of 25 entries</p>
+<div class="flex gap-2">
+<button class="flex items-center justify-center h-8 w-8 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-white text-sm">1</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg text-gray-600 dark:text-gray-300 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">2</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg text-gray-600 dark:text-gray-300 text-sm hover:bg-gray-100 dark:hover:bg-gray-800">3</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

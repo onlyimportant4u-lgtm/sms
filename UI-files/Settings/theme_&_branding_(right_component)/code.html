@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Theme &amp; Branding Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex h-screen">
+<!-- Left Sidebar -->
+<aside class="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col">
+<div class="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<h1 class="text-xl font-bold ml-2">EduSys</h1>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+                Students
+            </a>
+<a class="flex items-center p-2 rounded-lg bg-primary/20 text-primary dark:bg-primary/30 dark:text-white" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+                Settings
+            </a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col">
+<!-- Top Navbar -->
+<header class="h-16 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between px-6">
+<div class="flex items-center">
+<button class="md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="flex items-center gap-4">
+<button>
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-2">
+<img class="h-8 w-8 rounded-full object-cover" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9U4ji3I2l7lwwRoHj6c930qadztjBsPKTAMUmGGgjVWQFrC97LPcaFvwwgHXwiDyOWv5YwJkgKFpmZdAdaWlMAm1C4bxN6-Ro_JNbYVYfWVFqLKPwSlSiX7r8rPvBL02h7JU4WH_EC-EMQCcb01vKmIOTzYcfyCT4GljK1xto_eXdXN_J_tRvmodN5zencoHgOKAMYsLgaxziWmCu2l7xneaXlkv1i-nlShEDqLY4eSBNbnhwd8V8-6BJMVhMJvbh4t_ZkfS_5gf9"/>
+<div class="text-sm">
+<p class="font-semibold">Admin</p>
+<p class="text-gray-500 dark:text-gray-400">admin@edusys.com</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-6 lg:p-8 bg-background-light dark:bg-background-dark overflow-y-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Customization Options -->
+<div class="lg:col-span-2 space-y-8">
+<div>
+<div class="flex flex-wrap justify-between gap-3">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Theme &amp; Branding</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Customize the application's visual appearance</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] mb-4">Color Scheme</h2>
+<p class="text-gray-500 dark:text-gray-400 mb-6">Select a color theme</p>
+<div class="flex flex-wrap gap-5">
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="size-10 rounded-full border-2 border-gray-300 dark:border-gray-700 ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark ring-primary has-[:checked]:ring-2" style="background-color: rgb(246, 247, 248);">
+<input checked="" class="invisible" name="color-scheme" type="radio"/>
+</div>
+<span>Default</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="size-10 rounded-full border-2 border-gray-700 ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark ring-primary has-[:checked]:ring-2" style="background-color: rgb(16, 25, 34);">
+<input class="invisible" name="color-scheme" type="radio"/>
+</div>
+<span>Dark</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="size-10 rounded-full border-2 border-gray-300 dark:border-gray-700 ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark ring-primary has-[:checked]:ring-2 bg-gradient-to-br from-blue-500 to-purple-600">
+<input class="invisible" name="color-scheme" type="radio"/>
+</div>
+<span>Ocean Blue</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="size-10 rounded-full border-2 border-gray-300 dark:border-gray-700 ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark ring-primary has-[:checked]:ring-2 bg-gradient-to-br from-yellow-400 to-red-500">
+<input class="invisible" name="color-scheme" type="radio"/>
+</div>
+<span>School Colors</span>
+</label>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] mb-6">Typography</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<label class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">Primary Font</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 px-3 text-base font-normal">
+<option value="Inter">Inter</option>
+<option value="Roboto">Roboto</option>
+<option value="Lato">Lato</option>
+<option value="Montserrat">Montserrat</option>
+</select>
+</label>
+<label class="flex flex-col">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">Secondary Font</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-gray-800 focus:border-primary h-12 px-3 text-base font-normal">
+<option value="Inter">Inter</option>
+<option selected="" value="Roboto">Roboto</option>
+<option value="Lato">Lato</option>
+<option value="Montserrat">Montserrat</option>
+</select>
+</label>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-900 p-6 rounded-xl border border-gray-200 dark:border-gray-800">
+<h2 class="text-gray-900 dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] mb-6">Branding Assets</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">Application Logo</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Recommended size: 200x50px, .PNG format</p>
+<div class="flex items-center gap-4">
+<div class="w-40 h-14 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+<img class="h-8" data-alt="Current logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsoCxM2oLCXwXelho0AaGW2uI4dQtGej8GRPCLim8qdrueF3hXhPW-Ps2mUKtDKvTs-GG_hRCSyIFYAJTSdn4VmJ1hu2BEs7zScWAlx_CiRFJNdrOHM6uLVveFy9PeZdRe2bOoJehaE_wD2rdJKG-a8dn3JesmxHtpu3ElNZDFV_QhaRsfDdC2Jj1_Kccz6ucA7MiaP54m6qEm4_XQbskDiuRsPN46f_8Crz4T9RhP7ydlFm63Y_RSGpi87FCI34U9bnSP7R042H9Y"/>
+</div>
+<div class="flex flex-col gap-2">
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/90">Change Logo</button>
+<button class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">Remove</button>
+</div>
+</div>
+</div>
+<div>
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal pb-2">Favicon</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Recommended size: 32x32px, .ICO or .PNG</p>
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+<img class="h-8 w-8" data-alt="Current favicon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9QpKj7WOILNRUgsNO-rJAFyb4_DnfZGx3KfpzqD99Jrshx_lFExWt2i4Bc4T4MOU3mIaAdPelkFl1vIcVd4EobAMmahlPhNSTOggSVq9oA6pLMr3w8ndMvxu9vhDJq0dkwo-AKYZ87caSLrteehSw6LM1e-AqslG8IMlNVSsFr_PV5FdJY--QGs4Hyv-GXuSwLgUF2kh4NxdDJUr5P9yHVSiYmjg1GaMZjhjqQyYiuQo5GxUCAQU956A7kF4_qpRX70LfrRNdTKOS"/>
+</div>
+<div class="flex flex-col gap-2">
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/90">Change Favicon</button>
+<button class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">Remove</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-end gap-4 mt-8">
+<button class="px-6 py-3 text-base font-medium text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">Reset to Default</button>
+<button class="px-6 py-3 text-base font-medium text-white bg-primary rounded-lg hover:bg-primary/90">Save Changes</button>
+</div>
+</div>
+<!-- Right Column: Live Preview -->
+<div class="lg:col-span-1 hidden lg:block">
+<div class="sticky top-8">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Live Preview</h3>
+<div class="w-full h-[600px] bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-lg overflow-hidden">
+<div class="flex flex-col h-full">
+<!-- Preview: Top Navbar -->
+<div class="h-12 bg-primary flex items-center justify-between px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-white/30 rounded-full"></div>
+<div class="w-24 h-4 bg-white/30 rounded"></div>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 bg-white/30 rounded-full"></div>
+<div class="w-5 h-5 bg-white/30 rounded-full"></div>
+</div>
+</div>
+<div class="flex flex-1">
+<!-- Preview: Sidebar -->
+<div class="w-20 bg-primary/10 dark:bg-primary/20 p-2 space-y-3">
+<div class="w-8 h-8 mx-auto bg-primary/30 rounded-lg"></div>
+<div class="w-full h-2 bg-primary/30 rounded"></div>
+<div class="w-full h-2 bg-primary/30 rounded"></div>
+<div class="w-full h-2 bg-primary/50 rounded"></div>
+<div class="w-full h-2 bg-primary/30 rounded"></div>
+</div>
+<!-- Preview: Content Area -->
+<div class="flex-1 p-4 space-y-4 bg-background-light dark:bg-background-dark">
+<div class="h-6 w-1/2 bg-gray-300 dark:bg-gray-700 rounded"></div>
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 space-y-3">
+<div class="h-4 w-3/4 bg-gray-300 dark:bg-gray-600 rounded"></div>
+<div class="h-3 w-full bg-gray-200 dark:bg-gray-700 rounded"></div>
+<div class="h-3 w-5/6 bg-gray-200 dark:bg-gray-700 rounded"></div>
+<div class="h-3 w-full bg-gray-200 dark:bg-gray-700 rounded"></div>
+<div class="h-8 w-24 bg-primary rounded-lg mt-2"></div>
+</div>
+<div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 space-y-3">
+<div class="h-4 w-3/4 bg-gray-300 dark:bg-gray-600 rounded"></div>
+<div class="h-3 w-full bg-gray-200 dark:bg-gray-700 rounded"></div>
+<div class="h-3 w-5/6 bg-gray-200 dark:bg-gray-700 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

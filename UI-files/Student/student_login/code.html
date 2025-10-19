@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Student Management System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .is-invalid {
+            border-color: #ef4444;
+        }
+        .is-valid {
+            border-color: #22c55e;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "primary-hover": "#357ABD",
+                        "background-light": "#f2f2f2",
+                        "background-dark": "#101922",
+                        "text-light": "#333333",
+                        "text-dark": "#f2f2f2"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen flex-col items-center justify-center bg-slate-50 dark:bg-background-dark p-4 sm:p-6 lg:p-8">
+<header class="absolute top-0 left-0 w-full p-6">
+<h1 class="text-xl font-bold text-center">University Student Portal</h1>
+</header>
+<main class="w-full max-w-md p-6 sm:p-8 space-y-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+<div class="text-center">
+<h2 class="text-2xl sm:text-3xl font-black leading-tight tracking-tight">Sign In to Your Account</h2>
+</div>
+<form class="mt-8 space-y-6" id="loginForm" novalidate="">
+<div class="space-y-4">
+<div>
+<label class="sr-only" for="email-address">Email Address</label>
+<span class="text-base font-medium leading-normal pb-2" id="email-label">Email Address</span>
+<input aria-describedby="email-error" aria-labelledby="email-label" aria-required="true" autocomplete="email" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] bg-slate-50 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal" id="email-address" name="email" placeholder="Enter your email" required="" type="email"/>
+<p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden" id="email-error" role="alert"></p>
+</div>
+<div>
+<label class="sr-only" for="password">Password</label>
+<span class="text-base font-medium leading-normal pb-2" id="password-label">Password</span>
+<div class="relative">
+<input aria-describedby="password-error" aria-labelledby="password-label" aria-required="true" autocomplete="current-password" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] bg-slate-50 focus:border-primary h-14 placeholder:text-[#4c739a] p-[15px] text-base font-normal leading-normal" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5" id="togglePassword" type="button">
+<span class="material-symbols-outlined text-[#4c739a]" id="password-icon">
+                                visibility
+                            </span>
+</button>
+</div>
+<p class="mt-2 text-sm text-red-600 dark:text-red-500 hidden" id="password-error" role="alert"></p>
+</div>
+</div>
+<div class="flex items-center justify-end">
+<div class="text-sm">
+<a class="font-medium text-primary hover:text-primary-hover" href="#">
+                        Forgot Password?
+                    </a>
+</div>
+</div>
+<div>
+<button class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-hover h-12" id="loginButton" type="submit">
+<span class="absolute left-0 inset-y-0 flex items-center pl-3 hidden" id="loading-spinner">
+<svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+</span>
+<span id="button-text">Sign In</span>
+</button>
+</div>
+</form>
+</main>
+<footer class="absolute bottom-0 w-full p-6">
+<p class="text-center text-sm text-gray-500">
+            © 2024 University. All rights reserved.
+        </p>
+</footer>
+</div>
+<script>
+    const emailInput = document.getElementById('email-address');
+    const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordIcon = document.getElementById('password-icon');
+    const loginForm = document.getElementById('loginForm');
+    const loginButton = document.getElementById('loginButton');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const buttonText = document.getElementById('button-text');
+    emailInput.addEventListener('input', () => {
+        if (emailInput.validity.valid) {
+            emailError.textContent = '';
+            emailError.classList.add('hidden');
+            emailInput.classList.remove('is-invalid');
+            emailInput.classList.add('is-valid');
+        } else {
+            showEmailError();
+        }
+    });
+    passwordInput.addEventListener('input', () => {
+        if (passwordInput.value.length > 0) {
+            passwordError.textContent = '';
+            passwordError.classList.add('hidden');
+            passwordInput.classList.remove('is-invalid');
+            passwordInput.classList.add('is-valid');
+        }
+    });
+    togglePassword.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        passwordIcon.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+    });
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        let isValid = true;
+        if (!emailInput.validity.valid) {
+            isValid = false;
+            showEmailError();
+        }
+        if (passwordInput.value.length === 0) {
+            isValid = false;
+            showPasswordError('Password is required.');
+        } else if (passwordInput.value.length < 8) {
+             isValid = false;
+             showPasswordError('Password must be at least 8 characters long.');
+        }
+        if (isValid) {
+            // Simulate API call
+            buttonText.textContent = 'Signing In...';
+            loadingSpinner.classList.remove('hidden');
+            loginButton.disabled = true;
+            setTimeout(() => {
+                // Reset form state after "API call"
+                buttonText.textContent = 'Sign In';
+                loadingSpinner.classList.add('hidden');
+                loginButton.disabled = false;
+                // On successful login, you would redirect the user.
+                // For this demo, we'll just log to console.
+                console.log('Login successful!');
+                loginForm.reset();
+                emailInput.classList.remove('is-valid');
+                passwordInput.classList.remove('is-valid');
+            }, 2000);
+        }
+    });
+    function showEmailError() {
+        if (emailInput.validity.valueMissing) {
+            emailError.textContent = 'Email address is required.';
+        } else if (emailInput.validity.typeMismatch) {
+            emailError.textContent = 'Please enter a valid email address.';
+        }
+        emailError.classList.remove('hidden');
+        emailInput.classList.add('is-invalid');
+        emailInput.classList.remove('is-valid');
+    }
+    function showPasswordError(message) {
+        passwordError.textContent = message;
+        passwordError.classList.remove('hidden');
+        passwordInput.classList.add('is-invalid');
+        passwordInput.classList.remove('is-valid');
+    }
+</script>
+
+</body></html>

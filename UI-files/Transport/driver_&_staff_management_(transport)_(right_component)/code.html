@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transport Staff Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display">
+<div class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<div class="flex h-full grow flex-row">
+<!-- SideNavBar -->
+<div class="flex flex-col w-64 bg-white dark:bg-slate-900/70 border-r border-slate-200 dark:border-slate-800">
+<div class="flex h-full min-h-0 flex-col justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMKg_gnzQOB__GyLIcXaFY8bJffuZ0gMN6t2EOU-_1xQnZ5qFL6_lqRXzFxgIM7BXfcpgTXLgp0yx0BrQcNJ7vM-vhzllxJTojkQvE-dQJkupSiAriYEnNS3oSlGRGs4r4w94Zg52m6QdiktmeQsm8kRxjilC8O8UzmzVdd3sNLHIwhPpSGAJR9VTMXkCwE8XyaCFI1VDdOD2Y2_ywtUpBCnz1t3HQ5OlS_WGk-qgCg6e67TsxP1V8JCvPkmgwCKoHGLG4YsQ8LBLS");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-50 text-base font-medium leading-normal">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">group</span>
+<p class="text-sm font-medium leading-normal">Student Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300" href="#">
+<span class="material-symbols-outlined text-primary dark:text-primary-300">directions_bus</span>
+<p class="text-sm font-medium leading-normal">Transport Management</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">school</span>
+<p class="text-sm font-medium leading-normal">Academics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</div>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="truncate">Logout</span>
+</button>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex flex-1 flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/70 px-6 py-3">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-50">
+<span class="material-symbols-outlined text-2xl text-primary">local_shipping</span>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">School Management</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-400 dark:text-slate-500 flex bg-slate-100 dark:bg-slate-800 items-center justify-center pl-3 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-slate-900 dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-slate-100 dark:bg-slate-800 h-full placeholder:text-slate-400 dark:placeholder:text-slate-500 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-slate-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAInZ-hw8nlJGOLdhTYZLneqVmcfqy9qhf1yGu_iwrP5dmHP4H3fWHslzsl97aStaVG8XSmMNT1zA0r-xcQlH2Wnz-rWZ-qjg1XzE-ZJOREMTHSlmID9lqnTc5Fcn6ebdx1knSlwCbqZuzPm1vCE8_tibzExs_2Ub4Ln-CmaA1TdcT2_5RpJEN6M5npfIVQg7nkEf6KyWcHynnHiOJNAGE3kYVcOQj6g06N60UUVuIxy5K3yZ0Yvogwj69ypDiaFSO2zwX8YfFsM_5-");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6">
+<div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+<p class="text-slate-900 dark:text-slate-50 text-3xl font-black leading-tight tracking-[-0.033em] min-w-72">Transport Staff Management</p>
+<button class="flex min-w-[84px] items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">Add New Staff</span>
+</button>
+</div>
+<div class="flex gap-3 pb-4 overflow-x-auto">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pl-4 pr-2 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Role</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pl-4 pr-2 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Status</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">arrow_drop_down</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pl-4 pr-2 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal">Assigned Vehicle</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">arrow_drop_down</span>
+</button>
+</div>
+<div class="@container">
+<div class="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50">
+<tr>
+<th class="px-4 py-3 text-left text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Staff Name</th>
+<th class="px-4 py-3 text-left text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Staff ID</th>
+<th class="px-4 py-3 text-left text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Role</th>
+<th class="px-4 py-3 text-left text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Assigned Vehicle</th>
+<th class="px-4 py-3 text-left text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">License Expiry</th>
+<th class="px-4 py-3 text-left text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Status</th>
+<th class="px-4 py-3 text-left text-slate-600 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<tr>
+<td class="h-[72px] px-4 py-2 text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">
+<div class="flex items-center gap-3">
+<img class="size-8 rounded-full object-cover" data-alt="John Doe profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS-wAVF3UKVOEsfW_AM8PgXPjTOfzT3rBKXT68dpTrqgl5dPcme-2oCGtsLHHcNp2zXjiW7BCaBLszyAJYBEEwpN9ZmSaNUAHCoM-U2U_tnH1H1FENp5UsAuV-clRwHUndYQlXlhdG1BjA-7uDiTGnlKAM2TeqtW-9JXhAFeo5im3v80_0KVW56i1vB8wVmYf8kpRSIUVAbWY_3oFCpf8FFRisn-nIbhgxSP0SuSq61_RDxNB_K6ZHEwKd_pVz8DBZR6Cl29--hIrX"/>
+                                                John Doe
+                                            </div>
+</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">TS123</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Driver</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Bus A</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">12/12/2024</td>
+<td class="h-[72px] px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="h-[72px] px-4 py-2">
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">visibility</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-900/50 hover:text-red-600 dark:hover:text-red-400"><span class="material-symbols-outlined text-base">toggle_off</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="h-[72px] px-4 py-2 text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">
+<div class="flex items-center gap-3">
+<img class="size-8 rounded-full object-cover" data-alt="Jane Smith profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnifztVKZqBSRbY42rj7T3Dgm6rVEf1ie7GKo9GpiT9AOLStliPiDE2JP74OZuCwu5Z2SveVQ2TGyQbJdT96d8ZarsAtXZXog3GgxwVkLPs1PEyHqJXcmcwjNAjw5mQY6FIdE97D4zMhXMGMyLXBMU9J-MrKzkD802eDxZb4_PLjGf_CELBH6nARD_8em1ppBF4_JEVRdprWOn3Vlllql9XMRfJaK_Xb-JIm8_5bEcZJqwgJAuolM9DUnh-LIsRdwt4W2zSidwXRwH"/>
+                                                Jane Smith
+                                            </div>
+</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">TS124</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Attendant</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Bus B</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">N/A</td>
+<td class="h-[72px] px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="h-[72px] px-4 py-2">
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">visibility</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-900/50 hover:text-red-600 dark:hover:text-red-400"><span class="material-symbols-outlined text-base">toggle_off</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="h-[72px] px-4 py-2 text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">
+<div class="flex items-center gap-3">
+<img class="size-8 rounded-full object-cover" data-alt="Peter Jones profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxIUiVGzhmFcEN77pEv4msaRYXrKzCIQOSCo27u5XNxxyRX_dDYXaV6HKddio-t6LSFwQO58J91IlqooLkXMNbKE-P6Us62gGyEBkMwRgJUQeI-rMrxST8NAdVyIsAbfxTeYc76947-tgu1r-gmx6Xi4zi1Eq1s-PKlV-dsv_QcWPi6JUMj1HZNT9s8_U0zHRayM16cXMcTkhsrLmei19_uyv-dVJ5Fk0oc5kvVkJOYTRyMKviSI7Ur_e_TdpD9nrgvzJGYn1H6wlw"/>
+                                                Peter Jones
+                                            </div>
+</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">TS125</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Driver</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Bus C</td>
+<td class="h-[72px] px-4 py-2 text-orange-600 dark:text-orange-400 text-sm font-medium leading-normal flex items-center gap-1.5"><span class="material-symbols-outlined text-base">warning</span>25/07/2024</td>
+<td class="h-[72px] px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">On Leave</span>
+</td>
+<td class="h-[72px] px-4 py-2">
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">visibility</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-900/50 hover:text-red-600 dark:hover:text-red-400"><span class="material-symbols-outlined text-base">toggle_off</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="h-[72px] px-4 py-2 text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">
+<div class="flex items-center gap-3">
+<img class="size-8 rounded-full object-cover" data-alt="Mary Williams profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2AroQ8P3a6cWy63Huw-W-f3Ka04CEEQEiA34UZx8OO6smC2uNhtY6KLGBtW6NNb3D4GKsb6R0uDIJsyBTc6IEkekABHG8ZMSe6_XBDOA0wyyWUfGK8E9pgX2CGaUbVGj9WBYj_c3nkWKeCnrM6Sel8ecwLqoWiQiLHwWMLdSwQcbksm74WKZZ5HuhPte1LrrJaa4xJP6ZwT-IT7yA6Gc7Xw8vEQiPFGaUZcIS7f3cv3lbGEtljF-VyWLSi6AO5DfXW11MGvnDtLuh"/>
+                                                Mary Williams
+                                            </div>
+</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">TS126</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Driver</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Bus D</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">01/03/2025</td>
+<td class="h-[72px] px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Active</span>
+</td>
+<td class="h-[72px] px-4 py-2">
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">visibility</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-900/50 hover:text-red-600 dark:hover:text-red-400"><span class="material-symbols-outlined text-base">toggle_off</span></button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="h-[72px] px-4 py-2 text-slate-900 dark:text-slate-50 text-sm font-medium leading-normal">
+<div class="flex items-center gap-3">
+<img class="size-8 rounded-full object-cover" data-alt="David Brown profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF_ORWeZkYZdM0pZxCb5iGHdZZERccWZQ4DAhfci61ow93It45IYuIniqwT-dFSzJlc7MP260_-JDd9Dpm56pmMc0Ckt_wAKudI9-eVU_1q_jYzLQqZA4aeaJUKbuP9DTq00gGuB1XrEfNZg8WPk8GQTesgLatd0lTAom5uss4pHFwLEO_AhJVCu_GZxLZoqxmSN6czCYKO8LQ51gMpdBpRENLHHoeo_QznHfhXu7FylY1N3uARkLgGdcWknGOg8JPQBrbu7tNd_qS"/>
+                                                David Brown
+                                            </div>
+</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">TS127</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Attendant</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Bus E</td>
+<td class="h-[72px] px-4 py-2 text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">N/A</td>
+<td class="h-[72px] px-4 py-2 text-sm font-normal leading-normal">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">Inactive</span>
+</td>
+<td class="h-[72px] px-4 py-2">
+<div class="flex items-center gap-2">
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">edit</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"><span class="material-symbols-outlined text-base">visibility</span></button>
+<button class="p-1.5 rounded-md text-slate-500 dark:text-slate-400 hover:bg-green-50 dark:hover:bg-green-900/50 hover:text-green-600 dark:hover:text-green-400"><span class="material-symbols-outlined text-base">toggle_on</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex justify-between items-center mt-4 px-2">
+<span class="text-sm text-slate-600 dark:text-slate-400">Showing 1 to 5 of 20 results</span>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center h-8 w-8 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg bg-primary text-white text-sm">1</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm">2</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm">3</button>
+<span class="text-slate-600 dark:text-slate-400">...</span>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm">4</button>
+<button class="flex items-center justify-center h-8 w-8 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</body></html>

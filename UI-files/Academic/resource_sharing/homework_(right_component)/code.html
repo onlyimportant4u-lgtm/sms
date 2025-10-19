@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management System - Resources &amp; Assignments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-slate-50">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<div class="hidden lg:flex flex-col w-64 bg-background-light dark:bg-background-dark border-r border-[#e7edf3] dark:border-slate-800 p-4">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkH0WVtIBWZZztEKkW3m6xx5ZbyhGBSu2vOE6XDw3AEVnjtuWI79yiLC3I69tz-ffwJBMM-5RpQxAqagoETUUZnr3iBf1Sd10G-KW2fQeaK-LS7Je7KCwrm2wQDwhn4EgOu6SoXkIUR4zqFwgw_VPmtrW06L-pSu4yLsgruxv01XyPx529XTrCsyQE18O639jgIfY9KGGbBUxrH8HiSscmieob7EMxTUFM8auCAmOvqt5UqS6yPEgh_utPPQ2xyS_euB-RtE5B4RC0");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#0d141b] dark:text-slate-50 text-base font-medium leading-normal">John Doe</h1>
+<p class="text-[#4c739a] dark:text-slate-400 text-sm font-normal leading-normal">Teacher</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-slate-50">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 dark:bg-primary/30 text-primary dark:text-slate-50">
+<span class="material-symbols-outlined !fill-1">folder</span>
+<p class="text-sm font-medium leading-normal">Academic Management</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-slate-50">
+<span class="material-symbols-outlined">groups</span>
+<p class="text-sm font-medium leading-normal">Student Affairs</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-slate-50">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</div>
+</div>
+<button class="mt-auto flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Logout</span>
+</button>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7edf3] dark:border-slate-800 px-6 py-3 bg-background-light dark:bg-background-dark">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-slate-50">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-[#0d141b] dark:text-slate-50 text-lg font-bold leading-tight tracking-[-0.015em]">Student Management System</h2>
+</div>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<label class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#4c739a] dark:text-slate-400 flex bg-[#e7edf3] dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-slate-50 focus:outline-0 focus:ring-0 border-none bg-[#e7edf3] dark:bg-slate-800 focus:border-none h-full placeholder:text-[#4c739a] dark:placeholder:text-slate-400 px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7edf3] dark:bg-slate-800 text-[#0d141b] dark:text-slate-50 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#e7edf3] dark:bg-slate-800 text-[#0d141b] dark:text-slate-50 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBTMttCTg5n_o3CQ0hS59Y0HvUXPi3l6zXeOIwrTxKjcViHCwWYahdtITe9Pw6qB-KXiNJcYwNNHW0_TeagePPTaaolPPJ6BqMR-06VvVCwY37fDRQE4axnssWv8UlJB8gRTRWsd9kdOv1oSFLbcHANlJixaf1Tp1Slh5347UlhTIHVqv5bFeR2H2xeWPKSc86gEIkljEEO8q_iY0mlwyd3n6RZH3TblYLCFiv3Vnf9kinKac1JKA6ZenbeXTfrzYaFem0nz7tSNwt5");'></div>
+</div>
+</header>
+<!-- Content Pane -->
+<main class="flex-1 p-6 bg-background-light dark:bg-background-dark overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-4">
+<a class="text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal" href="#">Academic Management</a>
+<span class="text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal">/</span>
+<span class="text-[#0d141b] dark:text-slate-50 text-sm font-medium leading-normal">Resources &amp; Assignments</span>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+<p class="text-[#0d141b] dark:text-slate-50 text-3xl font-black leading-tight tracking-[-0.03em]">Resources &amp; Assignments</p>
+<div class="flex gap-2">
+<button class="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-primary/20 dark:bg-primary/30 text-primary dark:text-slate-50 text-sm font-bold">
+<span class="material-symbols-outlined">upload_file</span>
+<span>Add Resource</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-primary text-white text-sm font-bold">
+<span class="material-symbols-outlined">add</span>
+<span>New Assignment</span>
+</button>
+</div>
+</div>
+<!-- Segmented Buttons -->
+<div class="flex mb-6">
+<div class="flex h-10 items-center justify-center rounded-lg bg-[#e7edf3] dark:bg-slate-800 p-1 w-full md:w-auto">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-4 has-[:checked]:bg-background-light dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-[0_0_4px_rgba(0,0,0,0.1)] has-[:checked]:text-primary text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal">
+<span class="truncate">Resources</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="Resources"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-4 has-[:checked]:bg-background-light dark:has-[:checked]:bg-background-dark has-[:checked]:shadow-[0_0_4px_rgba(0,0,0,0.1)] has-[:checked]:text-primary text-[#4c739a] dark:text-slate-400 text-sm font-medium leading-normal">
+<span class="truncate">Assignments</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Assignments"/>
+</label>
+</div>
+</div>
+<!-- Resources & Assignments Content -->
+<div class="space-y-6">
+<!-- File Upload -->
+<div class="border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-xl p-6 text-center bg-white dark:bg-slate-800/50">
+<span class="material-symbols-outlined text-4xl text-gray-400 dark:text-slate-500">cloud_upload</span>
+<p class="mt-2 text-sm text-gray-600 dark:text-slate-300">Drag &amp; drop files here or</p>
+<button class="mt-2 text-sm font-bold text-primary">browse files</button>
+</div>
+<!-- Resource List -->
+<div class="bg-white dark:bg-slate-800/50 rounded-xl shadow-sm">
+<div class="p-4 border-b border-gray-200 dark:border-slate-700">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-slate-200">Uploaded Resources</h3>
+</div>
+<ul class="divide-y divide-gray-200 dark:divide-slate-700">
+<li class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">description</span>
+<div>
+<p class="font-medium text-gray-900 dark:text-slate-100">Chapter 1 - Introduction to Algebra.pdf</p>
+<p class="text-sm text-gray-500 dark:text-slate-400">Uploaded on: Oct 26, 2023</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-slate-400">download</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-slate-400">delete</span>
+</button>
+</div>
+</li>
+<li class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-yellow-500 text-2xl">slideshow</span>
+<div>
+<p class="font-medium text-gray-900 dark:text-slate-100">World War II Presentation.pptx</p>
+<p class="text-sm text-gray-500 dark:text-slate-400">Uploaded on: Oct 25, 2023</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-slate-400">download</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-slate-400">delete</span>
+</button>
+</div>
+</li>
+</ul>
+</div>
+<!-- Assignment List -->
+<div class="bg-white dark:bg-slate-800/50 rounded-xl shadow-sm">
+<div class="p-4 border-b border-gray-200 dark:border-slate-700">
+<h3 class="text-lg font-semibold text-gray-800 dark:text-slate-200">Active Assignments</h3>
+</div>
+<ul class="divide-y divide-gray-200 dark:divide-slate-700">
+<li class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-green-500 text-2xl">assignment</span>
+<div>
+<p class="font-medium text-gray-900 dark:text-slate-100">Algebra Homework #3</p>
+<p class="text-sm text-gray-500 dark:text-slate-400">Class: Math 101 | Due: Nov 5, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                Assigned
+                            </span>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-slate-400">visibility</span>
+</button>
+</div>
+</li>
+<li class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-slate-800">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-red-500 text-2xl">assignment</span>
+<div>
+<p class="font-medium text-gray-900 dark:text-slate-100">History Essay - The Roman Empire</p>
+<p class="text-sm text-gray-500 dark:text-slate-400">Class: History 202 | Due: Oct 20, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                Overdue
+                            </span>
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-gray-600 dark:text-slate-400">visibility</span>
+</button>
+</div>
+</li>
+</ul>
+</div>
+<!-- Empty State -->
+<div class="text-center py-12 bg-white dark:bg-slate-800/50 rounded-xl shadow-sm">
+<span class="material-symbols-outlined text-5xl text-gray-400 dark:text-slate-500">folder_off</span>
+<h3 class="mt-2 text-lg font-medium text-gray-900 dark:text-slate-100">No resources found</h3>
+<p class="mt-1 text-sm text-gray-500 dark:text-slate-400">Get started by uploading a new resource or creating an assignment.</p>
+<button class="mt-4 flex items-center justify-center gap-2 h-10 px-4 mx-auto rounded-lg bg-primary text-white text-sm font-bold">
+<span class="material-symbols-outlined">add</span>
+<span>Add Your First Resource</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

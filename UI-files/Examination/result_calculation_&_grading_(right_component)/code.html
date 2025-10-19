@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Result Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-4 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbf0F-gj_xoWAxa9L9_f0pKiZAb46_zAAhq6VuI1zO2eZQPhz4mdOOx73A8--2DT5lCyufztR2vK-klNJVP6pcJvrZjgTublWCJXyvRKRxBCynU9CRBicvB1d8shAHqVs7KTUctMH-xoxxMx-Vxw3BxAOj1XpzxBTx__55DUTppatLByEEXUgqayG_5ZwzMeHmIvb4Iehop6wFzWTCALZS2TpoKUteYKW3TSd0nv_2Dfp-1icxCgNHNdZK23wcbt-7K_hwKArouQA0");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-medium">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal">admin@school.com</p>
+</div>
+</div>
+</div>
+<nav class="flex-grow p-4 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<span class="text-sm font-medium">Admissions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-sm font-medium">Student Information</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary dark:bg-primary/30" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-sm font-medium">Examinations &amp; Results</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-sm font-medium">Employees</span>
+</a>
+</nav>
+<div class="p-4">
+<button class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span class="truncate">New Admission</span>
+</button>
+</div>
+</aside>
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 py-3 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4 text-slate-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold">School</h2>
+</div>
+<div class="flex items-center gap-4">
+<label class="relative flex-1 max-w-xs">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 pl-10 focus:border-primary focus:ring-primary text-slate-900 dark:text-white placeholder:text-slate-400" placeholder="Search" type="text"/>
+</label>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNBfoUohKOkUn8ub9iwFlSjfcUinPumkHbOM-2zN2YaukFObXeQg3uYnkCaHV2cfp0xgn96BjIh99Q6Tduz1hsbX_d7EafUShOAsTeX3rpF12mzuT4GOZwc3UF0Khqct9oRG8zWHPWqQf6mwV2L_8y4rwJY7peIDOIfTar-UUyd7VJc0luK6pFkktyWDWvDHHg-CMfIExP9nUQAD_eHcJ0UoBymxPZeLuP4tEebTqan_jeC3nCHaLSfhXLjHo18G8aDcEcWWZjtNEq");'></div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6 lg:p-8 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="mb-6">
+<p class="text-slate-900 dark:text-white text-3xl lg:text-4xl font-black tracking-tight">Compute &amp; Manage Student Results</p>
+</div>
+<!-- Filter Section -->
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm mb-6">
+<div class="flex flex-wrap items-end gap-4">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-slate-800 dark:text-slate-200 text-sm font-medium pb-2">Select Examination</p>
+<select class="form-select flex w-full min-w-0 flex-1 rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary text-slate-900 dark:text-white">
+<option>Select an option...</option>
+<option>Mid-Term</option>
+<option>Final Exam</option>
+<option>Unit Test 1</option>
+</select>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-slate-800 dark:text-slate-200 text-sm font-medium pb-2">Select Class</p>
+<select class="form-select flex w-full min-w-0 flex-1 rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary text-slate-900 dark:text-white">
+<option>Select an option...</option>
+<option>Class 10 - A</option>
+<option>Class 10 - B</option>
+<option>Class 9 - A</option>
+</select>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span class="truncate">Fetch Students</span>
+</button>
+</div>
+</div>
+<!-- Results Table Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm overflow-hidden">
+<div class="p-4 flex justify-between items-center border-b border-slate-200 dark:border-slate-800">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white">Student Results for Class 10-A, Mid-Term Exam</h3>
+<div class="flex items-center gap-2">
+<span class="text-sm text-yellow-500 flex items-center gap-1"><span class="material-symbols-outlined text-base">warning</span> Unsaved Changes</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="px-6 py-3" scope="col">Student ID</th>
+<th class="px-6 py-3" scope="col">Student Name</th>
+<th class="px-6 py-3 text-center" scope="col">Math</th>
+<th class="px-6 py-3 text-center" scope="col">Science</th>
+<th class="px-6 py-3 text-center" scope="col">English</th>
+<th class="px-6 py-3 text-center" scope="col">Total Marks</th>
+<th class="px-6 py-3 text-center" scope="col">Percentage</th>
+<th class="px-6 py-3 text-center" scope="col">Grade</th>
+<th class="px-6 py-3" scope="col">Remarks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">S1001</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">John Doe</td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="85"/></td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="92"/></td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="78"/></td>
+<td class="px-6 py-4 text-center font-medium text-slate-900 dark:text-white">255</td>
+<td class="px-6 py-4 text-center font-medium text-slate-900 dark:text-white">85.00%</td>
+<td class="px-6 py-4 text-center"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">A</span></td>
+<td class="px-6 py-4"><input class="form-input w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" placeholder="Enter remarks..." type="text"/></td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">S1002</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">Jane Smith</td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="45"/></td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="55"/></td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="60"/></td>
+<td class="px-6 py-4 text-center font-medium text-slate-900 dark:text-white">160</td>
+<td class="px-6 py-4 text-center font-medium text-slate-900 dark:text-white">53.33%</td>
+<td class="px-6 py-4 text-center"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300">F</span></td>
+<td class="px-6 py-4"><input class="form-input w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="Needs improvement in Math"/></td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">S1003</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">Peter Jones</td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="70"/></td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="65"/></td>
+<td class="px-6 py-4"><input class="form-input w-20 text-center rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" type="text" value="72"/></td>
+<td class="px-6 py-4 text-center font-medium text-slate-900 dark:text-white">207</td>
+<td class="px-6 py-4 text-center font-medium text-slate-900 dark:text-white">69.00%</td>
+<td class="px-6 py-4 text-center"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">C</span></td>
+<td class="px-6 py-4"><input class="form-input w-full rounded-md border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:border-primary focus:ring-primary" placeholder="Enter remarks..." type="text"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 flex justify-between items-center flex-wrap gap-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span class="truncate">Compute All</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-green-500 text-white text-sm font-bold">
+<span class="truncate">Save Results</span>
+</button>
+</div>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-bold gap-2">
+<span class="material-symbols-outlined text-base">print</span>
+<span class="truncate">Export</span>
+</button>
+</div>
+</div>
+<!-- Summary Panel -->
+<div class="mt-6 bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm">
+<details open="">
+<summary class="font-semibold text-lg text-slate-900 dark:text-white cursor-pointer list-none flex items-center justify-between">
+                                Class Performance Overview
+                                <span class="material-symbols-outlined transition-transform transform">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+<h4 class="text-sm font-medium text-slate-500 dark:text-slate-400">Class Average</h4>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-1">69.11%</p>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+<h4 class="text-sm font-medium text-slate-500 dark:text-slate-400">Pass / Fail Ratio</h4>
+<p class="text-2xl font-bold text-slate-900 dark:text-white mt-1">2 / 1</p>
+</div>
+<div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-lg">
+<h4 class="text-sm font-medium text-slate-500 dark:text-slate-400">Grade Distribution</h4>
+<div class="flex items-end gap-2 mt-2 h-16">
+<div class="flex-1 bg-green-400 h-full rounded-t-sm" title="Grade A: 1"></div>
+<div class="flex-1 bg-blue-400 h-[0%] rounded-t-sm" title="Grade B: 0"></div>
+<div class="flex-1 bg-yellow-400 h-[66.66%] rounded-t-sm" title="Grade C: 1"></div>
+<div class="flex-1 bg-orange-400 h-[0%] rounded-t-sm" title="Grade D: 0"></div>
+<div class="flex-1 bg-red-400 h-[33.33%] rounded-t-sm" title="Grade F: 1"></div>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

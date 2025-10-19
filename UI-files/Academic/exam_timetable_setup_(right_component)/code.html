@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Exam Timetable</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full">
+<!-- SideNavBar -->
+<div class="flex flex-col bg-white dark:bg-background-dark/50 p-4 border-r border-gray-200 dark:border-gray-700 w-64">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCw31gwo1E3r86YWaJ0HDL6rWQzC6hFdxRNNpB-7Bzkl1ztoJF8zATiUorIlrdyzCOrvCgplaFtRLUCJdrUIR7UPrRkUnMhK8XzSYBXTSEUt7Ryp9sYN69ZGowofwyaPNGWmR4VMR_5HZTbz4qFsKCmTg65PWaZYD7EMWhom91PwSZj2sn01Mdr8VgBE5yyWZBBvJU7MSSk6XCt5SQYTVdL7KFyDOGLed0fPf-ZHgkfwnS4pZZ4YnDkijohBbF_AR-nrSV6qn-k2Rg3");'></div>
+<div class="flex flex-col">
+<h1 class="text-gray-900 dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-sm font-medium">Student Info</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span class="material-symbols-outlined">school</span>
+<p class="text-sm font-medium">Academics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<p class="text-sm font-medium">Examinations</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20 text-gray-700 dark:text-gray-300" href="#">
+<span class="material-symbols-outlined">email</span>
+<p class="text-sm font-medium">Communication</p>
+</a>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] mt-4">
+<span class="truncate">Logout</span>
+</button>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-700 px-10 py-3 bg-white dark:bg-background-dark/50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Examination &amp; Results</h2>
+</div>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<label class="relative flex-grow max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="form-input w-full min-w-0 resize-none overflow-hidden rounded-lg text-gray-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark h-10 placeholder:text-gray-400 pl-10 text-sm font-normal" placeholder="Search..." value=""/>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-background-light dark:bg-background-dark text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjWM4X4H3O8QwCy7fzj5abY0mb37EINcG7X-DRku4x9t1VrNtwNWqI1CodiEIfUsZ3OF8Qvcrk7bXi4tkiqIXWj8iiyl_dIxgqg9WiOu3M-Yj8fu3BsVxvEvehL_OowmqkNRgQtKh4_0gkMIEOrm-4s-LoSJoTbxSlbfyDyY92p16AHq3wj528cYHIbkxVUn2YY05kXY4QxPbhc22H7tq3llRrT2oEVUiTMuYK1FOkIf6UCSzErYjVnMLix2EH1h_FAe3zIibNHkxS");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-8 bg-background-light dark:bg-background-dark">
+<div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+<div class="flex flex-col gap-1">
+<p class="text-gray-900 dark:text-white text-3xl font-black leading-tight tracking-[-0.033em]">Exam Timetable</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Create and manage exam schedules for all classes and subjects.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-bold">
+<span class="material-symbols-outlined mr-2">print</span>
+<span class="truncate">Print</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-green-500 text-white text-sm font-bold">
+<span class="truncate">Publish Timetable</span>
+</button>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex gap-3 p-3 flex-wrap pr-4 bg-white dark:bg-background-dark/50 rounded-lg mb-6 border border-gray-200 dark:border-gray-700">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-background-dark pl-4 pr-2 border border-gray-200 dark:border-gray-700">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Academic Year: 2023-24</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-background-dark pl-4 pr-2 border border-gray-200 dark:border-gray-700">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Class: 10</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-background-dark pl-4 pr-2 border border-gray-200 dark:border-gray-700">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Section: A</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-background-light dark:bg-background-dark pl-4 pr-2 border border-gray-200 dark:border-gray-700">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Subjects: All</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Calendar View -->
+<div class="lg:col-span-2">
+<div class="bg-white dark:bg-background-dark/50 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+<div class="flex items-center p-1 justify-between mb-2">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<p class="text-gray-900 dark:text-white text-lg font-bold">October 2023</p>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<p class="text-gray-600 dark:text-gray-400 text-xs font-bold text-center h-10 flex items-center justify-center">SUN</p>
+<p class="text-gray-600 dark:text-gray-400 text-xs font-bold text-center h-10 flex items-center justify-center">MON</p>
+<p class="text-gray-600 dark:text-gray-400 text-xs font-bold text-center h-10 flex items-center justify-center">TUE</p>
+<p class="text-gray-600 dark:text-gray-400 text-xs font-bold text-center h-10 flex items-center justify-center">WED</p>
+<p class="text-gray-600 dark:text-gray-400 text-xs font-bold text-center h-10 flex items-center justify-center">THU</p>
+<p class="text-gray-600 dark:text-gray-400 text-xs font-bold text-center h-10 flex items-center justify-center">FRI</p>
+<p class="text-gray-600 dark:text-gray-400 text-xs font-bold text-center h-10 flex items-center justify-center">SAT</p>
+<!-- Calendar Days -->
+<div class="text-gray-400 dark:text-gray-600 text-sm p-2 text-center h-28 border border-gray-100 dark:border-gray-800 rounded">24</div>
+<div class="text-gray-400 dark:text-gray-600 text-sm p-2 text-center h-28 border border-gray-100 dark:border-gray-800 rounded">25</div>
+<div class="text-gray-400 dark:text-gray-600 text-sm p-2 text-center h-28 border border-gray-100 dark:border-gray-800 rounded">26</div>
+<div class="text-gray-400 dark:text-gray-600 text-sm p-2 text-center h-28 border border-gray-100 dark:border-gray-800 rounded">27</div>
+<div class="text-gray-400 dark:text-gray-600 text-sm p-2 text-center h-28 border border-gray-100 dark:border-gray-800 rounded">28</div>
+<div class="text-gray-400 dark:text-gray-600 text-sm p-2 text-center h-28 border border-gray-100 dark:border-gray-800 rounded">29</div>
+<div class="text-gray-400 dark:text-gray-600 text-sm p-2 text-center h-28 border border-gray-100 dark:border-gray-800 rounded">30</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">1</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">2</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">3</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">4</div>
+<div class="text-white text-sm p-2 text-left h-28 border border-primary dark:border-primary bg-primary/10 dark:bg-primary/20 rounded relative">
+<div class="font-bold mb-1">5</div>
+<div class="bg-primary text-white rounded-md p-1.5 text-xs font-medium cursor-pointer hover:bg-primary/90">
+<p class="font-semibold">Mathematics</p>
+<p class="text-xs">10:00 - 12:00</p>
+<p class="text-xs">Room: 101</p>
+</div>
+</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">6</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">7</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">8</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded relative">9
+                                    <div class="bg-yellow-400 text-yellow-900 rounded-md p-1.5 text-xs font-medium mt-1 cursor-pointer hover:bg-yellow-400/90">
+<p class="font-semibold">Science (Draft)</p>
+<p class="text-xs">10:00 - 12:00</p>
+</div>
+</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">10</div>
+<div class="text-gray-900 dark:text-white text-sm p-2 text-left h-28 border border-gray-100 dark:border-gray-800 rounded">11</div>
+<!-- ... and so on for all days -->
+</div>
+</div>
+</div>
+<!-- Create/Edit Exam Form -->
+<div class="lg:col-span-1">
+<div class="bg-white dark:bg-background-dark/50 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Schedule New Exam</h3>
+<form class="space-y-4">
+<div>
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="subject">Subject</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary focus:ring-primary h-10" id="subject">
+<option>Select a subject</option>
+<option>Mathematics</option>
+<option>Science</option>
+<option>English</option>
+<option>History</option>
+</select>
+</div>
+<div>
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="date">Date</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary focus:ring-primary h-10" id="date" type="date" value="2023-10-09"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="start-time">Start Time</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary focus:ring-primary h-10" id="start-time" type="time" value="10:00"/>
+</div>
+<div>
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="end-time">End Time</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary focus:ring-primary h-10" id="end-time" type="time" value="12:00"/>
+</div>
+</div>
+<div>
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="exam-type">Exam Type</label>
+<select class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary focus:ring-primary h-10" id="exam-type">
+<option>Mid-term</option>
+<option>Final</option>
+<option>Unit Test</option>
+</select>
+</div>
+<div>
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="room">Room Number</label>
+<input class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-primary focus:ring-primary h-10" id="room" placeholder="e.g., 102" type="text"/>
+</div>
+<div class="flex justify-end gap-3 pt-4">
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-bold" type="button">
+<span class="truncate">Save as Draft</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold" type="submit">
+<span class="truncate">Schedule Exam</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Scheduled Exams List -->
+<div class="mt-6 bg-white dark:bg-background-dark/50 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white p-4 border-b dark:border-gray-700">Scheduled Exams for Class 10A</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+<tr>
+<th class="px-6 py-3" scope="col">Subject</th>
+<th class="px-6 py-3" scope="col">Date &amp; Time</th>
+<th class="px-6 py-3" scope="col">Location</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white border-b dark:bg-background-dark/50 dark:border-gray-700">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" scope="row">Mathematics</th>
+<td class="px-6 py-4">Oct 5, 2023 | 10:00 - 12:00</td>
+<td class="px-6 py-4">Room 101</td>
+<td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">Scheduled</span></td>
+<td class="px-6 py-4 flex gap-2">
+<button class="text-primary hover:underline">Edit</button>
+<button class="text-red-500 hover:underline">Delete</button>
+</td>
+</tr>
+<tr class="bg-white border-b dark:bg-background-dark/50 dark:border-gray-700">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" scope="row">Science</th>
+<td class="px-6 py-4">Oct 9, 2023 | 10:00 - 12:00</td>
+<td class="px-6 py-4">-</td>
+<td class="px-6 py-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Draft</span></td>
+<td class="px-6 py-4 flex gap-2">
+<button class="text-primary hover:underline">Edit</button>
+<button class="text-red-500 hover:underline">Delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4A90E2",
+                        "background-light": "#F4F7FA",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#333333] dark:text-gray-200">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-700 flex flex-col transition-width duration-300">
+<div class="p-4 border-b border-gray-200 dark:border-gray-700">
+<div class="flex items-center gap-3">
+<div class="bg-primary text-white rounded-full size-10 flex items-center justify-center">
+<span class="material-symbols-outlined">school</span>
+</div>
+<h1 class="text-[#333333] dark:text-white text-lg font-bold">Student Mgmt</h1>
+</div>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">Students</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">badge</span>
+<p class="text-sm font-medium">Staff</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">book</span>
+<p class="text-sm font-medium">Academics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">payments</span>
+<p class="text-sm font-medium">Finance</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+</aside>
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 py-3 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<label class="relative hidden sm:flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-gray-500">search</span>
+<input class="form-input w-full min-w-40 max-w-64 h-10 pl-10 pr-4 rounded-lg bg-background-light dark:bg-gray-700 border-gray-300 dark:border-gray-600 focus:ring-primary focus:border-primary placeholder:text-gray-500 text-sm" placeholder="Search..." value=""/>
+</label>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIJkK9h-WWmiBeLrPhp7ArUCwQdOrI8_gnavSrieyskoA3pRU6jMK-nkx1H7P79T11OiMkttBP9KsiREMv49Ws4bFViJD-20EFE7duqRCCbN_xIZ9Z0Rnj_m2uXKDKZ9fTri7kL-hb_3aoMwu5hgS-Vbs9SSxhLE0emGrbBacxnjEVWtPKp_gyupoeIq65COgawNCCKHdkYQQsiw_90sNxQVtejjUHK9X2I3Zw9wwbiiXd0ZVTgwtFT2p3mtfH858v51j6aE48WSGD");'></div>
+<div class="hidden md:block">
+<p class="text-sm font-semibold text-[#333333] dark:text-white">Admin</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">System Administrator</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 p-6 bg-background-light dark:bg-gray-800/50">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-4">
+<a class="text-primary text-sm font-medium" href="#">Dashboard</a>
+<span class="text-gray-500 text-sm font-medium">/</span>
+<span class="text-[#333333] dark:text-gray-300 text-sm font-medium">Student Overview</span>
+</div>
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+<p class="text-[#333333] dark:text-white text-3xl font-bold leading-tight">Welcome, Admin!</p>
+<div class="flex gap-2">
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-[#333333] dark:text-white text-sm font-semibold hover:bg-gray-300 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-base">cloud_upload</span>
+<span>Bulk Import</span>
+</button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-semibold hover:bg-primary/90">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add New Student</span>
+</button>
+</div>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium">Total Students</p>
+<p class="text-[#333333] dark:text-white text-3xl font-bold">1,234</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium">Active Students</p>
+<p class="text-[#333333] dark:text-white text-3xl font-bold">1,200</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium">New Registrations</p>
+<p class="text-[#333333] dark:text-white text-3xl font-bold">56</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-700">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium">Upcoming Birthdays</p>
+<p class="text-[#333333] dark:text-white text-3xl font-bold">12</p>
+</div>
+</div>
+<!-- Charts and Recent Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 bg-white dark:bg-background-dark p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+<h3 class="text-lg font-semibold text-[#333333] dark:text-white mb-4">Enrollment Trends - Last 6 Months</h3>
+<div class="h-64 bg-gray-50 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+<p class="text-gray-400">Chart/Graph Placeholder</p>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+<h3 class="text-lg font-semibold text-[#333333] dark:text-white mb-4">Recent Activity</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<div class="bg-green-100 text-green-600 rounded-full size-8 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-base">person_add</span>
+</div>
+<div>
+<p class="text-sm font-medium text-[#333333] dark:text-gray-200">Jane Doe was added to Grade 10.</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">2 hours ago</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="bg-blue-100 text-blue-600 rounded-full size-8 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-base">edit</span>
+</div>
+<div>
+<p class="text-sm font-medium text-[#333333] dark:text-gray-200">John Smith's profile was updated.</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">1 day ago</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="bg-purple-100 text-purple-600 rounded-full size-8 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-base">event_available</span>
+</div>
+<div>
+<p class="text-sm font-medium text-[#333333] dark:text-gray-200">Attendance for Grade 8 was marked.</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">3 days ago</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="bg-orange-100 text-orange-600 rounded-full size-8 flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+</div>
+<div>
+<p class="text-sm font-medium text-[#333333] dark:text-gray-200">New fee payment received from Alex Johnson.</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">4 days ago</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

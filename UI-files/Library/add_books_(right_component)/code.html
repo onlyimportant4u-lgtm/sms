@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .form-input {
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+
+        .form-input:focus {
+            border-color: #1173d4;
+            box-shadow: 0 0 0 0.2rem rgba(17, 115, 212, .25);
+        }
+        
+        .form-input.is-invalid {
+            border-color: #DC3545;
+        }
+
+        .form-input.is-invalid:focus {
+             box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, .25);
+        }
+
+        .invalid-feedback {
+            display: none;
+            width: 100%;
+            margin-top: .25rem;
+            font-size: .875em;
+            color: #DC3545;
+        }
+
+        .form-input.is-invalid ~ .invalid-feedback {
+            display: block;
+        }
+        
+        .form-input, .form-select {
+            background-color: #FFFFFF;
+        }
+        .dark .form-input, .dark .form-select {
+            background-color: #1a2937;
+            color: #cbd5e1;
+            border-color: #34475a;
+        }
+        .dark .form-input::placeholder, .dark .form-select::placeholder {
+            color: #94a3b8;
+        }
+
+        .dark .form-input:focus, .dark .form-select:focus {
+            border-color: #1173d4;
+            background-color: #1a2937;
+        }
+
+        .dark .text-color-default {
+            color: #e2e8f0;
+        }
+
+        .dark .text-color-secondary {
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<div class="flex flex-col p-4">
+<div class="flex flex-wrap justify-between gap-3 pb-4">
+<p class="text-[#0d141b] dark:text-color-default text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Add New Book to Catalog</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 mt-4">
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="isbn">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">ISBN</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal is-invalid" id="isbn" placeholder="Enter 13-digit ISBN" value=""/>
+<div class="invalid-feedback">
+                                        ISBN is required.
+                                    </div>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="title">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">Title</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal" id="title" placeholder="Enter book title" value=""/>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="author">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">Author</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal" id="author" placeholder="e.g., J.K. Rowling" value=""/>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="category">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">Category</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 bg-[image:var(--select-button-svg)] placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal dark:bg-[image:url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(148,163,184)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e')]" id="category">
+<option value="one">Select category</option>
+<option value="fiction">Fiction</option>
+<option value="non-fiction">Non-Fiction</option>
+<option value="science">Science</option>
+<option value="history">History</option>
+</select>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="publisher">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">Publisher</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal" id="publisher" placeholder="Enter publisher name" value=""/>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="publication-date">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">Publication Date</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal" id="publication-date" type="date" value=""/>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="edition-year">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">Edition Year</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal" id="edition-year" placeholder="e.g., 2023" type="number" value=""/>
+</label>
+</div>
+<div class="flex flex-col">
+<label class="flex flex-col flex-1" for="quantity">
+<p class="text-[#0d141b] dark:text-color-default text-base font-medium leading-normal pb-2">Quantity</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] focus:outline-0 focus:ring-0 border border-[#cfdbe7] focus:border-primary h-14 placeholder:text-[#6C757D] p-[15px] text-base font-normal leading-normal" id="quantity" placeholder="Enter initial quantity" type="number" value="1"/>
+</label>
+</div>
+</div>
+<div class="flex justify-end gap-4 mt-8">
+<button class="flex items-center justify-center font-medium h-12 px-6 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Cancel</button>
+<button class="flex items-center justify-center font-medium h-12 px-6 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors">Add Book</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

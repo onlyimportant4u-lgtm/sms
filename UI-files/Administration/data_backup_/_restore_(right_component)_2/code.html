@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management System - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<div class="flex h-full grow flex-row">
+<aside class="flex flex-col bg-[#111a22] p-4 w-64">
+<div class="flex flex-col gap-4 mb-auto">
+<div class="flex gap-3 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkAfmx5UjC-Y4ILiZRYN7o9o7GqVvrK1Bhf68qbC9HJN_Qs-_Qn2oQPbSR4hc7KvnY8vaW1Nm1W5cQPqAE3ZhsuDA5c3BfNL1TkWGTu3kkNg2ME9m2lu78UuJj7hM3GT1-pXh8tFOcgBGaT3eCKhCW-_-WZPABxeFc4tLiauldFdJYCgWSziQoEEWoZ0XYMe9684F0oT_UjiDhqkISuaZRKiIGYeGWKFbuYx8bOppmW1J4mG4KjQhcVDCeTpvgjJGdkUr8ZGtxf8fG");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-[#92adc9] text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<div class="flex flex-col gap-2 mt-4">
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer">
+<span class="material-symbols-outlined text-white">dashboard</span>
+<p class="text-white text-sm font-medium leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer">
+<span class="material-symbols-outlined text-white">group</span>
+<p class="text-white text-sm font-medium leading-normal">Students</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer">
+<span class="material-symbols-outlined text-white">book</span>
+<p class="text-white text-sm font-medium leading-normal">Courses</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer">
+<span class="material-symbols-outlined text-white">bar_chart</span>
+<p class="text-white text-sm font-medium leading-normal">Grades</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[#233648]">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1">settings</span>
+<p class="text-white text-sm font-medium leading-normal">Settings</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Logout</span>
+</button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#233648] px-10 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="w-8 h-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Student Management System</h2>
+</div>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-[#92adc9] flex border-none bg-[#233648] items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#233648] focus:border-none h-full placeholder:text-[#92adc9] px-4 text-base font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#233648] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-white text-[20px]">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#233648] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-white text-[20px]">help</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAbJK1ahzblLrc8xNM7iac9tbQf0T6bGGYYf5GHYBsU_081msR5inzcKdRy_fnX7-EOi14qJ2qIEcUh9oD9aO0tEFnwL1FuXihr4bPABr92dGsPxKSNeuZRgqhwgVTJu0PFXUdp9NTFV05ovkJPSWstzEK71mhppwnsKH-Q95cTEUaN9ARUD-x7XikpiBD4s92E9qqOubEsnIzn7l1hijZWzobR6Z8Z8VKyCxyKp-S07AMO-fQJQGHjnFHSc5B2l4djKfDPIxYfTYnm");'></div>
+</div>
+</header>
+<div class="p-8 flex-1">
+<div class="flex flex-wrap justify-between gap-3 mb-8">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">Data Backup and Restoration</p>
+<p class="text-[#92adc9] text-base font-normal leading-normal">Manage your system's data backups and restoration processes.</p>
+</div>
+</div>
+<div class="space-y-8">
+<div class="bg-[#1a2633] p-6 rounded-lg">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] mb-2">Manual Backup</h2>
+<p class="text-[#92adc9] text-base font-normal leading-normal pb-4">Create an immediate backup of the entire system data. Last manual backup: 2023-10-27 10:30 AM</p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Create Manual Backup</span>
+</button>
+</div>
+<div class="bg-[#1a2633] p-6 rounded-lg">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] mb-2">Automated Backup Schedule</h2>
+<p class="text-[#92adc9] text-base font-normal leading-normal pb-4">Enable automated backups to ensure your data is regularly saved without manual intervention.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<p class="text-white text-base font-medium">Enable Automated Backups</p>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center gap-4">
+<select class="form-select bg-[#233648] text-white border-none rounded-lg focus:ring-primary focus:border-primary">
+<option>Daily</option>
+<option>Weekly</option>
+<option>Monthly</option>
+</select>
+<select class="form-select bg-[#233648] text-white border-none rounded-lg focus:ring-primary focus:border-primary">
+<option>01:00 AM</option>
+<option>02:00 AM</option>
+<option>03:00 AM</option>
+</select>
+</div>
+</div>
+</div>
+<div class="bg-[#1a2633] p-6 rounded-lg">
+<h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] mb-4">Backup History</h2>
+<div class="w-full h-4 bg-[#233648] rounded-full overflow-hidden mb-4">
+<div class="h-full bg-primary" style="width: 45%;"></div>
+</div>
+<p class="text-sm text-center text-[#92adc9] mb-6">Backup in progress... 45% complete</p>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm text-[#92adc9]">
+<thead class="text-xs text-white uppercase bg-[#233648]">
+<tr>
+<th class="px-6 py-3" scope="col">Backup Date &amp; Time</th>
+<th class="px-6 py-3" scope="col">Type</th>
+<th class="px-6 py-3" scope="col">File Size</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-[#233648]">
+<td class="px-6 py-4 font-medium text-white">2023-10-26 01:00 AM</td>
+<td class="px-6 py-4">Automatic</td>
+<td class="px-6 py-4">1.2 GB</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/20 text-green-400">
+                                                    Completed
+                                                </span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-white text-lg">restore</span></button>
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-white text-lg">download</span></button>
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-red-500 text-lg">delete</span></button>
+</td>
+</tr>
+<tr class="border-b border-[#233648]">
+<td class="px-6 py-4 font-medium text-white">2023-10-25 01:00 AM</td>
+<td class="px-6 py-4">Automatic</td>
+<td class="px-6 py-4">1.1 GB</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-500/20 text-green-400">
+                                                    Completed
+                                                </span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-white text-lg">restore</span></button>
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-white text-lg">download</span></button>
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-red-500 text-lg">delete</span></button>
+</td>
+</tr>
+<tr class="border-b border-[#233648]">
+<td class="px-6 py-4 font-medium text-white">2023-10-24 09:15 AM</td>
+<td class="px-6 py-4">Manual</td>
+<td class="px-6 py-4">1.0 GB</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-500/20 text-red-400">
+                                                    Failed
+                                                </span>
+</td>
+<td class="px-6 py-4 flex gap-2">
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-white text-lg">restore</span></button>
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-white text-lg">download</span></button>
+<button class="p-1.5 rounded-md hover:bg-[#233648]"><span class="material-symbols-outlined text-red-500 text-lg">delete</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

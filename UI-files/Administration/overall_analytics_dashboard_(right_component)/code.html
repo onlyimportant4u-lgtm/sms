@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>University Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#333333] dark:text-gray-200">
+<div class="flex h-screen">
+<!-- SideNavBar -->
+<aside class="w-64 bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-700 flex flex-col justify-between">
+<div class="p-4">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_mx13FXNzngXKgePKY_dbG5g1ksR2XvPFj6R9vfbEi47_7VeQZXrZjl6pIudG-qcIyZCnKfAk2UgP9Af3hrH-mE57PSQsoUImBMtQqP_To-oxrwkAVSbxlK9rgNW_YkNrA_W8mbmd8OuMsZuRGbZYBZKiYQO-XyATgaM5XfvcwdqZD68Zldy9nOtm8Y2BNyl5ZYb3B-kXFQD0NnsxXr_iexDlsk2KboPwml0uFCrI3dFnTFmXMmpg05HA8y2lm6OekL8EQJrXojHD");'></div>
+<div class="flex flex-col">
+<h1 class="text-[#0d141b] dark:text-white text-base font-medium leading-normal">Admin</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">admin@university.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium leading-normal">Student</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<p class="text-sm font-medium leading-normal">Academics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">wallet</span>
+<p class="text-sm font-medium leading-normal">Finance</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pie_chart</span>
+<p class="text-sm font-medium leading-normal">Reports &amp; Analytics</p>
+</a>
+</nav>
+</div>
+<div class="p-4">
+<button class="w-full flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] mb-4">
+<span class="truncate">Logout</span>
+</button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#0d141b] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<p class="text-sm font-medium leading-normal">Support</p>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-10 py-3 bg-white dark:bg-background-dark">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_319)">
+<path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z"></path>
+</g>
+<defs><clippath id="clip0_6_319"><rect fill="white" height="48" width="48"></rect></clippath></defs>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">University</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-gray-500 dark:text-gray-400 flex bg-gray-100 dark:bg-gray-700 items-center justify-center pl-3 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#0d141b] dark:text-white focus:outline-0 focus:ring-0 border-none bg-gray-100 dark:bg-gray-700 focus:border-none h-full placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal" placeholder="Search" value=""/>
+</div>
+</label>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-gray-100 dark:bg-gray-700 text-[#0d141b] dark:text-gray-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-gray-100 dark:bg-gray-700 text-[#0d141b] dark:text-gray-300 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuNFilrHivM9RIf69_aLfrAaT5ouXghyGpSICwtclszs5gzbnlQCVrb0Zmp0xMcK8YucNHFEJ7MH7_pLVS_q5DGErriwv3YY0t_Z78RihUgETcM1fhv2kWq2W7cBaqB2cp3A4A9RlALJU9aqLpBS6LajwIBtShjBF3XHI1uuAOYiOHeZ2jwAYnsUOeC2bGHxlp8Yr8UbZOYN0ewjsgQTgDY1hVv0zK0MvvCKnbEQifoXQH47NX_O1zs5uSF11aEDkEMhg8m0Av3qM9");'></div>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 overflow-y-auto p-8 bg-background-light dark:bg-background-dark">
+<!-- PageHeading -->
+<div class="flex flex-wrap justify-between items-center gap-3 mb-6">
+<p class="text-[#0d141b] dark:text-white text-3xl font-bold leading-tight tracking-[-0.033em] min-w-72">Reports &amp; Analytics Dashboard</p>
+<div class="flex gap-3 overflow-x-hidden">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-700 px-4 border border-gray-200 dark:border-gray-600">
+<p class="text-[#0d141b] dark:text-gray-300 text-sm font-medium leading-normal">This Week</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-700 px-4 border border-gray-200 dark:border-gray-600">
+<p class="text-[#0d141b] dark:text-gray-300 text-sm font-medium leading-normal">This Month</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-700 px-4 border border-gray-200 dark:border-gray-600">
+<p class="text-[#0d141b] dark:text-gray-300 text-sm font-medium leading-normal">Last 3 Months</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-gray-700 px-4 border border-gray-200 dark:border-gray-600">
+<p class="text-[#0d141b] dark:text-gray-300 text-sm font-medium leading-normal">Custom Range</p>
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 text-lg">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-800 shadow-sm">
+<p class="text-gray-600 dark:text-gray-300 text-base font-medium leading-normal">Total Students</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">1,250</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-800 shadow-sm">
+<p class="text-gray-600 dark:text-gray-300 text-base font-medium leading-normal">Overall Attendance Rate</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">92.5%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-800 shadow-sm">
+<p class="text-gray-600 dark:text-gray-300 text-base font-medium leading-normal">Total Fees Collected</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">$1,250,000</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-gray-800 shadow-sm">
+<p class="text-gray-600 dark:text-gray-300 text-base font-medium leading-normal">New Enrollments (This Month)</p>
+<p class="text-[#0d141b] dark:text-white tracking-light text-3xl font-bold leading-tight">50</p>
+</div>
+</div>
+<!-- Charts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-[#0d141b] dark:text-white">Student Enrollment Trends</h3>
+<button class="text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<img alt="Line chart showing student enrollment trends" class="w-full h-64 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbl-WdhcR8Xuzz12DlbzdRVjJnHQyCCv6qmmQehhlYadW65cOXufCztzvIvW_dbo3owaWNWgRzR6Z6244JAOE0zLLxcE6MzQMV_XBGmEGWxvFGu3WhY-3rGMe9kPPNJEte8ctCtDe7mJqFh-RFQ6WF7HoQRruIwLvuMyA9kq3zmyWuOkbPcj7-JVbOCOVeRe_omVWus27iveitUHGcsx3jsb-EI9cR1ilDqfiqXnK1aAKHLWxG0ZTQScuvQhUmfflo37GakFKPOKMc"/>
+</div>
+<div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-[#0d141b] dark:text-white">Students by Program</h3>
+<button class="text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<img alt="Doughnut chart showing students by program" class="w-full h-64 object-contain rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQoageFqQGiPS1O1fEYQ4ctQrqtgzOd8bTzb4oljN8s5l7zFGrtM90NepKxRe55vNFJsA3K4wj58L4nmgyTZ2MSHvlBV6245dWFg5RZj0weswKatb-oAOHq_3WeV6gW0FE6cd8ILMXpemB6UxsecNkVprFWyiCU2VufR-oXxrShATkhQxMKUwfmH2_D7ocQfpOL_k3mozQZJ_cFG99cUIRVxnW5BylH-LVL7b0R0pf44nyTkj3VyMcHQKVo3s4KVIg-WgP-dvFMlli"/>
+</div>
+<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-[#0d141b] dark:text-white">Attendance by Grade</h3>
+<button class="text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<img alt="Bar chart showing attendance by grade" class="w-full h-64 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr99WX_tbkYdNmUipeb1LV5UXdfj1SPCq8NWZbTbvDWcWNu2mm-jDPIjSjb2Zbq65_JeKDN2nxlS7oemGcyUHPgbAxBJ91M4U1lPVpjkk8J0uniz1dBxEaAJb0U9D_z4I_z584-ZVv8fvtcaoEgdT_v7dVzwENjec5h4KfXRYi-c6CT3bEK-oNlrAHS0VCJrsGbZPxYQtZUK9CONxJyRPfWNMb0LnS1lRTJVvM8rsLdF-rJCrOJnh5DGqlQ69gUXWtsM9FlMZg8u2o"/>
+</div>
+<div class="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-[#0d141b] dark:text-white">Recent Late Fees</h3>
+<button class="text-gray-500 dark:text-gray-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+<tr>
+<th class="px-6 py-3" scope="col">Student Name</th>
+<th class="px-6 py-3" scope="col">Grade</th>
+<th class="px-6 py-3" scope="col">Amount</th>
+<th class="px-6 py-3" scope="col">Date Paid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" scope="row">Alice Johnson</th>
+<td class="px-6 py-4">10</td>
+<td class="px-6 py-4">$50.00</td>
+<td class="px-6 py-4">2023-10-25</td>
+</tr>
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" scope="row">Bob Williams</th>
+<td class="px-6 py-4">12</td>
+<td class="px-6 py-4">$25.00</td>
+<td class="px-6 py-4">2023-10-24</td>
+</tr>
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" scope="row">Charlie Brown</th>
+<td class="px-6 py-4">9</td>
+<td class="px-6 py-4">$75.00</td>
+<td class="px-6 py-4">2023-10-23</td>
+</tr>
+<tr class="bg-white dark:bg-gray-800">
+<th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" scope="row">Diana Miller</th>
+<td class="px-6 py-4">11</td>
+<td class="px-6 py-4">$50.00</td>
+<td class="px-6 py-4">2023-10-22</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

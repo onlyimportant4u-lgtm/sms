@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Management System - Reports &amp; Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- SideNavBar -->
+<div class="hidden lg:flex flex-col w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+<div class="flex items-center justify-center h-16 border-b border-gray-200 dark:border-gray-700">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">school</span>
+<h1 class="text-xl font-bold">Schoolytics</h1>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-4 gap-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQi_puH74BU7ZrVfd1SL5jj1334c-6PEiLr5qppeKoogU-7TXyKedbSwJn5kJ9om8l-yQ3NVa_IbrlTrVIh9848_YCTglxosJm51WTxql46qy_RZ-NY1NeXxDiLJ7nIx6GuqFRkSbEiskWbDlbecmzH15SCZMQO63E-yeWVtCJbaXyzu7wTmdHpQAzlQQVwKUTwLqAEGxtSixrZ_jKvhq7_VK4wqjIjGzN7S0iLwBOeyVm32CXAWG41a4Y6SWeRIpM-F8DVtO6onna");'></div>
+<div class="flex flex-col">
+<h2 class="text-gray-800 dark:text-white text-base font-medium">Admin</h2>
+<p class="text-gray-500 dark:text-gray-400 text-sm">admin@school.com</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-sm font-medium">Teachers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-primary bg-primary/20 dark:text-white dark:bg-primary rounded-lg" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="text-sm font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto flex flex-col gap-2">
+<button class="flex w-full items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span class="truncate">New Student</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-sm font-medium">Help</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 py-3 bg-white dark:bg-gray-800">
+<div class="flex items-center gap-8">
+<h2 class="text-gray-800 dark:text-white text-lg font-bold">Student Management</h2>
+</div>
+<div class="flex items-center gap-4">
+<label class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="form-input w-full min-w-0 resize-none overflow-hidden rounded-lg text-gray-800 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700 h-10 placeholder:text-gray-400 px-10 text-sm" placeholder="Search..."/>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDYVjOEnp2SASIzuIeucd3_7ZRvQIyEp7TnelXmPZiQDZPJlOiKrT5HsZfL6r87bsX5GYMNVvi8o_cMF296HSWi3OKk3TLQv_QzMBrTl34mC-HjHy1r_2JwHBrBEWwWAJKxj6vzgsVCkV6sarRLjbeqnFQn0oiXNOFr73-B1JSiSo_FhF3UJuc14k8uKZ_DMn1qWoldlVh_9WOXI_gyQ6664DDS_iwPE5e4yHd75JTKw9Fzd-6FgYCUwAp4HMop9bz6L307uw3H8Awt");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-6 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<!-- PageHeading -->
+<div class="mb-6">
+<h1 class="text-gray-900 dark:text-white text-3xl font-black tracking-tight">Academic Performance Reports &amp; Analytics</h1>
+</div>
+<!-- Filter Bar -->
+<div class="mb-6 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+<!-- Chips for filters -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="academic-session">Academic Session</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary" id="academic-session">
+<option>2023-2024</option>
+<option>2022-2023</option>
+<option>2021-2022</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="class">Class</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary" id="class">
+<option>All</option>
+<option>Class 10</option>
+<option>Class 9</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="subject">Subject</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary" id="subject">
+<option>All</option>
+<option>Mathematics</option>
+<option>Science</option>
+<option>English</option>
+</select>
+</div>
+<!-- CalendarPicker for Date Range -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300" for="date-range">Date Range</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400">calendar_today</span>
+</div>
+<input class="form-input pl-10 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-primary focus:border-primary" id="date-range" name="date-range" placeholder="Select date range"/>
+</div>
+</div>
+</div>
+<div class="mt-4 flex justify-end gap-3">
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-wide">
+<span class="material-symbols-outlined text-lg">search</span>
+<span>Generate Report</span>
+</button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white text-sm font-bold leading-normal tracking-wide">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Export</span>
+</button>
+</div>
+</div>
+<!-- Report Sections -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Overall Average Marks Card -->
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Overall Average Marks</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Across all selected students</p>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<p class="text-5xl font-bold text-primary">82.5%</p>
+<div class="flex items-center text-green-500">
+<span class="material-symbols-outlined">arrow_upward</span>
+<span class="text-sm font-medium">2.1% vs last period</span>
+</div>
+</div>
+</div>
+<!-- Grade Distribution Chart -->
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Grade Distribution</h3>
+<div class="mt-4 h-48">
+<div class="w-full h-full" data-alt="A bar chart showing grade distribution: Grade A - 30%, Grade B - 45%, Grade C - 15%, Grade D - 10%">
+<div class="h-full flex items-end gap-4">
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 30%">
+<div class="h-full w-full bg-primary rounded-t-md"></div>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400">A</p>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 45%">
+<div class="h-full w-full bg-primary rounded-t-md"></div>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400">B</p>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 15%">
+<div class="h-full w-full bg-primary rounded-t-md"></div>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400">C</p>
+</div>
+<div class="flex-1 flex flex-col items-center gap-1">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 10%">
+<div class="h-full w-full bg-primary rounded-t-md"></div>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400">D</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Performance Trends Graph -->
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm col-span-1 lg:col-span-2">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Performance Trends</h3>
+<div class="mt-4 h-72">
+<div class="w-full h-full" data-alt="A line graph showing performance trends over the last 4 quarters, with an upward trend.">
+<svg class="text-primary" height="100%" preserveaspectratio="none" viewbox="0 0 400 200" width="100%">
+<line class="text-gray-200 dark:text-gray-700" stroke="currentColor" stroke-width="1" x1="0" x2="400" y1="180" y2="180"></line>
+<polyline fill="none" points="50,150 150,100 250,120 350,60" stroke="currentColor" stroke-width="2"></polyline>
+<circle cx="50" cy="150" fill="currentColor" r="3"></circle>
+<circle cx="150" cy="100" fill="currentColor" r="3"></circle>
+<circle cx="250" cy="120" fill="currentColor" r="3"></circle>
+<circle cx="350" cy="60" fill="currentColor" r="3"></circle>
+<text class="fill-current text-gray-500 dark:text-gray-400" font-size="12" text-anchor="middle" x="50" y="195">Q1</text>
+<text class="fill-current text-gray-500 dark:text-gray-400" font-size="12" text-anchor="middle" x="150" y="195">Q2</text>
+<text class="fill-current text-gray-500 dark:text-gray-400" font-size="12" text-anchor="middle" x="250" y="195">Q3</text>
+<text class="fill-current text-gray-500 dark:text-gray-400" font-size="12" text-anchor="middle" x="350" y="195">Q4</text>
+</svg>
+</div>
+</div>
+</div>
+<!-- Subject-wise Performance Chart -->
+<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm col-span-1 lg:col-span-2">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Subject-wise Performance</h3>
+<div class="mt-4 h-64">
+<div class="w-full h-full" data-alt="A grouped bar chart comparing average marks in Math, Science, and English. Math is highest, followed by Science, and then English.">
+<div class="h-full flex items-end gap-8 justify-center">
+<div class="flex flex-col items-center gap-1">
+<div class="w-12 bg-primary rounded-t-lg" style="height: 85%;"></div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Math</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-12 bg-blue-400 dark:bg-blue-600 rounded-t-lg" style="height: 78%;"></div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Science</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-12 bg-sky-300 dark:bg-sky-500 rounded-t-lg" style="height: 72%;"></div>
+<p class="text-sm text-gray-500 dark:text-gray-400">English</p>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-12 bg-teal-300 dark:bg-teal-500 rounded-t-lg" style="height: 90%;"></div>
+<p class="text-sm text-gray-500 dark:text-gray-400">History</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

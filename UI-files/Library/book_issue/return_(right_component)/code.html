@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Library Transactions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-20 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-6xl flex-1">
+<div class="flex flex-wrap justify-between gap-4 p-4 items-center">
+<p class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Library Transactions</p>
+<div class="flex gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">View History</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">New Transaction</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
+<!-- Member Information Section -->
+<div class="flex flex-col gap-4">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Member Information</h2>
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 dark:text-slate-400 flex border-none bg-slate-200 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-slate-200 dark:bg-slate-800 h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search Member by ID or Name" value=""/>
+</div>
+</label>
+</div>
+<div class="p-4">
+<div class="flex items-stretch justify-between gap-4 rounded-lg bg-white dark:bg-slate-900 p-4 shadow-sm">
+<div class="flex flex-col gap-2 flex-[2_2_0px]">
+<p class="text-red-500 text-sm font-bold leading-normal">Fine Due: $5.00</p>
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">John Doe</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">ID: 12345</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Books Borrowed: 3/5</p>
+</div>
+<div class="w-24 h-24 bg-center bg-no-repeat bg-cover rounded-full flex-shrink-0" data-alt="John Doe's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJE6Z_f1jTYn-RTsAPWc7srV8HbeNB7Z9UX3NCrw4E63Ujd1D2PpCzNS-kcO8iSp3ryaU5or9TFERj2qnkC54WZZYhxlkZme9wu7qYH3KpaahfEiKD22rnP-PlY56lJmfNKUqldKh7Dom5AkVHn8ViVo8TqAT-eKqiaBW_LL2uw9i7ZVwRpybCxI9lM2f0mCrXIug5E1ucN_p_d-92c9ojO5Rju6PCGlJZMmW3Dv82Emn-D01Ju2akJL5p3bKc0SsWWmebojihzBc8");'></div>
+</div>
+</div>
+</div>
+<!-- Book Information Section -->
+<div class="flex flex-col gap-4">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white">Book Information</h2>
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 dark:text-slate-400 flex border-none bg-slate-200 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-slate-200 dark:bg-slate-800 h-full placeholder:text-slate-500 dark:placeholder:text-slate-400 px-4 pl-2 text-base font-normal leading-normal" placeholder="Search Book by ISBN or Title" value=""/>
+</div>
+</label>
+</div>
+<div class="p-4">
+<div class="flex items-stretch justify-between gap-4 rounded-lg bg-white dark:bg-slate-900 p-4 shadow-sm">
+<div class="flex flex-col gap-2 flex-[2_2_0px]">
+<p class="text-slate-900 dark:text-white text-lg font-bold leading-tight">The Hitchhiker's Guide to the Galaxy</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Douglas Adams</p>
+<p class="text-green-500 text-sm font-bold leading-normal">Available</p>
+</div>
+<div class="w-24 h-36 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" data-alt="Book cover of The Hitchhiker's Guide to the Galaxy" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA47c_AQyh7CAkejdOdxRZ182fFfoC76I96WKGKyU588bbwbiIEBIEsmf0oeTGY8kqOngDA6_Q9aQYZ7_nHZEvLi8ijw3o0WvDnTYsm7A0G2aYBgs_10lED__RcswGJMqHuxpcd0veozig6GpdHa1EcykdMpat9S4ubBdrHSyRUcQZD-MuOukkKSektmtjIcTvuKmh0oI090Xo4evr5XTgYzAF_U_VkUFQeE0bP8j1dZLCsiMKG6H111MYttvzpmC1JIT92nBUymlTB");'></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Transaction Details Section -->
+<div class="p-4">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Transaction Details</h2>
+<div class="flex gap-4 mb-4">
+<div class="flex items-center">
+<input checked="" class="form-radio text-primary focus:ring-primary" id="issue-toggle" name="transaction-type" type="radio"/>
+<label class="ml-2 text-slate-900 dark:text-white" for="issue-toggle">Issue</label>
+</div>
+<div class="flex items-center">
+<input class="form-radio text-primary focus:ring-primary" id="return-toggle" name="transaction-type" type="radio"/>
+<label class="ml-2 text-slate-900 dark:text-white" for="return-toggle">Return</label>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="issue-date">Issue Date</label>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" id="issue-date" name="issue-date" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="due-date">Due Date</label>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white" id="due-date" name="due-date" type="date"/>
+</div>
+</div>
+<div class="flex justify-end gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white text-sm font-bold leading-normal">Reset</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal">Issue Book</button>
+</div>
+</div>
+</div>
+<!-- Data Table Section -->
+<div class="p-4">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Current Borrowings</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="border-b border-slate-200 dark:border-slate-700">
+<tr>
+<th class="p-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Book Title</th>
+<th class="p-4 text-sm font-semibold text-slate-500 dark:text-slate-400">ISBN</th>
+<th class="p-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Issue Date</th>
+<th class="p-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Due Date</th>
+<th class="p-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Status</th>
+<th class="p-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Fine</th>
+<th class="p-4 text-sm font-semibold text-slate-500 dark:text-slate-400">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-slate-200 dark:border-slate-700">
+<td class="p-4 text-slate-900 dark:text-white">To Kill a Mockingbird</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">978-0061120084</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">2023-10-01</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">2023-10-15</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">Due Soon</span></td>
+<td class="p-4 text-slate-500 dark:text-slate-400">$0.00</td>
+<td class="p-4 flex gap-2">
+<button class="text-primary hover:underline">Return</button>
+<button class="text-primary hover:underline">Renew</button>
+</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-slate-700">
+<td class="p-4 text-slate-900 dark:text-white">1984</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">978-0451524935</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">2023-09-15</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">2023-09-29</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">Overdue</span></td>
+<td class="p-4 text-red-500">$2.50</td>
+<td class="p-4 flex gap-2">
+<button class="text-primary hover:underline">Return</button>
+<button class="text-primary hover:underline">Renew</button>
+</td>
+</tr>
+<tr>
+<td class="p-4 text-slate-900 dark:text-white">The Great Gatsby</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">978-0743273565</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">2023-10-10</td>
+<td class="p-4 text-slate-500 dark:text-slate-400">2023-10-24</td>
+<td class="p-4"><span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">On Time</span></td>
+<td class="p-4 text-slate-500 dark:text-slate-400">$0.00</td>
+<td class="p-4 flex gap-2">
+<button class="text-primary hover:underline">Return</button>
+<button class="text-primary hover:underline">Renew</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

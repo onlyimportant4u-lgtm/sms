@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Examination Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen">
+<!-- Side Navigation Bar -->
+<aside class="w-64 bg-slate-50 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="flex flex-col gap-4 p-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6psgE7c1wVF-9JhBntlWbpW79Bs-F9LPR1RU0j9t4LKKDfkD7yBIM4_7llcswq9-hd_XyrOUjlMdVxyeJB9ngwr-5VOqlu2WY9zBsKNpTAzIrZY5u0V0vYBqxHFIjrjAzV0orFnxcyG3dJG-yiibEBqf6KzktpC-IHsVuWnHYzu4oZcUry1PJ9XOWyUSpxFUTV5cu5ojQRc8IcKK8-twGZTGSvf77S2IDbMydVALEE8j82Yvd5pNbLa1HE8icyamkmu2x3I-2-Ohc");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-800 dark:text-slate-200 text-base font-medium leading-normal">Admin</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">admin@school.com</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">person_add</span>
+<p class="text-sm font-medium">Admissions</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">info</span>
+<p class="text-sm font-medium">Student Info</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<p class="text-sm font-medium">Examinations &amp; Results</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined">payments</span>
+<p class="text-sm font-medium">Finance</p>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-4">
+<button class="flex w-full items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-3 bg-white dark:bg-slate-900">
+<div class="flex items-center gap-4 text-slate-800 dark:text-slate-200">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 7l10 5 10-5-10-5zm0 11.5L4 9l8 4 8-4-8 4.5zM4 12l8 4 8-4v4l-8 4-8-4v-4z"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold">Examination Analytics</h2>
+</div>
+<div class="flex flex-1 justify-end gap-4 items-center">
+<label class="relative min-w-40 max-w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400">search</span>
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 h-10 pl-10 placeholder:text-slate-500 dark:placeholder:text-slate-400 text-sm focus:ring-primary focus:border-primary" placeholder="Search" value=""/>
+</label>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAXsGm2v5xvSf2m-RxSgmy0asulmQKT88uuDBPWaX8-wui-fF_2MjSKNtcmgpgXFEvKIeOK5F7V6zq5_nLBBOU8CcfA8NBMwt5L1lVTEr5tSUzf5d0LKbiEWqQCJi2ODciBm3QhZZHmOsICY3ZZ9afprpvOvvQYrvkU1PwtD7tz9D8MvO0jSg37MHQaQf8_dbyqIU8VAquc6zUewBb4bbjBPySHHAXGO7lTCGvlRb0P4X1zfs-DbWSjpgDBrJ0kMfJvk19wwFXidyKV");'></div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-6 lg:p-8 space-y-6">
+<!-- Filters Bar -->
+<div class="flex flex-wrap gap-3 items-center">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Academic Session: 2023-2024</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Examination: Mid-Term</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Class: Grade 10</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-medium">Subject: All</p>
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">expand_more</span>
+</button>
+<div class="flex-grow"></div>
+<button class="flex h-9 items-center justify-center gap-x-2 rounded-lg bg-primary text-white px-4">
+<span class="material-symbols-outlined text-base">print</span>
+<p class="text-sm font-medium">Print/Export</p>
+</button>
+</div>
+<!-- KPIs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium">Average Class Score</p>
+<p class="text-slate-900 dark:text-slate-100 text-3xl font-bold">85.2</p>
+<p class="text-green-600 text-sm font-medium flex items-center gap-1"><span class="material-symbols-outlined text-base">arrow_upward</span>+2.5%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium">Pass Percentage</p>
+<p class="text-slate-900 dark:text-slate-100 text-3xl font-bold">92%</p>
+<p class="text-red-600 text-sm font-medium flex items-center gap-1"><span class="material-symbols-outlined text-base">arrow_downward</span>-1.0%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium">Top Scorer</p>
+<p class="text-slate-900 dark:text-slate-100 text-3xl font-bold truncate">Ravi Sharma</p>
+<p class="text-slate-500 dark:text-slate-500 text-sm font-medium">98.5%</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-slate-600 dark:text-slate-400 text-base font-medium">Students Appeared</p>
+<p class="text-slate-900 dark:text-slate-100 text-3xl font-bold">150</p>
+<p class="text-slate-500 dark:text-slate-500 text-sm font-medium">out of 152</p>
+</div>
+</div>
+<!-- Charts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-800 dark:text-slate-200 text-lg font-semibold">Class Grade Distribution</h3>
+<div class="h-80">
+<div class="grid h-full grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3">
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 70%;"><div class="h-full w-full bg-primary rounded-t-md" style="height: 85%;"></div></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-bold">A</p>
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 90%;"><div class="h-full w-full bg-primary rounded-t-md" style="height: 95%;"></div></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-bold">B</p>
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 60%;"><div class="h-full w-full bg-primary rounded-t-md" style="height: 70%;"></div></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-bold">C</p>
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 40%;"><div class="h-full w-full bg-primary rounded-t-md" style="height: 30%;"></div></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-bold">D</p>
+<div class="w-full bg-primary/20 dark:bg-primary/30 rounded-t-md" style="height: 20%;"><div class="h-full w-full bg-primary rounded-t-md" style="height: 10%;"></div></div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-bold">F</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-800 dark:text-slate-200 text-lg font-semibold">Subject Performance</h3>
+<div class="h-80 flex items-center justify-center">
+<img class="max-w-full h-auto" data-alt="Radar chart showing subject performance. Math: 85, Science: 78, English: 92, History: 68, Art: 75, Music: 88." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBHnx9A0vWeeGxhgyi4GW2kJKiu80Ft14ch_JL1EeOmr955biZ4f9Cq9sQlYy8IUrIVgQW66FswGWRJUzmp3g0_jHIShoQwVzeZcMiuWfyTcrni1tTq5yQq2_9ZcXiOi9dvqOQYTETLf7gBcZLVwvfJhr0Lv10EGBIkQOwohmakpcA4cacGi1kZ-k4_uTxP3qbQkiHIgXK3JeaK9jcY54J5oZCVAddKdAt2E7mC-lAZe7RvDt4rVP7m_Kd0BZGHCxnsB2VxASrYYHl"/>
+</div>
+</div>
+</div>
+<!-- Student Rank List -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-800 dark:text-slate-200 text-lg font-semibold">Student Rank List</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
+<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
+<tr>
+<th class="px-6 py-3" scope="col">Rank</th>
+<th class="px-6 py-3" scope="col">Student Name</th>
+<th class="px-6 py-3" scope="col">Student ID</th>
+<th class="px-6 py-3" scope="col">Total Score</th>
+<th class="px-6 py-3" scope="col">Percentage</th>
+<th class="px-6 py-3" scope="col">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">1</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Ravi Sharma</td>
+<td class="px-6 py-4">S001</td>
+<td class="px-6 py-4">492.5</td>
+<td class="px-6 py-4">98.5%</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 dark:bg-green-900 dark:text-green-300 rounded-full">Pass</span></td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">2</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Priya Patel</td>
+<td class="px-6 py-4">S012</td>
+<td class="px-6 py-4">485.0</td>
+<td class="px-6 py-4">97.0%</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 dark:bg-green-900 dark:text-green-300 rounded-full">Pass</span></td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">3</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Amit Singh</td>
+<td class="px-6 py-4">S005</td>
+<td class="px-6 py-4">482.5</td>
+<td class="px-6 py-4">96.5%</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 dark:bg-green-900 dark:text-green-300 rounded-full">Pass</span></td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 border-b dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">...</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">...</td>
+<td class="px-6 py-4">...</td>
+<td class="px-6 py-4">...</td>
+<td class="px-6 py-4">...</td>
+<td class="px-6 py-4">...</td>
+</tr>
+<tr class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/50">
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">148</td>
+<td class="px-6 py-4 font-medium text-slate-900 dark:text-white">Karan Verma</td>
+<td class="px-6 py-4">S123</td>
+<td class="px-6 py-4">195.0</td>
+<td class="px-6 py-4">39.0%</td>
+<td class="px-6 py-4"><span class="px-2 py-1 text-xs font-medium text-red-800 bg-red-100 dark:bg-red-900 dark:text-red-300 rounded-full">Fail</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Performance Trend -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-800 dark:text-slate-200 text-lg font-semibold">Performance Trend (Average Score)</h3>
+<div class="h-80">
+<svg fill="none" height="100%" preserveaspectratio="none" viewbox="-3 0 478 150" width="100%" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z" fill="url(#paint0_linear_1131_5935_2)"></path>
+<path class="text-primary" d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear_1131_5935_2" x1="236" x2="236" y1="1" y2="149">
+<stop class="text-primary/30" stop-color="currentColor"></stop>
+<stop class="text-primary/0" offset="1" stop-color="currentColor"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<div class="flex justify-around text-slate-500 dark:text-slate-400 text-sm font-medium">
+<p>2021-2022</p>
+<p>2022-2023</p>
+<p>2023-2024</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

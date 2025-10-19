@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Staff Attendance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3498db",
+                        "background-light": "#ecf0f1",
+                        "background-dark": "#101922",
+                        "success": "#2ecc71",
+                        "danger": "#e74c3c",
+                        "warning": "#f39c12",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-slate-50">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-20 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="flex flex-wrap justify-between items-center gap-4 p-4">
+<p class="text-4xl font-black tracking-[-0.033em]">Staff Attendance</p>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-medium hover:bg-primary/90">
+<span class="material-symbols-outlined">add</span>
+                                Mark Attendance
+                            </button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 text-[#0d141b] dark:text-slate-50 font-medium hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">download</span>
+                                Export Report
+                            </button>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+<p class="text-base font-medium">Total Staff</p>
+<p class="tracking-light text-2xl font-bold">50</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+<p class="text-base font-medium">Present Today</p>
+<p class="tracking-light text-2xl font-bold text-success">45</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+<p class="text-base font-medium">Absent Today</p>
+<p class="tracking-light text-2xl font-bold text-danger">3</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-lg p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark">
+<p class="text-base font-medium">On Leave Today</p>
+<p class="tracking-light text-2xl font-bold text-warning">2</p>
+</div>
+</div>
+<div class="flex flex-wrap justify-between items-center gap-4 p-4">
+<div class="flex gap-2">
+<div class="relative">
+<select class="appearance-none w-full md:w-48 pl-4 pr-10 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-background-dark focus:outline-none focus:ring-2 focus:ring-primary">
+<option>All Departments</option>
+<option>Engineering</option>
+<option>Human Resources</option>
+<option>Marketing</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative">
+<select class="appearance-none w-full md:w-48 pl-4 pr-10 py-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-background-dark focus:outline-none focus:ring-2 focus:ring-primary">
+<option>All Staff</option>
+<option>John Doe</option>
+<option>Jane Smith</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+<div class="flex h-10 items-center justify-center rounded-lg bg-slate-200 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:dark:bg-slate-700 has-[:checked]:shadow-[0_0_4px_rgba(0,0,0,0.1)] text-slate-500 dark:text-slate-400 has-[:checked]:text-black dark:has-[:checked]:text-white text-sm font-medium">
+<span class="truncate">Calendar View</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="Calendar View"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white has-[:checked]:dark:bg-slate-700 has-[:checked]:shadow-[0_0_4px_rgba(0,0,0,0.1)] text-slate-500 dark:text-slate-400 has-[:checked]:text-black dark:has-[:checked]:text-white text-sm font-medium">
+<span class="truncate">Table View</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="Table View"/>
+</label>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-6 p-4">
+<div class="flex-1 bg-white dark:bg-background-dark p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex min-w-72 flex-1 flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-50">chevron_left</span>
+</button>
+<p class="text-base font-bold text-center">October 2024</p>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-[#0d141b] dark:text-slate-50">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7">
+<p class="text-[13px] font-bold tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">S</p>
+<p class="text-[13px] font-bold tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">M</p>
+<p class="text-[13px] font-bold tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">T</p>
+<p class="text-[13px] font-bold tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">W</p>
+<p class="text-[13px] font-bold tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">T</p>
+<p class="text-[13px] font-bold tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">F</p>
+<p class="text-[13px] font-bold tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5 text-slate-500 dark:text-slate-400">S</p>
+<div class="h-12 w-full text-sm font-medium col-start-3 p-1">
+<div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<span>1</span>
+<div class="flex gap-1 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-success"></div>
+</div>
+</div>
+</div>
+<div class="h-12 w-full text-sm font-medium p-1">
+<div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<span>2</span>
+<div class="flex gap-1 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-success"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-danger"></div>
+</div>
+</div>
+</div>
+<div class="h-12 w-full text-sm font-medium p-1">
+<div class="flex flex-col size-full items-center justify-center rounded-lg bg-primary/20 dark:bg-primary/30 cursor-pointer">
+<span>3</span>
+<div class="flex gap-1 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-success"></div>
+</div>
+</div>
+</div>
+<div class="h-12 w-full text-sm font-medium p-1">
+<div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer">
+<span>4</span>
+<div class="flex gap-1 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-success"></div>
+</div>
+</div>
+</div>
+<div class="h-12 w-full text-sm font-medium p-1">
+<div class="flex flex-col size-full items-center justify-center rounded-lg bg-primary text-white cursor-pointer">
+<span>5</span>
+<div class="flex gap-1 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+</div>
+</div>
+</div>
+<!-- Rest of the calendar days with similar structure -->
+<div class="h-12 w-full text-sm font-medium col-start-1 p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>6</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>7</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>8</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>9</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>10</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>11</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>12</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>13</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>14</span><div class="flex gap-1 mt-1"><div class="w-1.5 h-1.5 rounded-full bg-warning"></div></div></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>15</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>16</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>17</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>18</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>19</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>20</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>21</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>22</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>23</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>24</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>25</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>26</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>27</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>28</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>29</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>30</span></div></div>
+<div class="h-12 w-full text-sm font-medium p-1"><div class="flex flex-col size-full items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"><span>31</span></div></div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-96 bg-white dark:bg-background-dark p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col gap-4">
+<h3 class="text-lg font-bold">Pending Leave Requests</h3>
+<div class="flex flex-col gap-4">
+<div class="p-4 rounded-lg border border-slate-200 dark:border-slate-700">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-semibold">Alice Johnson</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Sick Leave</p>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">Oct 14, 2024</p>
+</div>
+<p class="text-sm mt-2">Reason: Flu symptoms.</p>
+<div class="flex gap-2 mt-4">
+<button class="flex-1 px-3 py-1.5 text-sm font-medium rounded-md bg-success text-white hover:bg-success/90">Approve</button>
+<button class="flex-1 px-3 py-1.5 text-sm font-medium rounded-md bg-danger text-white hover:bg-danger/90">Decline</button>
+</div>
+</div>
+<div class="p-4 rounded-lg border border-slate-200 dark:border-slate-700">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-semibold">Bob Williams</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Vacation</p>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">Oct 20-24, 2024</p>
+</div>
+<p class="text-sm mt-2">Reason: Family trip.</p>
+<div class="flex gap-2 mt-4">
+<button class="flex-1 px-3 py-1.5 text-sm font-medium rounded-md bg-success text-white hover:bg-success/90">Approve</button>
+<button class="flex-1 px-3 py-1.5 text-sm font-medium rounded-md bg-danger text-white hover:bg-danger/90">Decline</button>
+</div>
+</div>
+<div class="text-center py-8 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-4xl">inbox</span>
+<p>No more pending requests</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
