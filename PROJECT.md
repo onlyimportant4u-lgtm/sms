@@ -1,8 +1,8 @@
 ### High-level overview
-- **Monorepo layout**: One workspace with a TypeScript Node.js backend (`backend/`) and a React + Vite frontend (`frontend/`). Shared top-level `node_modules/` and `package.json` exist, but each app also has its own.
+- **Monorepo layout**: One workspace with a TypeScript Node.js backend (`backend/`) and a React + Vite client (`client/`). Shared top-level `node_modules/` and `package.json` exist, but each app also has its own.
 - **Primary stacks**:
   - Backend: Express (TypeScript), layered by `models` → `controllers` → `routes`, with DB config in `src/config`.
-  - Frontend: React + Vite + TypeScript, modularized by feature folders under `src/features`, plus a shared UI kit and core services.
+  - client: React + Vite + TypeScript, modularized by feature folders under `src/features`, plus a shared UI kit and core services.
 
 ### Root
 - `package.json`, `package-lock.json`, `node_modules/`: top-level Node workspace context (may be used for tooling).
@@ -26,7 +26,7 @@
 
 Flow: Request → `routes` → `controllers` → `models` → DB. `db.ts` wires the database connection before routes run.
 
-### Frontend (`frontend/`)
+### client (`client/`)
 - Tooling/config: `package.json`, `vite.config.ts`, `tsconfig*.json`, `eslint.config.js`, `tailwind.config.ts`, `postcss.config.js`, `components.json` (UI generator config), `bun.lockb` (if Bun is used).
 - Public and entry:
   - `index.html`: Vite entry HTML.
@@ -65,16 +65,16 @@ Flow: Request → `routes` → `controllers` → `models` → DB. `db.ts` wires 
   - `src/pages/Index.tsx`, `src/pages/NotFound.tsx`: top-level pages for home/404.
 
 ### How pieces interact
-- Frontend pages in `src/features/*/*.tsx` call their `service.ts` functions → these use `core/services/http.ts` and `api.ts` to hit backend endpoints.
+- client pages in `src/features/*/*.tsx` call their `service.ts` functions → these use `core/services/http.ts` and `api.ts` to hit backend endpoints.
 - Backend `routes/*Routes.ts` expose REST endpoints → `controllers/*Controller.ts` implement logic → `models/*` read/write the database (configured via `config/db.ts`).
 - Auth/session and theme are supplied via `AuthContext` and `ThemeContext` wrapped near `App.tsx`.
 - UI components in `src/components/ui` and `src/core/ui` provide consistent UX across features.
 
 ### Typical development commands (context)
 - In `backend/`: `npm run dev` or `npm start` depending on `package.json` to run the server (often with ts-node/nodemon).
-- In `frontend/`: `npm run dev` to start the Vite dev server; routes are defined in `src/app/routes.tsx`.
+- In `client/`: `npm run dev` to start the Vite dev server; routes are defined in `src/app/routes.tsx`.
 
-If you want, we can also map backend endpoints to frontend `service.ts` calls or add a quick runbook for both apps.
+If you want, we can also map backend endpoints to client `service.ts` calls or add a quick runbook for both apps.
 
 
 

@@ -145,7 +145,7 @@ npm run dev
 
 ---
 
-## Connecting Frontend to Backend
+## Connecting client to Backend
 
 - Use `http://localhost:5000` for MongoDB backend API.
 - Use `http://localhost:8080` for Postgres backend API.
@@ -172,7 +172,7 @@ npm run dev
     package.json
     tsconfig.json
     .env
-  /frontend
+  /client
     /public
       index.html
     /src
@@ -214,26 +214,26 @@ npm run dev
 
 ## Student & Staff Modules Workflow
 
-### Frontend (frontend)
+### client (client)
 1. **User interacts** with forms and lists in `/students` or `/staff` modules (e.g., add, edit, view, promote students; add, edit, view, payroll, attendance for staff).
 2. **API calls** are made via `service.ts` in each module using Axios to backend endpoints (`/api/students`, `/api/staff`).
 3. **UI updates** automatically based on API responses (e.g., student list refreshes after adding a student).
 
 ### Backend (Express + MongoDB)
-1. **Routes** (`studentRoutes.ts`, `staffRoutes.ts`) receive requests from frontend.
+1. **Routes** (`studentRoutes.ts`, `staffRoutes.ts`) receive requests from client.
 2. **Controllers** (`studentController.ts`, `staffController.ts`) process requests, interact with MongoDB models (`Student.ts`, `Staff.ts`), and return results.
 3. **Database** stores and retrieves student/staff data, handles updates (e.g., promotion, attendance, payroll).
 
 ### Example Flow (Add Student)
-- User fills form in `StudentForm.tsx` → `service.ts` sends POST to `/api/students` → backend controller creates student in MongoDB → response sent to frontend → UI updates.
+- User fills form in `StudentForm.tsx` → `service.ts` sends POST to `/api/students` → backend controller creates student in MongoDB → response sent to client → UI updates.
 
 ### Example Flow (Record Staff Attendance)
-- User enters attendance in `Attendance.tsx` → `service.ts` sends POST to `/api/staff/:id/attendance` → backend controller updates staff attendance in MongoDB → response sent to frontend → UI updates.
+- User enters attendance in `Attendance.tsx` → `service.ts` sends POST to `/api/staff/:id/attendance` → backend controller updates staff attendance in MongoDB → response sent to client → UI updates.
 
 ---
 
 **Summary:**  
-- Frontend modules handle UI and API calls.
+- client modules handle UI and API calls.
 - Backend routes/controllers handle business logic and database operations.
 - All data flows between React components and Express API, with MongoDB as the data store.
 
