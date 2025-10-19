@@ -5,14 +5,10 @@ import { DataTable } from '@/core/ui/Table';
 import { Modal } from '@/core/ui/Modal';
 import { useModal } from '@/core/hooks/useModal';
 import { TableColumn } from '@/types/common';
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom';
-=======
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
->>>>>>> 327b6d73b5199cfd9f510f9db10da7adc7caa2e0
 
 const columns: TableColumn[] = [
   { key: 'bookId', label: 'Book ID', sortable: true },
@@ -63,11 +59,6 @@ const mockBooks = [
 ];
 
 export default function BookList() {
-<<<<<<< HEAD
-  const [books] = useState(mockBooks);
-  const navigate = useNavigate();
-  
-=======
   const [books, setBooks] = useState(mockBooks);
   const modal = useModal();
 
@@ -76,7 +67,6 @@ export default function BookList() {
     modal.close();
   };
 
->>>>>>> 327b6d73b5199cfd9f510f9db10da7adc7caa2e0
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -84,11 +74,7 @@ export default function BookList() {
           <h1 className="text-3xl font-bold text-foreground">Library Books</h1>
           <p className="text-muted-foreground mt-1">Manage library book catalog and inventory</p>
         </div>
-<<<<<<< HEAD
-        <Button className="gap-2" onClick={() => navigate('/library/add-book')}>
-=======
         <Button onClick={() => modal.open()} className="gap-2">
->>>>>>> 327b6d73b5199cfd9f510f9db10da7adc7caa2e0
           <Plus className="h-4 w-4" />
           Add Book
         </Button>

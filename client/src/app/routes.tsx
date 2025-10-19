@@ -20,7 +20,7 @@ import { ClassList, SectionManagement, SubjectManagement } from '@/features/acad
 import { BookList, IssueReturn, MemberList, AddBook, NewAcquisition, FineManagement } from '@/features/library';
 
 // Exams
-import { ExamSchedule, ExamType, MarkEntry, ReportCard } from '@/features/exams';
+import { ExamTimetable, ExamType, MarksEntry, ReportCard } from '@/features/exams';
 
 // Attendance
 import { StudentAttendance, StaffAttendance } from '@/features/attendance';
@@ -101,9 +101,9 @@ export const routes = [
       { path: 'library/fine-management', element: <FineManagement /> },
       { path: 'library/acquisition', element: <NewAcquisition />, },
 
-      { path: 'exams/schedule', element: <ExamSchedule /> },
+      { path: 'exams/schedule', element: <ExamTimetable /> },
       { path: 'exams/type', element: <ExamType /> },
-      { path: 'exams/marks', element: <MarkEntry /> },
+      { path: 'exams/marks', element: <MarksEntry /> },
       { path: 'exams/reports', element: <ReportCard /> },
       
       { path: 'attendance/student', element: <StudentAttendance /> },
