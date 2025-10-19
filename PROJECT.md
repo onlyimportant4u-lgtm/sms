@@ -1,5 +1,5 @@
 ### High-level overview
-- **Monorepo layout**: One workspace with a TypeScript Node.js backend (`backend/`) and a React + Vite frontend (`client/`). Shared top-level `node_modules/` and `package.json` exist, but each app also has its own.
+- **Monorepo layout**: One workspace with a TypeScript Node.js backend (`backend/`) and a React + Vite frontend (`frontend/`). Shared top-level `node_modules/` and `package.json` exist, but each app also has its own.
 - **Primary stacks**:
   - Backend: Express (TypeScript), layered by `models` → `controllers` → `routes`, with DB config in `src/config`.
   - Frontend: React + Vite + TypeScript, modularized by feature folders under `src/features`, plus a shared UI kit and core services.
@@ -26,7 +26,7 @@
 
 Flow: Request → `routes` → `controllers` → `models` → DB. `db.ts` wires the database connection before routes run.
 
-### Frontend (`client/`)
+### Frontend (`frontend/`)
 - Tooling/config: `package.json`, `vite.config.ts`, `tsconfig*.json`, `eslint.config.js`, `tailwind.config.ts`, `postcss.config.js`, `components.json` (UI generator config), `bun.lockb` (if Bun is used).
 - Public and entry:
   - `index.html`: Vite entry HTML.
@@ -72,7 +72,7 @@ Flow: Request → `routes` → `controllers` → `models` → DB. `db.ts` wires 
 
 ### Typical development commands (context)
 - In `backend/`: `npm run dev` or `npm start` depending on `package.json` to run the server (often with ts-node/nodemon).
-- In `client/`: `npm run dev` to start the Vite dev server; routes are defined in `src/app/routes.tsx`.
+- In `frontend/`: `npm run dev` to start the Vite dev server; routes are defined in `src/app/routes.tsx`.
 
 If you want, we can also map backend endpoints to frontend `service.ts` calls or add a quick runbook for both apps.
 
