@@ -78,8 +78,6 @@ If you want, we can also map backend endpoints to frontend `service.ts` calls or
 
 
 
-
-
 npm run seed
 npm run dev
 
